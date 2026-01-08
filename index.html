@@ -1,0 +1,2068 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>爱自己程度测试 | 心理学测评</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC', 'Microsoft YaHei', sans-serif;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        :root {
+            --primary-color: #9d7bff;
+            --secondary-color: #7c5cf2;
+            --accent-color: #ff7eb3;
+            --accent-color2: #7bdff2;
+            --accent-color3: #b8f2e6;
+            --accent-color4: #ffb366;
+            --accent-color5: #6bcf7f;
+            --light-color: #f8f7ff;
+            --dark-color: #2a2640;
+            --glass-bg: rgba(255, 255, 255, 0.15);
+            --glass-border: rgba(255, 255, 255, 0.2);
+            --shadow: 0 8px 32px rgba(31, 38, 135, 0.15);
+
+            /* 移动端字体大小 */
+            --font-size-xs: 12px;
+            --font-size-sm: 14px;
+            --font-size-md: 16px;
+            --font-size-lg: 18px;
+            --font-size-xl: 20px;
+            --font-size-2xl: 24px;
+            --font-size-3xl: 28px;
+            --font-size-4xl: 32px;
+            --font-size-5xl: 48px;
+
+            /* 移动端间距 */
+            --spacing-xs: 4px;
+            --spacing-sm: 8px;
+            --spacing-md: 12px;
+            --spacing-lg: 16px;
+            --spacing-xl: 20px;
+            --spacing-2xl: 24px;
+            --spacing-3xl: 28px;
+            --spacing-4xl: 32px;
+        }
+
+        body {
+            background: linear-gradient(135deg, #e0c3fc 0%, #8ec5fc 100%);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            padding: 16px;
+            color: var(--dark-color);
+            line-height: 1.5;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 100%;
+            margin: 0 auto;
+        }
+
+        /* 毛玻璃效果卡片 */
+        .glass-card {
+            background: var(--glass-bg);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border-radius: 20px;
+            border: 1px solid var(--glass-border);
+            box-shadow: var(--shadow);
+            overflow: hidden;
+            padding: 24px;
+            transition: all 0.4s ease;
+            width: 100%;
+        }
+
+        /* 首页样式 */
+        #home-page {
+            text-align: center;
+        }
+
+        .logo {
+            font-size: var(--font-size-4xl);
+            color: var(--primary-color);
+            margin-bottom: var(--spacing-xl);
+            display: inline-block;
+        }
+
+        h1 {
+            font-size: var(--font-size-3xl);
+            color: var(--dark-color);
+            margin-bottom: var(--spacing-lg);
+            line-height: 1.3;
+            font-weight: 700;
+            letter-spacing: -0.2px;
+        }
+
+        .subtitle {
+            font-size: var(--font-size-lg);
+            color: #5a5678;
+            margin-bottom: var(--spacing-3xl);
+            line-height: 1.6;
+            font-weight: 400;
+        }
+
+        .features {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: var(--spacing-xl);
+            margin-bottom: var(--spacing-3xl);
+        }
+
+        .feature {
+            background: rgba(255, 255, 255, 0.25);
+            border-radius: 16px;
+            padding: var(--spacing-xl);
+            width: 100%;
+            max-width: 280px;
+            transition: transform 0.3s ease;
+        }
+
+        .feature:hover {
+            transform: translateY(-8px);
+        }
+
+        .feature-icon {
+            font-size: var(--font-size-3xl);
+            color: var(--primary-color);
+            margin-bottom: var(--spacing-lg);
+        }
+
+        .feature h3 {
+            font-size: var(--font-size-lg);
+            margin-bottom: var(--spacing-sm);
+            font-weight: 600;
+        }
+
+        .feature p {
+            font-size: var(--font-size-md);
+            color: #5a5678;
+            line-height: 1.5;
+        }
+
+        .btn {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: white;
+            border: none;
+            padding: var(--spacing-xl) var(--spacing-3xl);
+            font-size: var(--font-size-lg);
+            border-radius: 16px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 6px 20px rgba(157, 123, 255, 0.3);
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: var(--spacing-sm);
+            font-weight: 600;
+            width: 100%;
+            max-width: 320px;
+            height: 56px;
+        }
+
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(157, 123, 255, 0.4);
+        }
+
+        .btn:active {
+            transform: translateY(0);
+        }
+
+        /* 测试页面样式 */
+        .page {
+            display: none;
+        }
+
+        .page.active {
+            display: block;
+            animation: fadeIn 0.5s ease;
+        }
+
+        .progress-container {
+            margin-bottom: var(--spacing-lg);
+        }
+
+        .progress-bar {
+            height: 6px;
+            background: rgba(255, 255, 255, 0.3);
+            border-radius: 10px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(90deg, var(--accent-color), var(--primary-color));
+            width: 0%;
+            transition: width 0.5s ease;
+            border-radius: 10px;
+        }
+
+        /* 进度指示器 - 修改为无描边，水平居中 */
+        .progress-marker {
+            position: absolute;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            width: 24px;
+            height: 24px;
+            background: white;
+            border-radius: 50%;
+            box-shadow: 0 4px 12px rgba(157, 123, 255, 0.4);
+            z-index: 10;
+            border: none;
+        }
+
+        .question-container {
+            margin: var(--spacing-xl) 0;
+            min-height: 200px;
+        }
+
+        .question-text {
+            font-size: var(--font-size-2xl);
+            line-height: 1.4;
+            margin-bottom: var(--spacing-xl);
+            font-weight: 600;
+            letter-spacing: -0.1px;
+        }
+
+        .options-container {
+            display: grid;
+            gap: var(--spacing-md);
+        }
+
+        .option {
+            background: rgba(255, 255, 255, 0.3);
+            border: 2px solid transparent;
+            border-radius: 16px;
+            padding: var(--spacing-lg);
+            cursor: pointer;
+            transition: all 0.2s ease;
+            display: flex;
+            align-items: center;
+            gap: var(--spacing-lg);
+            min-height: 72px;
+        }
+
+        .option:hover {
+            background: rgba(255, 255, 255, 0.5);
+        }
+
+        .option.selected {
+            background: rgba(157, 123, 255, 0.15);
+            border-color: var(--primary-color);
+        }
+
+        .option-circle {
+            width: 24px;
+            height: 24px;
+            min-width: 24px;
+            border-radius: 50%;
+            border: 2px solid var(--primary-color);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+
+        .option.selected .option-circle {
+            background: var(--primary-color);
+        }
+
+        .option.selected .option-circle:after {
+            content: "✓";
+            color: white;
+            font-size: 14px;
+        }
+
+        .option-text {
+            font-size: var(--font-size-lg);
+            flex-grow: 1;
+            line-height: 1.4;
+        }
+
+        .nav-buttons {
+            display: flex;
+            justify-content: space-between;
+            margin-top: var(--spacing-xl);
+            gap: var(--spacing-lg);
+        }
+
+        .nav-btn {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: white;
+            border: none;
+            padding: var(--spacing-lg) var(--spacing-xl);
+            font-size: var(--font-size-md);
+            border-radius: 12px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 12px rgba(157, 123, 255, 0.3);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: var(--spacing-sm);
+            font-weight: 600;
+            flex: 1;
+            height: 52px;
+        }
+
+        .nav-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 16px rgba(157, 123, 255, 0.4);
+        }
+
+        .nav-btn:active {
+            transform: translateY(0);
+        }
+
+        /* 结果页面样式 */
+        .result-header {
+            text-align: center;
+            margin-bottom: var(--spacing-2xl);
+            position: relative;
+        }
+
+        /* 结果页logo隐藏 */
+        #result-page .logo {
+            display: none;
+        }
+
+        .encouragement-text {
+            font-size: var(--font-size-xl);
+            color: var(--primary-color);
+            margin: var(--spacing-xl) 0;
+            line-height: 1.5;
+            font-weight: 600;
+            text-align: center;
+            padding: var(--spacing-lg);
+            background: rgba(255, 255, 255, 0.15);
+            border-radius: 16px;
+            border-left: 4px solid var(--accent-color);
+            animation: fadeIn 1s ease;
+        }
+
+        /* 圆环得分显示样式 */
+        .score-ring-container {
+            position: relative;
+            width: 200px;
+            height: 200px;
+            margin: var(--spacing-2xl) auto;
+        }
+
+        .score-ring {
+            width: 100%;
+            height: 100%;
+        }
+
+        .score-ring-circle {
+            fill: none;
+            stroke-width: 12;
+            stroke-linecap: round;
+            transform: rotate(-90deg);
+            transform-origin: 50% 50%;
+        }
+
+        .score-ring-bg {
+            stroke: rgba(255, 255, 255, 0.2);
+        }
+
+        .score-ring-fill {
+            stroke: url(#ring-gradient);
+            stroke-dasharray: 565;
+            stroke-dashoffset: 565;
+            transition: stroke-dashoffset 2s ease;
+        }
+
+        .score-ring-center {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            text-align: center;
+        }
+
+        .score-ring-number {
+            font-size: var(--font-size-5xl);
+            font-weight: 900;
+            background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            line-height: 1;
+        }
+
+        .score-ring-label {
+            font-size: var(--font-size-md);
+            color: #5a5678;
+            font-weight: 600;
+            margin-top: var(--spacing-xs);
+        }
+
+        .result-title {
+            font-size: var(--font-size-2xl);
+            margin-bottom: var(--spacing-lg);
+            font-weight: 700;
+        }
+
+        /* 得分指示条样式 */
+        .score-indicator-container {
+            width: 100%;
+            margin: 0 auto var(--spacing-3xl);
+        }
+
+        .score-indicator {
+            width: 100%;
+            margin-bottom: var(--spacing-lg);
+        }
+
+        .indicator-bar {
+            height: 20px;
+            background: linear-gradient(90deg, #ff6b6b, #ffb366, #ffd93d, #6bcf7f, #4d96ff);
+            border-radius: 12px;
+            position: relative;
+            margin-bottom: var(--spacing-lg);
+            overflow: hidden;
+        }
+
+        /* 修改指示器标记为无描边，水平居中 */
+        .indicator-marker {
+            position: absolute;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            width: 24px;
+            height: 24px;
+            background: white;
+            border-radius: 50%;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+            z-index: 10;
+            border: none;
+        }
+
+        .indicator-labels {
+            display: flex;
+            justify-content: space-between;
+            margin-top: var(--spacing-md);
+            font-size: var(--font-size-xs);
+            color: #5a5678;
+            line-height: 1.3;
+        }
+
+        .indicator-label {
+            text-align: center;
+            width: 20%;
+            font-weight: 600;
+        }
+
+        .indicator-analysis {
+            text-align: center;
+            margin-top: var(--spacing-xl);
+            padding: var(--spacing-lg);
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 16px;
+            border-left: 4px solid var(--primary-color);
+        }
+
+        .indicator-analysis h4 {
+            color: var(--primary-color);
+            margin-bottom: var(--spacing-sm);
+            font-size: var(--font-size-lg);
+            font-weight: 600;
+        }
+
+        .indicator-analysis p {
+            line-height: 1.6;
+            color: #5a5678;
+            font-size: var(--font-size-md);
+        }
+
+        /* 大数字卡片样式 */
+        .big-number-section {
+            margin: var(--spacing-3xl) 0;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: var(--font-size-xl);
+            color: var(--primary-color);
+            margin-bottom: var(--spacing-xl);
+            position: relative;
+            font-weight: 600;
+        }
+
+        .section-title:after {
+            content: '';
+            display: block;
+            width: 48px;
+            height: 3px;
+            background: linear-gradient(90deg, var(--primary-color), var(--accent-color));
+            margin: var(--spacing-sm) auto 0;
+            border-radius: 3px;
+        }
+
+        .big-number-container {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: var(--spacing-lg);
+            margin-bottom: var(--spacing-xl);
+        }
+
+        .big-number-card {
+            background: rgba(255, 255, 255, 0.25);
+            border-radius: 16px;
+            padding: var(--spacing-lg);
+            text-align: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            min-height: 140px;
+        }
+
+        .big-number-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 12px 24px rgba(0, 0, 0, 0.1);
+        }
+
+        .big-number {
+            font-size: var(--font-size-3xl);
+            font-weight: 800;
+            line-height: 1;
+            margin-bottom: var(--spacing-xs);
+            background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .big-number-label {
+            font-size: var(--font-size-md);
+            font-weight: 600;
+            color: var(--dark-color);
+            margin-bottom: var(--spacing-xs);
+        }
+
+        .big-number-description {
+            font-size: var(--font-size-sm);
+            color: #5a5678;
+            line-height: 1.4;
+        }
+
+        /* 标签卡片样式 */
+        .tags-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: var(--spacing-sm);
+            margin: var(--spacing-lg) 0 var(--spacing-2xl);
+        }
+
+        .tag {
+            border-radius: 50px;
+            padding: var(--spacing-xs) var(--spacing-md);
+            font-size: var(--font-size-sm);
+            font-weight: 600;
+            color: white;
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+            white-space: nowrap;
+        }
+
+        .tag:hover {
+            transform: scale(1.05);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+        }
+
+        /* 标签颜色类 */
+        .tag-color-1 {
+            background: linear-gradient(135deg, #9d7bff, #7c5cf2);
+        }
+
+        .tag-color-2 {
+            background: linear-gradient(135deg, #ff7eb3, #ff6b9d);
+        }
+
+        .tag-color-3 {
+            background: linear-gradient(135deg, #7bdff2, #4dc9e8);
+        }
+
+        .tag-color-4 {
+            background: linear-gradient(135deg, #ffb366, #ff9a3d);
+        }
+
+        .tag-color-5 {
+            background: linear-gradient(135deg, #6bcf7f, #4dbb66);
+        }
+
+        .tag-color-6 {
+            background: linear-gradient(135deg, #b8f2e6, #8ae8d6);
+        }
+
+        .tag-color-7 {
+            background: linear-gradient(135deg, #ffd166, #ffc233);
+        }
+
+        .tag-color-8 {
+            background: linear-gradient(135deg, #a882ff, #8a5cf2);
+        }
+
+        /* 雷达图样式 */
+        .radar-container {
+            width: 100%;
+            max-width: 100%;
+            margin: var(--spacing-xl) auto;
+            position: relative;
+        }
+
+        .radar-chart {
+            width: 100%;
+            height: 280px;
+        }
+
+        /* 雷达图文字分析 */
+        .radar-analysis {
+            text-align: center;
+            margin-top: var(--spacing-lg);
+            padding: var(--spacing-md);
+            background: rgba(255, 255, 255, 0.15);
+            border-radius: 12px;
+            font-size: var(--font-size-md);
+            color: #5a5678;
+            line-height: 1.5;
+        }
+
+        /* 建议板块 */
+        .suggestions-section {
+            background: rgba(255, 255, 255, 0.25);
+            border-radius: 16px;
+            padding: var(--spacing-xl);
+            margin-top: var(--spacing-2xl);
+        }
+
+        .suggestions-section h3 {
+            color: var(--primary-color);
+            font-size: var(--font-size-xl);
+            margin-bottom: var(--spacing-lg);
+            display: flex;
+            align-items: center;
+            gap: var(--spacing-sm);
+            font-weight: 600;
+        }
+
+        .suggestions-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: var(--spacing-lg);
+        }
+
+        .suggestion-item {
+            background: rgba(255, 255, 255, 0.3);
+            border-radius: 14px;
+            padding: var(--spacing-lg);
+            transition: transform 0.3s ease;
+        }
+
+        .suggestion-item:hover {
+            transform: translateY(-5px);
+        }
+
+        .suggestion-item h4 {
+            display: flex;
+            align-items: center;
+            gap: var(--spacing-sm);
+            color: var(--primary-color);
+            margin-bottom: var(--spacing-sm);
+            font-size: var(--font-size-lg);
+            font-weight: 600;
+        }
+
+        .suggestion-item p {
+            color: #5a5678;
+            line-height: 1.6;
+            font-size: var(--font-size-md);
+        }
+
+        /* 科学理论依据 */
+        .theory-section {
+            background: rgba(255, 255, 255, 0.15);
+            border-radius: 16px;
+            padding: var(--spacing-lg);
+            margin-top: var(--spacing-2xl);
+            font-size: var(--font-size-sm);
+        }
+
+        .theory-section h3 {
+            color: var(--primary-color);
+            font-size: var(--font-size-md);
+            margin-bottom: var(--spacing-md);
+            display: flex;
+            align-items: center;
+            gap: var(--spacing-sm);
+            font-weight: 600;
+        }
+
+        .theory-section p {
+            line-height: 1.5;
+            margin-bottom: var(--spacing-md);
+            font-size: var(--font-size-sm);
+        }
+
+        /* 底部按钮 */
+        .actions {
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            gap: var(--spacing-lg);
+            margin-top: var(--spacing-xl);
+        }
+
+        .action-btn {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: white;
+            border: none;
+            padding: var(--spacing-md) var(--spacing-xl);
+            font-size: var(--font-size-md);
+            border-radius: 12px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 12px rgba(157, 123, 255, 0.3);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: var(--spacing-sm);
+            font-weight: 600;
+            flex: 1;
+            max-width: 160px;
+            height: 48px;
+        }
+
+        .action-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 16px rgba(157, 123, 255, 0.4);
+        }
+
+        .action-btn:active {
+            transform: translateY(0);
+        }
+
+        /* 平板和桌面端样式 */
+        @media (min-width: 768px) {
+            body {
+                align-items: center;
+                padding: 24px;
+            }
+
+            .container {
+                max-width: 1100px;
+            }
+
+            .glass-card {
+                padding: 40px;
+                border-radius: 24px;
+            }
+
+            .logo {
+                font-size: 3.5rem;
+                margin-bottom: 20px;
+            }
+
+            h1 {
+                font-size: 2.8rem;
+                margin-bottom: 15px;
+            }
+
+            .subtitle {
+                font-size: 1.3rem;
+                margin-bottom: 40px;
+            }
+
+            .features {
+                gap: 25px;
+                margin-bottom: 50px;
+            }
+
+            .feature {
+                padding: 25px;
+                max-width: 200px;
+            }
+
+            .btn {
+                width: auto;
+                max-width: none;
+                padding: 18px 45px;
+                font-size: 1.3rem;
+            }
+
+            .score-ring-container {
+                width: 250px;
+                height: 250px;
+            }
+
+            .score-ring-number {
+                font-size: 4rem;
+            }
+
+            .big-number-container {
+                grid-template-columns: repeat(5, 1fr);
+            }
+
+            .suggestions-grid {
+                grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            }
+
+            .radar-chart {
+                height: 400px;
+            }
+
+            .action-btn {
+                max-width: 180px;
+                height: 52px;
+            }
+        }
+
+        /* 小屏幕手机优化 */
+        @media (max-width: 360px) {
+            .glass-card {
+                padding: 20px;
+                border-radius: 18px;
+            }
+
+            h1 {
+                font-size: var(--font-size-2xl);
+            }
+
+            .subtitle {
+                font-size: var(--font-size-md);
+            }
+
+            .question-text {
+                font-size: var(--font-size-xl);
+            }
+
+            .option-text {
+                font-size: var(--font-size-md);
+            }
+
+            .score-ring-container {
+                width: 180px;
+                height: 180px;
+            }
+
+            .score-ring-number {
+                font-size: var(--font-size-4xl);
+            }
+
+            .big-number-container {
+                grid-template-columns: 1fr;
+                gap: var(--spacing-md);
+            }
+
+            .tag {
+                font-size: var(--font-size-xs);
+                padding: var(--spacing-xs) var(--spacing-sm);
+            }
+
+            .actions {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .action-btn {
+                max-width: 100%;
+                width: 100%;
+            }
+        }
+
+        /* 动画效果 */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .fade-in {
+            animation: fadeIn 0.5s ease forwards;
+        }
+
+        @keyframes numberIncrease {
+            from {
+                transform: scale(0.8);
+                opacity: 0;
+            }
+
+            to {
+                transform: scale(1);
+                opacity: 1;
+            }
+        }
+
+        .number-animate {
+            animation: numberIncrease 0.8s ease-out forwards;
+        }
+
+        @keyframes slideMarker {
+            from {
+                left: 0%;
+            }
+
+            to {
+                left: var(--marker-position);
+            }
+        }
+
+        .marker-animate {
+            animation: slideMarker 1.5s ease-out forwards;
+        }
+
+        @keyframes tagAppear {
+            from {
+                transform: scale(0.8);
+                opacity: 0;
+            }
+
+            to {
+                transform: scale(1);
+                opacity: 1;
+            }
+        }
+
+        .tag-animate {
+            animation: tagAppear 0.3s ease-out forwards;
+        }
+
+        @keyframes ringFill {
+            from {
+                stroke-dashoffset: 565;
+            }
+
+            to {
+                stroke-dashoffset: var(--ring-offset);
+            }
+        }
+
+        .ring-animate {
+            animation: ringFill 2s ease-out forwards;
+        }
+
+        /* 改善按钮交互反馈 */
+        .btn:active,
+        .nav-btn:active,
+        .action-btn:active {
+            transform: scale(0.98);
+        }
+
+        .option:active {
+            background: rgba(255, 255, 255, 0.5);
+        }
+
+        /* 改善滚动体验 */
+        .glass-card {
+            -webkit-overflow-scrolling: touch;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <!-- 首页 -->
+        <div id="home-page" class="glass-card page active">
+            <div class="logo">
+                <i class="fas fa-heart"></i>
+            </div>
+            <h1>你真的爱自己吗测试</h1>
+            <p class="subtitle">你是否常常照顾别人却忘了照顾自己？通过50道贴近生活的问题，了解你内心深处对自己的接纳与关怀程度。给自己一点时间，听听内心的声音。</p>
+
+            <div class="features">
+                <div class="feature">
+                    <div class="feature-icon">
+                        <i class="fas fa-brain"></i>
+                    </div>
+                    <h3>贴近生活</h3>
+                    <p>问题都来自日常生活的真实感受</p>
+                </div>
+                <div class="feature">
+                    <div class="feature-icon">
+                        <i class="fas fa-chart-bar"></i>
+                    </div>
+                    <h3>温暖分析</h3>
+                    <p>用温暖的语言帮你看见自己的闪光点</p>
+                </div>
+                <div class="feature">
+                    <div class="feature-icon">
+                        <i class="fas fa-user-check"></i>
+                    </div>
+                    <h3>50道题目</h3>
+                    <p>涵盖自我关怀、边界感、情绪觉察等</p>
+                </div>
+            </div>
+
+            <button id="start-test" class="btn">
+                <span>开始测试</span>
+                <i class="fas fa-arrow-right"></i>
+            </button>
+        </div>
+
+        <!-- 测试页面 -->
+        <div id="test-page" class="glass-card page">
+            <div class="progress-container">
+                <div class="progress-bar">
+                    <div class="progress-fill" id="progress-fill"></div>
+                    <div class="progress-marker" id="progress-marker"></div>
+                </div>
+            </div>
+
+            <div class="question-container">
+                <div class="question-text" id="question-text"></div>
+
+                <div class="options-container" id="options-container">
+                    <!-- 选项将通过JavaScript动态生成 -->
+                </div>
+            </div>
+
+            <div class="nav-buttons">
+                <button id="prev-btn" class="nav-btn" style="display: none;">
+                    <i class="fas fa-arrow-left"></i>
+                    <span>上一题</span>
+                </button>
+                <button id="next-btn" class="nav-btn">
+                    <span>下一题</span>
+                    <i class="fas fa-arrow-right"></i>
+                </button>
+            </div>
+        </div>
+
+        <!-- 结果页面 -->
+        <div id="result-page" class="glass-card page">
+            <div class="result-header">
+                <h1 class="result-title">你的爱自己程度测试结果</h1>
+
+                <!-- 鼓励文字 -->
+                <div class="encouragement-text" id="encouragement-text">
+                    亲爱的，你已经很久没有好好爱自己了... 是时候停下来，听听内心的声音，给自己一个温暖的拥抱了。
+                </div>
+
+                <!-- 圆环得分显示 -->
+                <div class="score-ring-container">
+                    <svg class="score-ring" viewBox="0 0 200 200">
+                        <defs>
+                            <linearGradient id="ring-gradient" x1="0%" y1="0%" x2="100%" y2="0%">
+                                <stop offset="0%" style="stop-color:#9d7bff;stop-opacity:1" />
+                                <stop offset="100%" style="stop-color:#ff7eb3;stop-opacity:1" />
+                            </linearGradient>
+                        </defs>
+                        <circle class="score-ring-circle score-ring-bg" cx="100" cy="100" r="90"></circle>
+                        <circle class="score-ring-circle score-ring-fill ring-animate" cx="100" cy="100" r="90"
+                            id="score-ring-fill"></circle>
+                    </svg>
+                    <div class="score-ring-center">
+                        <div class="score-ring-number" id="score-ring-number">0</div>
+                        <div class="score-ring-label">总得分</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 得分指示条 -->
+            <div class="score-indicator-container">
+                <div class="score-indicator">
+                    <div class="indicator-bar">
+                        <div class="indicator-marker" id="indicator-marker"></div>
+                    </div>
+                    <div class="indicator-labels">
+                        <div class="indicator-label">照顾他人忘了自己<br>(0-20分)</div>
+                        <div class="indicator-label">开始觉察自我需求<br>(21-40分)</div>
+                        <div class="indicator-label">学习关爱自己<br>(41-60分)</div>
+                        <div class="indicator-label">懂得心疼自己<br>(61-80分)</div>
+                        <div class="indicator-label">深深爱着自己<br>(81-100分)</div>
+                    </div>
+                </div>
+
+                <!-- 文字分析 -->
+                <div class="indicator-analysis" id="indicator-analysis">
+                    <!-- 文字分析将通过JavaScript动态生成 -->
+                </div>
+            </div>
+
+            <!-- 维度得分 - 大数字样式 -->
+            <div class="big-number-section">
+                <h3 class="section-title">你在这些方面做得如何</h3>
+                <div class="big-number-container" id="big-number-container">
+                    <!-- 大数字卡片将通过JavaScript动态生成 -->
+                </div>
+            </div>
+
+            <!-- 状态标签 - 不同颜色 -->
+            <div class="big-number-section">
+                <h3 class="section-title">你的自爱状态标签</h3>
+                <div class="tags-container" id="tags-container">
+                    <!-- 标签将通过JavaScript动态生成 -->
+                </div>
+            </div>
+
+            <!-- 雷达图 -->
+            <div class="big-number-section">
+                <h3 class="section-title">你的内在平衡图</h3>
+                <div class="radar-container">
+                    <canvas id="radar-chart" class="radar-chart"></canvas>
+                </div>
+                <div class="radar-analysis" id="radar-analysis">
+                    <!-- 雷达图分析将通过JavaScript动态生成 -->
+                </div>
+            </div>
+
+            <!-- 建议板块 -->
+            <div class="suggestions-section">
+                <h3><i class="fas fa-lightbulb"></i> 给亲爱的你的小建议</h3>
+                <div class="suggestions-grid" id="suggestions-grid">
+                    <!-- 建议将通过JavaScript动态生成 -->
+                </div>
+            </div>
+
+            <!-- 科学理论依据 -->
+            <div class="theory-section">
+                <h3><i class="fas fa-book-open"></i> 关于爱自己</h3>
+                <p>爱自己不是自私，而是自我关怀。研究发现，当我们学会善待自己时，不仅心理更健康，人际关系也会更好，甚至身体都会更健康。</p>
+                <p>爱自己就像在心里种下一棵小树，每天浇一点水，它就会慢慢长大，为你遮风挡雨。</p>
+            </div>
+
+            <div class="actions">
+                <button id="retake-btn" class="action-btn">
+                    <i class="fas fa-redo"></i>
+                    <span>重新测试</span>
+                </button>
+                <button id="home-btn" class="action-btn">
+                    <i class="fas fa-home"></i>
+                    <span>返回首页</span>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // 测试数据 - 基于心理学自爱理论设计的50道题目，加入更多日常生活问题
+        const testQuestions = [
+            // 自我接纳维度 (1-10) - 加入日常生活问题
+            { id: 1, text: "我能接受自己的不完美，不会过度苛责自己", category: "自我接纳", reverse: false },
+            { id: 2, text: "我经常对自己不满意，总想成为别人", category: "自我接纳", reverse: true },
+            { id: 3, text: "我认可自己的独特价值，不需要与他人比较", category: "自我接纳", reverse: false },
+            { id: 4, text: "我常常因为外表或能力不足而感到自卑", category: "自我接纳", reverse: true },
+            { id: 5, text: "我能够接纳过去的经历，即使是失败或遗憾", category: "自我接纳", reverse: false },
+            { id: 6, text: "犯错误时，我会严厉批评自己很久", category: "自我接纳", reverse: true },
+            { id: 7, text: "我相信自己值得被爱，不需要刻意证明", category: "自我接纳", reverse: false },
+            { id: 8, text: "为了工作/学习，你多久没碰自己真正的爱好了？", category: "自我接纳", reverse: true },
+            { id: 9, text: "我欣赏自己的成长，即使进步微小", category: "自我接纳", reverse: false },
+            { id: 10, text: "我觉得自己不值得拥有美好的事物", category: "自我接纳", reverse: true },
+
+            // 自我关怀维度 (11-20) - 加入日常生活问题
+            { id: 11, text: "遇到困难时，我会像安慰朋友一样安慰自己", category: "自我关怀", reverse: false },
+            { id: 12, text: "我感到痛苦时，常常忽略或压抑这些感受", category: "自我关怀", reverse: true },
+            { id: 13, text: "我会主动照顾自己的身心健康", category: "自我关怀", reverse: false },
+            { id: 14, text: "我对自己要求严格，很少允许自己放松", category: "自我关怀", reverse: true },
+            { id: 15, text: "失败时，我会鼓励自己继续尝试", category: "自我关怀", reverse: false },
+            { id: 16, text: "我常常因为照顾他人而忽视自己的需求", category: "自我关怀", reverse: true },
+            { id: 17, text: "我能识别情绪并给予自己适当的关怀", category: "自我关怀", reverse: false },
+            { id: 18, text: "你最近一次为自己买一束花、一份礼物，或任何单纯取悦自己的东西是什么时候？", category: "自我关怀", reverse: true },
+            { id: 19, text: "我会设定健康界限，保护自己的精力", category: "自我关怀", reverse: false },
+            { id: 20, text: "我常常因工作责任而忽略休息和娱乐", category: "自我关怀", reverse: true },
+
+            // 自我尊重维度 (21-30) - 加入日常生活问题
+            { id: 21, text: "我坚信自己值得被尊重和珍视", category: "自我尊重", reverse: false },
+            { id: 22, text: "我常常为取悦他人而牺牲自己的价值观", category: "自我尊重", reverse: true },
+            { id: 23, text: "即使他人不同意，我仍会坚持自己的观点", category: "自我尊重", reverse: false },
+            { id: 24, text: "我害怕被拒绝，不敢表达真实想法", category: "自我尊重", reverse: true },
+            { id: 25, text: "我尊重自己的身体，不会为迎合他人而伤害自己", category: "自我尊重", reverse: false },
+            { id: 26, text: "我常常允许他人越过我的个人界限", category: "自我尊重", reverse: true },
+            { id: 27, text: "我相信自己的判断和决策能力", category: "自我尊重", reverse: false },
+            { id: 28, text: "你需要他人认可才能感到自己有价值", category: "自我尊重", reverse: true },
+            { id: 29, text: "我为自己的成就感到自豪，不会过度谦虚", category: "自我尊重", reverse: false },
+            { id: 30, text: "我常因害怕失败而不敢追求想要的东西", category: "自我尊重", reverse: true },
+
+            // 自我认知维度 (31-40) - 加入日常生活问题
+            { id: 31, text: "我清楚自己的核心价值观和生活目标", category: "自我认知", reverse: false },
+            { id: 32, text: "我常常感到迷茫，不知自己真正想要什么", category: "自我认知", reverse: true },
+            { id: 33, text: "我了解自己的优势与弱点，能设定合理期望", category: "自我认知", reverse: false },
+            { id: 34, text: "我常因不了解自己而做出违背内心的决定", category: "自我认知", reverse: true },
+            { id: 35, text: "我能识别情绪并理解其来源", category: "自我认知", reverse: false },
+            { id: 36, text: "我常常压抑情感，不去探究其意义", category: "自我认知", reverse: true },
+            { id: 37, text: "我定期反思自己的成长和变化", category: "自我认知", reverse: false },
+            { id: 38, text: "你多久没有真正倾听自己内心的声音了？", category: "自我认知", reverse: true },
+            { id: 39, text: "我知道什么能让我真正快乐和满足", category: "自我认知", reverse: false },
+            { id: 40, text: "我常依赖他人意见来定义自己是谁", category: "自我认知", reverse: true },
+
+            // 自我实现维度 (41-50) - 加入日常生活问题
+            { id: 41, text: "我正在追求与我的核心价值观一致的生活目标", category: "自我实现", reverse: false },
+            { id: 42, text: "我感到生活缺乏意义和目标感", category: "自我实现", reverse: true },
+            { id: 43, text: "我能够发挥自己的潜能，成为更好的自己", category: "自我实现", reverse: false },
+            { id: 44, text: "我常常感到被困住，无法追求自己真正想要的生活", category: "自我实现", reverse: true },
+            { id: 45, text: "我对未来充满希望和期待", category: "自我实现", reverse: false },
+            { id: 46, text: "你觉得自己的生活缺乏方向和目的", category: "自我实现", reverse: true },
+            { id: 47, text: "我正在学习和成长，努力成为理想的自己", category: "自我实现", reverse: false },
+            { id: 48, text: "我感到自己的潜力没有得到充分发挥", category: "自我实现", reverse: true },
+            { id: 49, text: "我的生活与我的内在价值观是一致的", category: "自我实现", reverse: false },
+            { id: 50, text: "你是否经常因为忙碌而忘记照顾自己的基本需求？", category: "自我实现", reverse: true }
+        ];
+
+        // 答案选项
+        const answerOptions = [
+            { text: "非常不符合", value: 1 },
+            { text: "不太符合", value: 2 },
+            { text: "一般", value: 3 },
+            { text: "比较符合", value: 4 },
+            { text: "非常符合", value: 5 }
+        ];
+
+        // 全局变量
+        let currentQuestion = 0;
+        let userAnswers = new Array(testQuestions.length).fill(0);
+        let testStarted = false;
+
+        // DOM元素
+        const homePage = document.getElementById('home-page');
+        const testPage = document.getElementById('test-page');
+        const resultPage = document.getElementById('result-page');
+        const startTestBtn = document.getElementById('start-test');
+        const questionText = document.getElementById('question-text');
+        const optionsContainer = document.getElementById('options-container');
+        const progressFill = document.getElementById('progress-fill');
+        const progressMarker = document.getElementById('progress-marker');
+        const nextBtn = document.getElementById('next-btn');
+        const prevBtn = document.getElementById('prev-btn');
+        const scoreRingNumber = document.getElementById('score-ring-number');
+        const scoreRingFill = document.getElementById('score-ring-fill');
+        const encouragementText = document.getElementById('encouragement-text');
+        const indicatorMarker = document.getElementById('indicator-marker');
+        const indicatorAnalysis = document.getElementById('indicator-analysis');
+        const bigNumberContainer = document.getElementById('big-number-container');
+        const tagsContainer = document.getElementById('tags-container');
+        const radarAnalysis = document.getElementById('radar-analysis');
+        const suggestionsGrid = document.getElementById('suggestions-grid');
+        const retakeBtn = document.getElementById('retake-btn');
+        const homeBtn = document.getElementById('home-btn');
+
+        // 初始化
+        function init() {
+            // 事件监听
+            startTestBtn.addEventListener('click', startTest);
+            nextBtn.addEventListener('click', nextQuestion);
+            prevBtn.addEventListener('click', prevQuestion);
+            retakeBtn.addEventListener('click', retakeTest);
+            homeBtn.addEventListener('click', goHome);
+
+            // 初始化问题显示
+            displayQuestion(currentQuestion);
+
+            // 移动端优化：确保按钮有足够点击区域
+            document.querySelectorAll('.btn, .nav-btn, .action-btn, .option').forEach(el => {
+                el.style.cursor = 'pointer';
+            });
+        }
+
+        // 开始测试
+        function startTest() {
+            homePage.classList.remove('active');
+            testPage.classList.add('active');
+            testStarted = true;
+
+            // 移动端优化：确保页面滚动到顶部
+            window.scrollTo(0, 0);
+        }
+
+        // 显示问题
+        function displayQuestion(index) {
+            const question = testQuestions[index];
+            questionText.textContent = question.text;
+
+            // 更新进度条
+            const progress = ((index + 1) / testQuestions.length) * 100;
+            progressFill.style.width = `${progress}%`;
+            progressMarker.style.left = `${progress}%`;
+
+            // 生成选项
+            optionsContainer.innerHTML = '';
+            answerOptions.forEach((option, optionIndex) => {
+                const optionElement = document.createElement('div');
+                optionElement.className = 'option';
+                if (userAnswers[index] === option.value) {
+                    optionElement.classList.add('selected');
+                }
+
+                optionElement.innerHTML = `
+                    <div class="option-circle"></div>
+                    <div class="option-text">${option.text}</div>
+                `;
+
+                optionElement.addEventListener('click', () => selectAnswer(index, option.value));
+                optionsContainer.appendChild(optionElement);
+            });
+
+            // 更新按钮状态
+            prevBtn.style.display = index === 0 ? 'none' : 'flex';
+
+            if (index === testQuestions.length - 1) {
+                nextBtn.innerHTML = '<i class="fas fa-chart-bar"></i><span>查看结果</span>';
+            } else {
+                nextBtn.innerHTML = '<i class="fas fa-arrow-right"></i><span>下一题</span>';
+            }
+
+            // 如果已经有答案，则自动跳转到下一题（移动端优化：稍快一点）
+            if (userAnswers[index] !== 0 && index < testQuestions.length - 1 && testStarted) {
+                setTimeout(() => {
+                    nextQuestion();
+                }, 300);
+            }
+
+            // 移动端优化：确保页面滚动到顶部
+            window.scrollTo(0, 0);
+        }
+
+        // 选择答案
+        function selectAnswer(questionIndex, value) {
+            userAnswers[questionIndex] = value;
+
+            // 更新选项样式
+            const options = document.querySelectorAll('.option');
+            options.forEach((option, index) => {
+                if (index === value - 1) {
+                    option.classList.add('selected');
+                } else {
+                    option.classList.remove('selected');
+                }
+            });
+
+            // 移动端优化：提供触觉反馈
+            if (window.navigator.vibrate) {
+                window.navigator.vibrate(10);
+            }
+
+            // 如果不是最后一题，自动跳转
+            if (questionIndex < testQuestions.length - 1) {
+                testStarted = true;
+                setTimeout(() => {
+                    nextQuestion();
+                }, 300);
+            }
+        }
+
+        // 下一题
+        function nextQuestion() {
+            if (currentQuestion < testQuestions.length - 1) {
+                currentQuestion++;
+                displayQuestion(currentQuestion);
+            } else {
+                // 最后一题，计算并显示结果
+                calculateResults();
+            }
+        }
+
+        // 上一题
+        function prevQuestion() {
+            if (currentQuestion > 0) {
+                currentQuestion--;
+                displayQuestion(currentQuestion);
+            }
+        }
+
+        // 计算结果
+        function calculateResults() {
+            // 计算总分（反向题目需要反转计分）
+            let totalScore = 0;
+            let categoryScores = {
+                "自我接纳": { score: 0, total: 0, color: "#9d7bff", icon: "fas fa-heart" },
+                "自我关怀": { score: 0, total: 0, color: "#ff7eb3", icon: "fas fa-hands" },
+                "自我尊重": { score: 0, total: 0, color: "#7c5cf2", icon: "fas fa-crown" },
+                "自我认知": { score: 0, total: 0, color: "#7bdff2", icon: "fas fa-brain" },
+                "自我实现": { score: 0, total: 0, color: "#ffb366", icon: "fas fa-rocket" }
+            };
+
+            testQuestions.forEach((question, index) => {
+                let answerValue = userAnswers[index];
+
+                // 如果是反向题目，反转计分（1->5, 2->4, 3->3, 4->2, 5->1）
+                if (question.reverse) {
+                    answerValue = 6 - answerValue;
+                }
+
+                totalScore += answerValue;
+
+                // 计算分类分数
+                if (categoryScores[question.category]) {
+                    categoryScores[question.category].score += answerValue;
+                    categoryScores[question.category].total += 5; // 每道题最大5分
+                }
+            });
+
+            // 最大可能得分
+            const maxScore = testQuestions.length * 5;
+
+            // 转换为百分比
+            const scorePercentage = Math.round((totalScore / maxScore) * 100);
+
+            // 显示结果页面
+            testPage.classList.remove('active');
+            resultPage.classList.add('active');
+
+            // 移动端优化：确保页面滚动到顶部
+            window.scrollTo(0, 0);
+
+            // 显示鼓励文字
+            displayEncouragementText(scorePercentage);
+
+            // 显示圆环得分
+            displayScoreRing(scorePercentage);
+
+            // 更新得分指示条和文字分析
+            updateScoreIndicator(scorePercentage);
+
+            // 显示大数字卡片
+            displayBigNumberCards(categoryScores);
+
+            // 显示标签
+            displayTags(categoryScores, scorePercentage);
+
+            // 显示雷达图和文字分析
+            displayRadarChart(categoryScores);
+
+            // 显示雷达图文字分析
+            displayRadarAnalysis(categoryScores);
+
+            // 显示个性化建议
+            displaySuggestions(categoryScores, scorePercentage);
+
+            // 添加数字动画效果
+            setTimeout(() => {
+                const bigNumbers = document.querySelectorAll('.big-number');
+                bigNumbers.forEach(number => {
+                    number.classList.add('number-animate');
+                });
+            }, 500);
+        }
+
+        // 显示鼓励文字
+        function displayEncouragementText(scorePercentage) {
+            let encouragement = "";
+
+            if (scorePercentage >= 80) {
+                encouragement = "你真棒！你已经很懂得如何爱自己了。继续保持这份自我关怀，你值得所有的美好和幸福！";
+            } else if (scorePercentage >= 60) {
+                encouragement = "你正在学习如何更好地爱自己。记住，你值得被温柔对待，包括被你自己。";
+            } else if (scorePercentage >= 40) {
+                encouragement = "亲爱的，你是不是常常照顾别人却忘了自己？是时候停下来，听听内心的声音，给自己一个温暖的拥抱了。";
+            } else if (scorePercentage >= 20) {
+                encouragement = "也许你总是忙于照顾他人，却忘了照顾自己。从今天开始，请把一部分的爱留给自己，好吗？";
+            } else {
+                encouragement = "我知道你一直在努力，但别忘了，你也需要被爱和被关心。从今天起，每天给自己一个小小温柔吧。";
+            }
+
+            encouragementText.textContent = encouragement;
+        }
+
+        // 显示圆环得分
+        function displayScoreRing(scorePercentage) {
+            scoreRingNumber.textContent = scorePercentage;
+
+            // 计算圆环的stroke-dashoffset
+            const circumference = 2 * Math.PI * 90;
+            const offset = circumference - (scorePercentage / 100) * circumference;
+
+            // 设置CSS变量并应用动画
+            scoreRingFill.style.setProperty('--ring-offset', offset);
+            scoreRingFill.style.strokeDasharray = circumference;
+            scoreRingFill.style.strokeDashoffset = circumference; // 初始值
+            scoreRingFill.classList.add('ring-animate');
+
+            // 根据分数调整颜色
+            let gradient = "";
+            if (scorePercentage >= 80) {
+                gradient = "#9d7bff, #ff7eb3, #ffd166";
+            } else if (scorePercentage >= 60) {
+                gradient = "#9d7bff, #ff7eb3";
+            } else if (scorePercentage >= 40) {
+                gradient = "#9d7bff, #7bdff2";
+            } else {
+                gradient = "#9d7bff, #b8f2e6";
+            }
+
+            // 动态更新渐变颜色
+            const gradientElement = document.querySelector('#ring-gradient stop:last-child');
+            if (gradientElement) {
+                if (scorePercentage >= 80) {
+                    gradientElement.setAttribute('style', 'stop-color:#ffd166;stop-opacity:1');
+                } else if (scorePercentage >= 60) {
+                    gradientElement.setAttribute('style', 'stop-color:#ff7eb3;stop-opacity:1');
+                } else if (scorePercentage >= 40) {
+                    gradientElement.setAttribute('style', 'stop-color:#7bdff2;stop-opacity:1');
+                } else {
+                    gradientElement.setAttribute('style', 'stop-color:#b8f2e6;stop-opacity:1');
+                }
+            }
+        }
+
+        // 更新得分指示条和文字分析
+        function updateScoreIndicator(scorePercentage) {
+            // 计算标记位置（0-100%）
+            const markerPosition = Math.min(Math.max(scorePercentage, 2), 98); // 限制在2-98%之间，避免溢出
+
+            // 设置标记位置
+            indicatorMarker.style.setProperty('--marker-position', `${markerPosition}%`);
+            indicatorMarker.style.left = `${markerPosition}%`;
+            indicatorMarker.classList.add('marker-animate');
+
+            // 添加标记上的分数显示
+            const markerScore = document.createElement('div');
+            markerScore.style.position = 'absolute';
+            markerScore.style.top = '-30px';
+            markerScore.style.left = '-12px';
+            markerScore.style.width = '24px';
+            markerScore.style.height = '18px';
+            markerScore.style.background = 'white';
+            markerScore.style.color = 'var(--primary-color)';
+            markerScore.style.borderRadius = '4px';
+            markerScore.style.display = 'flex';
+            markerScore.style.alignItems = 'center';
+            markerScore.style.justifyContent = 'center';
+            markerScore.style.fontSize = '10px';
+            markerScore.style.fontWeight = 'bold';
+            markerScore.style.border = '2px solid var(--primary-color)';
+            markerScore.textContent = `${scorePercentage}%`;
+            indicatorMarker.appendChild(markerScore);
+
+            // 更新文字分析 - 使用更情感化的语言
+            let analysisTitle = "";
+            let analysisText = "";
+
+            if (scorePercentage >= 80) {
+                analysisTitle = "深深爱着自己 - 懂得心疼自己的你";
+                analysisText = "你真了不起！你懂得如何好好爱自己。你知道自己值得被珍惜，会在累的时候休息，会在难过的时候安慰自己。这种对自己的温柔，让你更有力量去面对生活的挑战。";
+            } else if (scorePercentage >= 60) {
+                analysisTitle = "懂得心疼自己 - 正在学习爱自己的你";
+                analysisText = "你已经走在爱自己的路上了。有时候你会记得照顾自己，但偶尔还是会忽略自己的感受。没关系，爱自己是一辈子的功课，你已经做得很好了。";
+            } else if (scorePercentage >= 40) {
+                analysisTitle = "学习关爱自己 - 开始觉察自我需求的你";
+                analysisText = "你是不是常常忙着照顾别人，却忘了照顾自己？开始觉察自己的需求，就是爱自己的第一步。从今天起，每天问自己一次：'我今天需要什么？'";
+            } else if (scorePercentage >= 20) {
+                analysisTitle = "开始觉察 - 准备好好爱自己的你";
+                analysisText = "你也许总是把自己放在最后，但内心深处，你也渴望被好好对待。给自己一个机会，从今天开始，学着像对待最好的朋友那样对待自己。";
+            } else {
+                analysisTitle = "照顾他人忘了自己 - 需要被温柔对待的你";
+                analysisText = "我知道你总是把别人的需求放在第一位，却常常忘了自己也需要被关心。从今天起，试着每天为自己做一件小事，哪怕只是喝杯温水，对自己说句'辛苦了'。";
+            }
+
+            indicatorAnalysis.innerHTML = `
+                <h4>${analysisTitle}</h4>
+                <p>${analysisText}</p>
+            `;
+        }
+
+        // 显示大数字卡片
+        function displayBigNumberCards(categoryScores) {
+            bigNumberContainer.innerHTML = "";
+
+            Object.keys(categoryScores).forEach(category => {
+                const scoreData = categoryScores[category];
+                const percentage = Math.round((scoreData.score / scoreData.total) * 100);
+
+                // 根据百分比获取描述 - 使用更温暖的语言
+                let description = "";
+                if (percentage >= 80) {
+                    description = "做得很棒，继续保持哦";
+                } else if (percentage >= 60) {
+                    description = "做得不错，还可以更好";
+                } else if (percentage >= 40) {
+                    description = "有进步空间，慢慢来";
+                } else if (percentage >= 20) {
+                    description = "需要多关注这个方面";
+                } else {
+                    description = "从这里开始爱自己吧";
+                }
+
+                // 创建大数字卡片元素
+                const cardElement = document.createElement('div');
+                cardElement.className = 'big-number-card';
+                cardElement.style.borderTop = `4px solid ${scoreData.color}`;
+                cardElement.innerHTML = `
+                    <div class="big-number">${percentage}%</div>
+                    <div class="big-number-label">${category}</div>
+                    <div class="big-number-description">${description}</div>
+                `;
+
+                bigNumberContainer.appendChild(cardElement);
+            });
+        }
+
+        // 显示标签 - 不同颜色，缩小尺寸
+        function displayTags(categoryScores, totalPercentage) {
+            tagsContainer.innerHTML = "";
+
+            // 根据总分和维度得分生成标签 - 使用更温暖的标签
+            const tags = [];
+
+            // 总体标签
+            if (totalPercentage >= 80) {
+                tags.push("懂得心疼自己", "会照顾自己", "知道自己值得", "内心有力量", "活得自在");
+            } else if (totalPercentage >= 60) {
+                tags.push("正在学习爱自己", "偶尔记得休息", "开始说不", "觉察情绪", "寻找方向");
+            } else if (totalPercentage >= 40) {
+                tags.push("照顾别人多过自己", "开始觉察需求", "学习设立边界", "倾听内心", "探索可能");
+            } else if (totalPercentage >= 20) {
+                tags.push("常常忽略自己", "需要休息", "学习说'不'", "了解自己", "寻找意义");
+            } else {
+                tags.push("把别人放第一位", "需要被关心", "学习爱自己", "听见自己", "你是重要的");
+            }
+
+            // 根据最弱维度添加标签
+            const weakestCategory = getWeakestCategory(categoryScores);
+            if (weakestCategory) {
+                tags.push(`${weakestCategory.category}需要关注`);
+            }
+
+            // 根据最强维度添加标签
+            const strongestCategory = getStrongestCategory(categoryScores);
+            if (strongestCategory) {
+                tags.push(`${strongestCategory.category}是你的优势`);
+            }
+
+            // 渲染标签 - 为每个标签分配不同颜色
+            tags.forEach((tag, index) => {
+                const tagElement = document.createElement('div');
+                tagElement.className = 'tag';
+
+                // 分配颜色类，循环使用1-8种颜色
+                const colorClass = `tag-color-${(index % 8) + 1}`;
+                tagElement.classList.add(colorClass, 'tag-animate');
+                tagElement.style.animationDelay = `${index * 0.05}s`;
+
+                tagElement.textContent = tag;
+                tagsContainer.appendChild(tagElement);
+            });
+        }
+
+        // 显示雷达图
+        function displayRadarChart(categoryScores) {
+            const canvas = document.getElementById('radar-chart');
+            const ctx = canvas.getContext('2d');
+
+            // 设置canvas尺寸
+            canvas.width = canvas.offsetWidth * 2;
+            canvas.height = 280 * 2;
+            canvas.style.width = `${canvas.offsetWidth}px`;
+            canvas.style.height = '280px';
+
+            // 准备数据
+            const categories = Object.keys(categoryScores);
+            const percentages = categories.map(category => {
+                const scoreData = categoryScores[category];
+                return Math.round((scoreData.score / scoreData.total) * 100);
+            });
+
+            // 绘制雷达图
+            const centerX = canvas.width / 2;
+            const centerY = canvas.height / 2;
+            const radius = Math.min(centerX, centerY) - 70;
+            const angleStep = (Math.PI * 2) / categories.length;
+
+            // 清除画布
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+            // 绘制网格
+            ctx.strokeStyle = 'rgba(255, 255, 255, 0.3)';
+            ctx.lineWidth = 2;
+
+            // 绘制五个同心圆
+            for (let i = 1; i <= 5; i++) {
+                const r = (radius / 5) * i;
+                ctx.beginPath();
+                for (let j = 0; j <= categories.length; j++) {
+                    const angle = j * angleStep - Math.PI / 2;
+                    const x = centerX + Math.cos(angle) * r;
+                    const y = centerY + Math.sin(angle) * r;
+
+                    if (j === 0) {
+                        ctx.moveTo(x, y);
+                    } else {
+                        ctx.lineTo(x, y);
+                    }
+                }
+                ctx.closePath();
+                ctx.stroke();
+            }
+
+            // 绘制轴线
+            ctx.strokeStyle = 'rgba(255, 255, 255, 0.5)';
+            ctx.lineWidth = 2;
+
+            for (let i = 0; i < categories.length; i++) {
+                const angle = i * angleStep - Math.PI / 2;
+                const x = centerX + Math.cos(angle) * radius;
+                const y = centerY + Math.sin(angle) * radius;
+
+                ctx.beginPath();
+                ctx.moveTo(centerX, centerY);
+                ctx.lineTo(x, y);
+                ctx.stroke();
+
+                // 添加标签
+                const labelX = centerX + Math.cos(angle) * (radius + 40);
+                const labelY = centerY + Math.sin(angle) * (radius + 40);
+
+                ctx.fillStyle = '#5a5678';
+                ctx.font = 'bold 20px Arial';
+                ctx.textAlign = 'center';
+                ctx.textBaseline = 'middle';
+                ctx.fillText(categories[i], labelX, labelY);
+            }
+
+            // 绘制数据区域
+            ctx.fillStyle = 'rgba(157, 123, 255, 0.3)';
+            ctx.strokeStyle = 'rgba(157, 123, 255, 0.8)';
+            ctx.lineWidth = 4;
+
+            ctx.beginPath();
+            for (let i = 0; i < categories.length; i++) {
+                const percentage = percentages[i];
+                const angle = i * angleStep - Math.PI / 2;
+                const r = (percentage / 100) * radius;
+                const x = centerX + Math.cos(angle) * r;
+                const y = centerY + Math.sin(angle) * r;
+
+                if (i === 0) {
+                    ctx.moveTo(x, y);
+                } else {
+                    ctx.lineTo(x, y);
+                }
+            }
+            ctx.closePath();
+            ctx.fill();
+            ctx.stroke();
+
+            // 绘制数据点
+            ctx.fillStyle = '#9d7bff';
+            for (let i = 0; i < categories.length; i++) {
+                const percentage = percentages[i];
+                const angle = i * angleStep - Math.PI / 2;
+                const r = (percentage / 100) * radius;
+                const x = centerX + Math.cos(angle) * r;
+                const y = centerY + Math.sin(angle) * r;
+
+                ctx.beginPath();
+                ctx.arc(x, y, 6, 0, Math.PI * 2);
+                ctx.fill();
+
+                // 显示百分比
+                ctx.fillStyle = '#5a5678';
+                ctx.font = 'bold 16px Arial';
+                ctx.textAlign = 'center';
+                ctx.textBaseline = 'bottom';
+                ctx.fillText(`${percentage}%`, x, y - 12);
+                ctx.fillStyle = '#9d7bff';
+            }
+        }
+
+        // 显示雷达图文字分析 - 使用更情感化的语言
+        function displayRadarAnalysis(categoryScores) {
+            // 计算最弱和最强维度
+            let minPercentage = 100;
+            let maxPercentage = 0;
+            let weakestCategory = "";
+            let strongestCategory = "";
+
+            Object.keys(categoryScores).forEach(category => {
+                const scoreData = categoryScores[category];
+                const percentage = Math.round((scoreData.score / scoreData.total) * 100);
+                if (percentage < minPercentage) {
+                    minPercentage = percentage;
+                    weakestCategory = category;
+                }
+                if (percentage > maxPercentage) {
+                    maxPercentage = percentage;
+                    strongestCategory = category;
+                }
+            });
+
+            // 计算平衡度
+            const balanceScore = maxPercentage - minPercentage;
+            let balanceText = "";
+            if (balanceScore <= 15) {
+                balanceText = "你在各个方面都照顾得比较均衡，这很不容易呢！";
+            } else if (balanceScore <= 30) {
+                balanceText = "你在某些方面做得很好，有些方面可能需要多关注一点。";
+            } else {
+                balanceText = "你有些方面特别关注，有些方面可能忽略了。没关系，慢慢调整就好。";
+            }
+
+            // 将维度名称转换为更易懂的说法
+            const dimensionNames = {
+                "自我接纳": "接纳真实的自己",
+                "自我关怀": "照顾自己的感受",
+                "自我尊重": "维护自己的边界",
+                "自我认知": "了解自己的内心",
+                "自我实现": "活出自己想要的样子"
+            };
+
+            radarAnalysis.innerHTML = `
+                <p>从图中可以看到，你最擅长<strong>${dimensionNames[strongestCategory]}</strong>，而在<strong>${dimensionNames[weakestCategory]}</strong>方面可能需要多给自己一些关爱。${balanceText}</p>
+            `;
+        }
+
+        // 显示个性化建议 - 使用更温暖的语言
+        function displaySuggestions(categoryScores, totalPercentage) {
+            suggestionsGrid.innerHTML = "";
+
+            // 根据得分生成建议 - 使用更贴近生活的语言
+            const suggestions = [];
+
+            // 根据总分建议
+            if (totalPercentage < 40) {
+                suggestions.push({
+                    title: "每天问自己一句话",
+                    icon: "fas fa-heart",
+                    description: "每天早晨，问问自己：'我今天需要什么？' 晚上睡前再问：'我今天为自己做了什么？'"
+                });
+                suggestions.push({
+                    title: "像对待好朋友一样对自己",
+                    icon: "fas fa-hands-helping",
+                    description: "当你难过时，想想如果是好朋友遇到同样的事，你会怎么安慰ta？然后对自己说同样温柔的话。"
+                });
+            } else if (totalPercentage < 60) {
+                suggestions.push({
+                    title: "给自己一个小仪式",
+                    icon: "fas fa-spa",
+                    description: "每天留出15分钟，泡杯茶、听听音乐，或者什么都不做，只是安静地和自己待一会儿。"
+                });
+                suggestions.push({
+                    title: "练习说'不'",
+                    icon: "fas fa-comment-slash",
+                    description: "当你感到疲惫时，试着温和但坚定地说'不'。你的感受和需求同样重要。"
+                });
+            } else if (totalPercentage < 80) {
+                suggestions.push({
+                    title: "倾听内心的声音",
+                    icon: "fas fa-brain",
+                    description: "经常停下来问问自己：'这真的是我想要的吗？' 而不是别人期望我做的。"
+                });
+                suggestions.push({
+                    title: "允许自己不够好",
+                    icon: "fas fa-microphone",
+                    description: "允许自己犯错，允许自己不够完美。你不需要做到100分才值得被爱。"
+                });
+            } else {
+                suggestions.push({
+                    title: "分享你的经验",
+                    icon: "fas fa-share-alt",
+                    description: "把你爱自己的经验分享给身边的人，你的温暖可以照亮更多人。"
+                });
+                suggestions.push({
+                    title: "继续深爱自己",
+                    icon: "fas fa-rocket",
+                    description: "你已经做得很好了，继续保持这份对自己的温柔，它会成为你生命中最坚实的力量。"
+                });
+            }
+
+            // 根据最弱维度添加针对性建议
+            const weakestCategory = getWeakestCategory(categoryScores);
+            if (weakestCategory) {
+                suggestions.push({
+                    title: `在${weakestCategory.category}方面多爱自己一点`,
+                    icon: "fas fa-arrow-up",
+                    description: weakestCategory.suggestion
+                });
+            }
+
+            // 根据最强维度添加巩固建议
+            const strongestCategory = getStrongestCategory(categoryScores);
+            if (strongestCategory) {
+                suggestions.push({
+                    title: `继续发挥你在${strongestCategory.category}方面的优势`,
+                    icon: "fas fa-shield-alt",
+                    description: strongestCategory.suggestion
+                });
+            }
+
+            // 渲染建议
+            suggestions.forEach(suggestion => {
+                const suggestionItem = document.createElement('div');
+                suggestionItem.className = 'suggestion-item';
+                suggestionItem.innerHTML = `
+                    <h4><i class="${suggestion.icon}"></i> ${suggestion.title}</h4>
+                    <p>${suggestion.description}</p>
+                `;
+
+                suggestionsGrid.appendChild(suggestionItem);
+            });
+        }
+
+        // 辅助函数：获取最弱维度及建议
+        function getWeakestCategory(categoryScores) {
+            let minPercentage = 100;
+            let weakestCategory = "";
+            let suggestion = "";
+
+            Object.keys(categoryScores).forEach(category => {
+                const scoreData = categoryScores[category];
+                const percentage = Math.round((scoreData.score / scoreData.total) * 100);
+                if (percentage < minPercentage) {
+                    minPercentage = percentage;
+                    weakestCategory = category;
+                }
+            });
+
+            // 根据维度生成建议 - 使用更温暖的语言
+            switch (weakestCategory) {
+                case "自我接纳":
+                    suggestion = "每天睡前，想一件今天你接纳自己的小事，哪怕只是允许自己累了休息。";
+                    break;
+                case "自我关怀":
+                    suggestion = "每周为自己做一件单纯让自己开心的事，比如买个小礼物，或者给自己放个假。";
+                    break;
+                case "自我尊重":
+                    suggestion = "练习在感到不舒服时说'不'，你的感受和别人的感受一样重要。";
+                    break;
+                case "自我认知":
+                    suggestion = "每天花5分钟和自己对话，问问自己：'我今天感觉怎么样？'";
+                    break;
+                case "自我实现":
+                    suggestion = "想想什么让你眼睛发光，然后每周为它做一点小事。";
+                    break;
+            }
+
+            return {
+                category: weakestCategory,
+                suggestion: suggestion
+            };
+        }
+
+        // 辅助函数：获取最强维度及建议
+        function getStrongestCategory(categoryScores) {
+            let maxPercentage = 0;
+            let strongestCategory = "";
+            let suggestion = "";
+
+            Object.keys(categoryScores).forEach(category => {
+                const scoreData = categoryScores[category];
+                const percentage = Math.round((scoreData.score / scoreData.total) * 100);
+                if (percentage > maxPercentage) {
+                    maxPercentage = percentage;
+                    strongestCategory = category;
+                }
+            });
+
+            // 根据维度生成巩固建议 - 使用更温暖的语言
+            switch (strongestCategory) {
+                case "自我接纳":
+                    suggestion = "继续练习接纳不完美的自己，你的真实比完美更动人。";
+                    break;
+                case "自我关怀":
+                    suggestion = "把对自己的温柔延伸到更具挑战的情境中，比如失败或被人批评时。";
+                    break;
+                case "自我尊重":
+                    suggestion = "在复杂的人际关系中继续坚持做自己，同时保持对他人的理解。";
+                    break;
+                case "自我认知":
+                    suggestion = "继续深入了解自己，探索内心更深处的渴望和梦想。";
+                    break;
+                case "自我实现":
+                    suggestion = "基于现在的成长，设定一些让自己眼睛发光的新目标。";
+                    break;
+            }
+
+            return {
+                category: strongestCategory,
+                suggestion: suggestion
+            };
+        }
+
+        // 重新测试
+        function retakeTest() {
+            // 重置测试状态
+            currentQuestion = 0;
+            userAnswers = new Array(testQuestions.length).fill(0);
+            testStarted = false;
+
+            // 返回测试页面
+            resultPage.classList.remove('active');
+            testPage.classList.add('active');
+            displayQuestion(currentQuestion);
+
+            // 移动端优化：确保页面滚动到顶部
+            window.scrollTo(0, 0);
+        }
+
+        // 返回首页
+        function goHome() {
+            // 重置测试状态
+            currentQuestion = 0;
+            userAnswers = new Array(testQuestions.length).fill(0);
+            testStarted = false;
+
+            // 返回首页
+            resultPage.classList.remove('active');
+            homePage.classList.add('active');
+
+            // 移动端优化：确保页面滚动到顶部
+            window.scrollTo(0, 0);
+        }
+
+        // 页面加载完成后初始化
+        document.addEventListener('DOMContentLoaded', init);
+
+        // 移动端优化：处理视口变化
+        window.addEventListener('resize', function () {
+            // 重新绘制雷达图以适应新尺寸
+            if (resultPage.classList.contains('active')) {
+                const categoryScores = calculateCategoryScoresFromAnswers();
+                if (categoryScores) {
+                    displayRadarChart(categoryScores);
+                }
+            }
+        });
+
+        // 辅助函数：从答案计算分类分数
+        function calculateCategoryScoresFromAnswers() {
+            if (!userAnswers.some(answer => answer !== 0)) return null;
+
+            let categoryScores = {
+                "自我接纳": { score: 0, total: 0, color: "#9d7bff", icon: "fas fa-heart" },
+                "自我关怀": { score: 0, total: 0, color: "#ff7eb3", icon: "fas fa-hands" },
+                "自我尊重": { score: 0, total: 0, color: "#7c5cf2", icon: "fas fa-crown" },
+                "自我认知": { score: 0, total: 0, color: "#7bdff2", icon: "fas fa-brain" },
+                "自我实现": { score: 0, total: 0, color: "#ffb366", icon: "fas fa-rocket" }
+            };
+
+            testQuestions.forEach((question, index) => {
+                let answerValue = userAnswers[index];
+                if (answerValue === 0) return;
+
+                // 如果是反向题目，反转计分（1->5, 2->4, 3->3, 4->2, 5->1）
+                if (question.reverse) {
+                    answerValue = 6 - answerValue;
+                }
+
+                // 计算分类分数
+                if (categoryScores[question.category]) {
+                    categoryScores[question.category].score += answerValue;
+                    categoryScores[question.category].total += 5; // 每道题最大5分
+                }
+            });
+
+            return categoryScores;
+        }
+    </script>
+</body>
+
+</html>
