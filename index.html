@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>爱自己程度测试 | 心理学测评</title>
+    <title>你有多久没好好爱自己了 | 自我关怀测试</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         * {
@@ -16,9 +16,9 @@
         }
 
         :root {
-            --primary-color: #9d7bff;
-            --secondary-color: #7c5cf2;
-            --accent-color: #ff7eb3;
+            --primary-color: #ff7eb3;
+            --secondary-color: #ff6b9d;
+            --accent-color: #9d7bff;
             --accent-color2: #7bdff2;
             --accent-color3: #b8f2e6;
             --accent-color4: #ffb366;
@@ -28,6 +28,12 @@
             --glass-bg: rgba(255, 255, 255, 0.15);
             --glass-border: rgba(255, 255, 255, 0.2);
             --shadow: 0 8px 32px rgba(31, 38, 135, 0.15);
+            --white: #ffffff;
+            --light-pink: #ffd6e7;
+            --dark-pink: #ff5e8e;
+            --danger: #ff6b6b;
+            --report-color: #ff8fab;
+            /* 新增报告标题颜色 */
 
             /* 移动端字体大小 */
             --font-size-xs: 12px;
@@ -52,7 +58,7 @@
         }
 
         body {
-            background: linear-gradient(135deg, #e0c3fc 0%, #8ec5fc 100%);
+            background: linear-gradient(135deg, #ffd6e7 0%, #c1f0ff 100%);
             min-height: 100vh;
             display: flex;
             justify-content: center;
@@ -152,6 +158,38 @@
             line-height: 1.5;
         }
 
+        /* 小红书按钮样式 */
+        .xiaohongshu-btn {
+            background: linear-gradient(135deg, #ff2442, #ff5e7d);
+            color: white;
+            border: none;
+            padding: var(--spacing-lg) var(--spacing-xl);
+            font-size: var(--font-size-md);
+            border-radius: 12px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 12px rgba(255, 36, 66, 0.3);
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: var(--spacing-sm);
+            font-weight: 600;
+            width: 100%;
+            max-width: 320px;
+            height: 52px;
+            margin-top: var(--spacing-xl);
+            text-decoration: none;
+        }
+
+        .xiaohongshu-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 16px rgba(255, 36, 66, 0.4);
+        }
+
+        .xiaohongshu-btn i {
+            font-size: var(--font-size-lg);
+        }
+
         .btn {
             background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
             color: white;
@@ -161,7 +199,7 @@
             border-radius: 16px;
             cursor: pointer;
             transition: all 0.3s ease;
-            box-shadow: 0 6px 20px rgba(157, 123, 255, 0.3);
+            box-shadow: 0 6px 20px rgba(255, 126, 179, 0.3);
             display: inline-flex;
             align-items: center;
             justify-content: center;
@@ -170,11 +208,12 @@
             width: 100%;
             max-width: 320px;
             height: 56px;
+            text-decoration: none;
         }
 
         .btn:hover {
             transform: translateY(-3px);
-            box-shadow: 0 10px 25px rgba(157, 123, 255, 0.4);
+            box-shadow: 0 10px 25px rgba(255, 126, 179, 0.4);
         }
 
         .btn:active {
@@ -209,20 +248,6 @@
             width: 0%;
             transition: width 0.5s ease;
             border-radius: 10px;
-        }
-
-        /* 进度指示器 - 修改为无描边，水平居中 */
-        .progress-marker {
-            position: absolute;
-            top: 50%;
-            transform: translate(-50%, -50%);
-            width: 24px;
-            height: 24px;
-            background: white;
-            border-radius: 50%;
-            box-shadow: 0 4px 12px rgba(157, 123, 255, 0.4);
-            z-index: 10;
-            border: none;
         }
 
         .question-container {
@@ -261,7 +286,7 @@
         }
 
         .option.selected {
-            background: rgba(157, 123, 255, 0.15);
+            background: rgba(255, 126, 179, 0.15);
             border-color: var(--primary-color);
         }
 
@@ -309,7 +334,7 @@
             border-radius: 12px;
             cursor: pointer;
             transition: all 0.3s ease;
-            box-shadow: 0 4px 12px rgba(157, 123, 255, 0.3);
+            box-shadow: 0 4px 12px rgba(255, 126, 179, 0.3);
             display: flex;
             align-items: center;
             justify-content: center;
@@ -321,7 +346,7 @@
 
         .nav-btn:hover {
             transform: translateY(-2px);
-            box-shadow: 0 6px 16px rgba(157, 123, 255, 0.4);
+            box-shadow: 0 6px 16px rgba(255, 126, 179, 0.4);
         }
 
         .nav-btn:active {
@@ -410,10 +435,15 @@
             margin-top: var(--spacing-xs);
         }
 
+        /* 修改报告标题颜色为粉色系渐变 */
         .result-title {
             font-size: var(--font-size-2xl);
             margin-bottom: var(--spacing-lg);
             font-weight: 700;
+            background: linear-gradient(135deg, var(--report-color), var(--primary-color));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            letter-spacing: -0.5px;
         }
 
         /* 得分指示条样式 */
@@ -436,7 +466,7 @@
             overflow: hidden;
         }
 
-        /* 修改指示器标记为无描边，水平居中 */
+        /* 指示器标记 */
         .indicator-marker {
             position: absolute;
             top: 50%;
@@ -587,11 +617,11 @@
 
         /* 标签颜色类 */
         .tag-color-1 {
-            background: linear-gradient(135deg, #9d7bff, #7c5cf2);
+            background: linear-gradient(135deg, #ff7eb3, #ff6b9d);
         }
 
         .tag-color-2 {
-            background: linear-gradient(135deg, #ff7eb3, #ff6b9d);
+            background: linear-gradient(135deg, #9d7bff, #7c5cf2);
         }
 
         .tag-color-3 {
@@ -694,6 +724,31 @@
             font-size: var(--font-size-md);
         }
 
+        /* 爱自己宣言 - 去除斜体 */
+        .declaration-section {
+            background: linear-gradient(135deg, rgba(255, 126, 179, 0.1), rgba(157, 123, 255, 0.1));
+            border-radius: 16px;
+            padding: var(--spacing-xl);
+            margin-top: var(--spacing-2xl);
+            text-align: center;
+            border-left: 4px solid var(--primary-color);
+        }
+
+        .declaration-section h3 {
+            color: var(--primary-color);
+            font-size: var(--font-size-xl);
+            margin-bottom: var(--spacing-lg);
+            font-weight: 600;
+        }
+
+        .declaration-text {
+            font-size: var(--font-size-lg);
+            color: var(--dark-color);
+            line-height: 1.6;
+            margin-bottom: var(--spacing-lg);
+            font-weight: 500;
+        }
+
         /* 科学理论依据 */
         .theory-section {
             background: rgba(255, 255, 255, 0.15);
@@ -737,7 +792,7 @@
             border-radius: 12px;
             cursor: pointer;
             transition: all 0.3s ease;
-            box-shadow: 0 4px 12px rgba(157, 123, 255, 0.3);
+            box-shadow: 0 4px 12px rgba(255, 126, 179, 0.3);
             display: flex;
             align-items: center;
             justify-content: center;
@@ -750,11 +805,171 @@
 
         .action-btn:hover {
             transform: translateY(-2px);
-            box-shadow: 0 6px 16px rgba(157, 123, 255, 0.4);
+            box-shadow: 0 6px 16px rgba(255, 126, 179, 0.4);
         }
 
         .action-btn:active {
             transform: translateY(0);
+        }
+
+        /* 兑换码弹窗样式 */
+        .code-modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 2000;
+            justify-content: center;
+            align-items: center;
+            backdrop-filter: blur(3px);
+            padding: 15px;
+        }
+
+        .code-modal.active {
+            display: flex;
+            animation: modalFadeIn 0.3s ease;
+        }
+
+        @keyframes modalFadeIn {
+            from {
+                opacity: 0;
+            }
+
+            to {
+                opacity: 1;
+            }
+        }
+
+        .modal-content {
+            background: var(--white);
+            padding: 25px 20px;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            max-width: 500px;
+            width: 100%;
+            text-align: center;
+            position: relative;
+            border: 2px solid var(--light-pink);
+            animation: modalSlideUp 0.3s ease;
+        }
+
+        @keyframes modalSlideUp {
+            from {
+                transform: translateY(20px);
+                opacity: 0;
+            }
+
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        .modal-close {
+            position: absolute;
+            top: 12px;
+            right: 15px;
+            font-size: 1.6rem;
+            cursor: pointer;
+            color: var(--light-pink);
+            transition: all 0.3s ease;
+            width: 30px;
+            height: 30px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+        }
+
+        .modal-close:hover {
+            color: var(--dark-pink);
+            background-color: rgba(255, 182, 193, 0.2);
+            transform: rotate(90deg);
+        }
+
+        .modal-icon {
+            font-size: 48px;
+            color: var(--primary-color);
+            margin-bottom: 15px;
+        }
+
+        .modal-title {
+            font-size: var(--font-size-xl);
+            color: var(--dark-color);
+            margin-bottom: 10px;
+            font-weight: 700;
+        }
+
+        .modal-description {
+            color: #5a5678;
+            margin-bottom: 20px;
+            font-size: var(--font-size-md);
+            line-height: 1.5;
+        }
+
+        .code-input {
+            width: 100%;
+            padding: 16px 18px;
+            border: 2px solid var(--light-pink);
+            border-radius: 12px;
+            font-size: 1.1rem;
+            margin-bottom: 15px;
+            text-align: center;
+            transition: all 0.3s ease;
+            background-color: rgba(255, 214, 231, 0.2);
+            color: var(--dark-pink);
+            font-weight: 600;
+        }
+
+        .code-input:focus {
+            outline: none;
+            border-color: var(--primary-color);
+            box-shadow: 0 0 0 3px rgba(255, 94, 142, 0.2);
+            transform: translateY(-2px);
+        }
+
+        .code-error {
+            color: var(--danger);
+            margin-bottom: 15px;
+            min-height: 20px;
+            font-weight: 600;
+            font-size: 0.9rem;
+        }
+
+        .modal-buttons {
+            display: flex;
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+
+        .modal-buttons .btn {
+            flex: 1;
+            height: 48px;
+            font-size: var(--font-size-md);
+        }
+
+        .btn-secondary {
+            background: linear-gradient(135deg, #b8b8b8, #a0a0a0);
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+        }
+
+        .modal-footer-info {
+            font-size: var(--font-size-sm);
+            color: #888;
+            border-top: 1px solid #eee;
+            padding-top: 15px;
+            margin-top: 10px;
+        }
+
+        .modal-footer-info i {
+            color: var(--primary-color);
+            margin-right: 5px;
         }
 
         /* 平板和桌面端样式 */
@@ -803,6 +1018,13 @@
                 max-width: none;
                 padding: 18px 45px;
                 font-size: 1.3rem;
+            }
+
+            .xiaohongshu-btn {
+                width: auto;
+                max-width: none;
+                padding: 18px 45px;
+                font-size: 1.1rem;
             }
 
             .score-ring-container {
@@ -985,32 +1207,32 @@
         <!-- 首页 -->
         <div id="home-page" class="glass-card page active">
             <div class="logo">
-                <i class="fas fa-heart"></i>
+                <i class="fas fa-heart-crack"></i>
             </div>
-            <h1>你真的爱自己吗测试</h1>
-            <p class="subtitle">你是否常常照顾别人却忘了照顾自己？通过50道贴近生活的问题，了解你内心深处对自己的接纳与关怀程度。给自己一点时间，听听内心的声音。</p>
+            <h1>你有多久没好好爱自己了？</h1>
+            <p class="subtitle">在忙碌的生活中，我们常常忘了最重要的人——自己。通过50道贴近生活的问题，评估你在自我关怀、自我奖励和身心平衡方面的表现，重新找回爱自己的方式。</p>
 
             <div class="features">
                 <div class="feature">
                     <div class="feature-icon">
-                        <i class="fas fa-brain"></i>
+                        <i class="fas fa-heart"></i>
                     </div>
-                    <h3>贴近生活</h3>
-                    <p>问题都来自日常生活的真实感受</p>
+                    <h3>50道生活化题目</h3>
+                    <p>从5个维度全面评估你的自我关怀状态</p>
                 </div>
                 <div class="feature">
                     <div class="feature-icon">
                         <i class="fas fa-chart-bar"></i>
                     </div>
-                    <h3>温暖分析</h3>
-                    <p>用温暖的语言帮你看见自己的闪光点</p>
+                    <h3>温暖分析报告</h3>
+                    <p>用温暖的语言帮你看见自己的需求，找回爱自己的力量</p>
                 </div>
                 <div class="feature">
                     <div class="feature-icon">
-                        <i class="fas fa-user-check"></i>
+                        <i class="fas fa-hand-holding-heart"></i>
                     </div>
-                    <h3>50道题目</h3>
-                    <p>涵盖自我关怀、边界感、情绪觉察等</p>
+                    <h3>实用改善建议</h3>
+                    <p>提供可立即实践的自我关怀小方法</p>
                 </div>
             </div>
 
@@ -1018,6 +1240,11 @@
                 <span>开始测试</span>
                 <i class="fas fa-arrow-right"></i>
             </button>
+
+            <a href="https://xhslink.com/m/VBG910lgrY" target="_blank" class="xiaohongshu-btn">
+                <i class="fab fa-weixin"></i>
+                <span>小红书获取兑换码</span>
+            </a>
         </div>
 
         <!-- 测试页面 -->
@@ -1025,7 +1252,6 @@
             <div class="progress-container">
                 <div class="progress-bar">
                     <div class="progress-fill" id="progress-fill"></div>
-                    <div class="progress-marker" id="progress-marker"></div>
                 </div>
             </div>
 
@@ -1052,7 +1278,7 @@
         <!-- 结果页面 -->
         <div id="result-page" class="glass-card page">
             <div class="result-header">
-                <h1 class="result-title">你的爱自己程度测试结果</h1>
+                <h1 class="result-title">你的自我关怀报告</h1>
 
                 <!-- 鼓励文字 -->
                 <div class="encouragement-text" id="encouragement-text">
@@ -1064,8 +1290,8 @@
                     <svg class="score-ring" viewBox="0 0 200 200">
                         <defs>
                             <linearGradient id="ring-gradient" x1="0%" y1="0%" x2="100%" y2="0%">
-                                <stop offset="0%" style="stop-color:#9d7bff;stop-opacity:1" />
-                                <stop offset="100%" style="stop-color:#ff7eb3;stop-opacity:1" />
+                                <stop offset="0%" style="stop-color:#ff7eb3;stop-opacity:1" />
+                                <stop offset="100%" style="stop-color:#9d7bff;stop-opacity:1" />
                             </linearGradient>
                         </defs>
                         <circle class="score-ring-circle score-ring-bg" cx="100" cy="100" r="90"></circle>
@@ -1074,7 +1300,7 @@
                     </svg>
                     <div class="score-ring-center">
                         <div class="score-ring-number" id="score-ring-number">0</div>
-                        <div class="score-ring-label">总得分</div>
+                        <div class="score-ring-label">自我关怀指数</div>
                     </div>
                 </div>
             </div>
@@ -1086,11 +1312,11 @@
                         <div class="indicator-marker" id="indicator-marker"></div>
                     </div>
                     <div class="indicator-labels">
-                        <div class="indicator-label">照顾他人忘了自己<br>(0-20分)</div>
-                        <div class="indicator-label">开始觉察自我需求<br>(21-40分)</div>
-                        <div class="indicator-label">学习关爱自己<br>(41-60分)</div>
-                        <div class="indicator-label">懂得心疼自己<br>(61-80分)</div>
-                        <div class="indicator-label">深深爱着自己<br>(81-100分)</div>
+                        <div class="indicator-label">严重忽视自己<br>(0-20分)</div>
+                        <div class="indicator-label">经常忽略自己<br>(21-40分)</div>
+                        <div class="indicator-label">偶尔照顾自己<br>(41-60分)</div>
+                        <div class="indicator-label">比较关爱自己<br>(61-80分)</div>
+                        <div class="indicator-label">非常爱自己<br>(81-100分)</div>
                     </div>
                 </div>
 
@@ -1102,7 +1328,7 @@
 
             <!-- 维度得分 - 大数字样式 -->
             <div class="big-number-section">
-                <h3 class="section-title">你在这些方面做得如何</h3>
+                <h3 class="section-title">你在这些方面的表现</h3>
                 <div class="big-number-container" id="big-number-container">
                     <!-- 大数字卡片将通过JavaScript动态生成 -->
                 </div>
@@ -1110,9 +1336,17 @@
 
             <!-- 状态标签 - 不同颜色 -->
             <div class="big-number-section">
-                <h3 class="section-title">你的自爱状态标签</h3>
+                <h3 class="section-title">你的自我关怀状态标签</h3>
                 <div class="tags-container" id="tags-container">
                     <!-- 标签将通过JavaScript动态生成 -->
+                </div>
+            </div>
+
+            <!-- 爱自己宣言 -->
+            <div class="declaration-section">
+                <h3>你的爱自己宣言</h3>
+                <div class="declaration-text" id="declaration-text">
+                    我值得被爱，我值得被善待，我值得拥有美好的一切。
                 </div>
             </div>
 
@@ -1155,78 +1389,109 @@
         </div>
     </div>
 
+    <!-- 兑换码弹窗 -->
+    <div id="code-modal" class="code-modal">
+        <div class="modal-content">
+            <div class="modal-close" id="modal-close">&times;</div>
+            <div class="modal-icon">
+                <i class="fas fa-key"></i>
+            </div>
+            <h2 class="modal-title">请输入兑换码</h2>
+            <p class="modal-description">请输入您在小红书购买的兑换码，验证通过后即可开始自我关怀测试</p>
+
+            <input type="text" id="code-input" class="code-input" placeholder="输入兑换码（如：PSYCH001）">
+            <div id="code-error" class="code-error"></div>
+
+            <div class="modal-buttons">
+                <button id="cancel-btn" class="btn btn-secondary">取消</button>
+                <button id="confirm-btn" class="btn btn-primary">确认</button>
+            </div>
+
+            <div class="modal-footer-info">
+                <p>
+                    <i class="fas fa-info-circle"></i> 提示：每个兑换码仅限使用一次，验证成功后24小时内可无限次访问
+                </p>
+            </div>
+        </div>
+    </div>
+
     <script>
-        // 测试数据 - 基于心理学自爱理论设计的50道题目，加入更多日常生活问题
+        // 测试数据 - 50道优质题目，分为5个维度
         const testQuestions = [
-            // 自我接纳维度 (1-10) - 加入日常生活问题
-            { id: 1, text: "我能接受自己的不完美，不会过度苛责自己", category: "自我接纳", reverse: false },
-            { id: 2, text: "我经常对自己不满意，总想成为别人", category: "自我接纳", reverse: true },
-            { id: 3, text: "我认可自己的独特价值，不需要与他人比较", category: "自我接纳", reverse: false },
-            { id: 4, text: "我常常因为外表或能力不足而感到自卑", category: "自我接纳", reverse: true },
-            { id: 5, text: "我能够接纳过去的经历，即使是失败或遗憾", category: "自我接纳", reverse: false },
-            { id: 6, text: "犯错误时，我会严厉批评自己很久", category: "自我接纳", reverse: true },
-            { id: 7, text: "我相信自己值得被爱，不需要刻意证明", category: "自我接纳", reverse: false },
-            { id: 8, text: "为了工作/学习，你多久没碰自己真正的爱好了？", category: "自我接纳", reverse: true },
-            { id: 9, text: "我欣赏自己的成长，即使进步微小", category: "自我接纳", reverse: false },
-            { id: 10, text: "我觉得自己不值得拥有美好的事物", category: "自我接纳", reverse: true },
+            // 维度一：自我接纳与自我肯定 (1-10)
+            { id: 1, text: "当别人批评我时，我容易陷入自我怀疑和否定", category: "自我接纳与肯定", reverse: true },
+            { id: 2, text: "我能接纳自己的不完美，允许自己犯错和成长", category: "自我接纳与肯定", reverse: false },
+            { id: 3, text: "我经常拿自己的短处和别人的长处比较", category: "自我接纳与肯定", reverse: true },
+            { id: 4, text: "我相信自己值得被爱和尊重，无需证明什么", category: "自我接纳与肯定", reverse: false },
+            { id: 5, text: "我内心常常有一个声音在指责自己不够好", category: "自我接纳与肯定", reverse: true },
+            { id: 6, text: "我能够欣赏自己的优点和长处", category: "自我接纳与肯定", reverse: false },
+            { id: 7, text: "我害怕暴露真实的自己，担心不被接受", category: "自我接纳与肯定", reverse: true },
+            { id: 8, text: "我对自己有合理的期望，不苛求完美", category: "自我接纳与肯定", reverse: false },
+            { id: 9, text: "当事情不顺利时，我容易责怪自己", category: "自我接纳与肯定", reverse: true },
+            { id: 10, text: "我为自己的进步和成就感到自豪", category: "自我接纳与肯定", reverse: false },
 
-            // 自我关怀维度 (11-20) - 加入日常生活问题
-            { id: 11, text: "遇到困难时，我会像安慰朋友一样安慰自己", category: "自我关怀", reverse: false },
-            { id: 12, text: "我感到痛苦时，常常忽略或压抑这些感受", category: "自我关怀", reverse: true },
-            { id: 13, text: "我会主动照顾自己的身心健康", category: "自我关怀", reverse: false },
-            { id: 14, text: "我对自己要求严格，很少允许自己放松", category: "自我关怀", reverse: true },
-            { id: 15, text: "失败时，我会鼓励自己继续尝试", category: "自我关怀", reverse: false },
-            { id: 16, text: "我常常因为照顾他人而忽视自己的需求", category: "自我关怀", reverse: true },
-            { id: 17, text: "我能识别情绪并给予自己适当的关怀", category: "自我关怀", reverse: false },
-            { id: 18, text: "你最近一次为自己买一束花、一份礼物，或任何单纯取悦自己的东西是什么时候？", category: "自我关怀", reverse: true },
-            { id: 19, text: "我会设定健康界限，保护自己的精力", category: "自我关怀", reverse: false },
-            { id: 20, text: "我常常因工作责任而忽略休息和娱乐", category: "自我关怀", reverse: true },
+            // 维度二：身心关怀与自我照顾 (11-20)
+            { id: 11, text: "我经常忽视身体的疲劳信号，继续硬撑", category: "身心关怀", reverse: true },
+            { id: 12, text: "我会关注身体需求，累了就休息，饿了就吃饭", category: "身心关怀", reverse: false },
+            { id: 13, text: "我很久没有做身体检查或关注健康状况了", category: "身心关怀", reverse: true },
+            { id: 14, text: "我会定期进行适量的运动或放松活动", category: "身心关怀", reverse: false },
+            { id: 15, text: "我经常为了完成任务而牺牲睡眠", category: "身心关怀", reverse: true },
+            { id: 16, text: "我注重睡眠质量，尽量保证充足休息", category: "身心关怀", reverse: false },
+            { id: 17, text: "当感到压力时，我常常压抑情绪", category: "身心关怀", reverse: true },
+            { id: 18, text: "当我感到压力时，会主动寻找方式缓解", category: "身心关怀", reverse: false },
+            { id: 19, text: "我很少关注自己的情绪和内心感受", category: "身心关怀", reverse: true },
+            { id: 20, text: "我会定期进行冥想、深呼吸等放松练习", category: "身心关怀", reverse: false },
 
-            // 自我尊重维度 (21-30) - 加入日常生活问题
-            { id: 21, text: "我坚信自己值得被尊重和珍视", category: "自我尊重", reverse: false },
-            { id: 22, text: "我常常为取悦他人而牺牲自己的价值观", category: "自我尊重", reverse: true },
-            { id: 23, text: "即使他人不同意，我仍会坚持自己的观点", category: "自我尊重", reverse: false },
-            { id: 24, text: "我害怕被拒绝，不敢表达真实想法", category: "自我尊重", reverse: true },
-            { id: 25, text: "我尊重自己的身体，不会为迎合他人而伤害自己", category: "自我尊重", reverse: false },
-            { id: 26, text: "我常常允许他人越过我的个人界限", category: "自我尊重", reverse: true },
-            { id: 27, text: "我相信自己的判断和决策能力", category: "自我尊重", reverse: false },
-            { id: 28, text: "你需要他人认可才能感到自己有价值", category: "自我尊重", reverse: true },
-            { id: 29, text: "我为自己的成就感到自豪，不会过度谦虚", category: "自我尊重", reverse: false },
-            { id: 30, text: "我常因害怕失败而不敢追求想要的东西", category: "自我尊重", reverse: true },
+            // 维度三：工作生活平衡与界限设定 (21-30)
+            { id: 21, text: "我经常为了工作/学习而占用休息和娱乐时间", category: "工作生活平衡", reverse: true },
+            { id: 22, text: "我能够合理安排时间，确保有足够的休息", category: "工作生活平衡", reverse: false },
+            { id: 23, text: "我经常因为工作压力而忽略基本需求", category: "工作生活平衡", reverse: true },
+            { id: 24, text: "我会为自己设定合理的工作界限", category: "工作生活平衡", reverse: false },
+            { id: 25, text: "我经常加班或熬夜完成任务", category: "工作生活平衡", reverse: true },
+            { id: 26, text: "我能够在工作与生活中找到平衡点", category: "工作生活平衡", reverse: false },
+            { id: 27, text: "即使很忙，我也会确保有短暂的休息", category: "工作生活平衡", reverse: false },
+            { id: 28, text: "我经常牺牲周末时间来处理工作事务", category: "工作生活平衡", reverse: true },
+            { id: 29, text: "我能及时下班/放学，给自己留出个人时间", category: "工作生活平衡", reverse: false },
+            { id: 30, text: "即使很累，我也很难允许自己完全放松休息", category: "工作生活平衡", reverse: true },
 
-            // 自我认知维度 (31-40) - 加入日常生活问题
-            { id: 31, text: "我清楚自己的核心价值观和生活目标", category: "自我认知", reverse: false },
-            { id: 32, text: "我常常感到迷茫，不知自己真正想要什么", category: "自我认知", reverse: true },
-            { id: 33, text: "我了解自己的优势与弱点，能设定合理期望", category: "自我认知", reverse: false },
-            { id: 34, text: "我常因不了解自己而做出违背内心的决定", category: "自我认知", reverse: true },
-            { id: 35, text: "我能识别情绪并理解其来源", category: "自我认知", reverse: false },
-            { id: 36, text: "我常常压抑情感，不去探究其意义", category: "自我认知", reverse: true },
-            { id: 37, text: "我定期反思自己的成长和变化", category: "自我认知", reverse: false },
-            { id: 38, text: "你多久没有真正倾听自己内心的声音了？", category: "自我认知", reverse: true },
-            { id: 39, text: "我知道什么能让我真正快乐和满足", category: "自我认知", reverse: false },
-            { id: 40, text: "我常依赖他人意见来定义自己是谁", category: "自我认知", reverse: true },
+            // 维度四：自我奖励与自我滋养 (31-40)
+            { id: 31, text: "我很久没有给自己买礼物或奖励自己了", category: "自我奖励", reverse: true },
+            { id: 32, text: "我会定期做一些单纯让自己开心的事", category: "自我奖励", reverse: false },
+            { id: 33, text: "我觉得给自己花钱是奢侈或不必要的", category: "自我奖励", reverse: true },
+            { id: 34, text: "完成重要任务后，我会给自己一些小奖励", category: "自我奖励", reverse: false },
+            { id: 35, text: "我经常把资源（时间、金钱）留给别人", category: "自我奖励", reverse: true },
+            { id: 36, text: "我允许自己享受生活中的小确幸", category: "自我奖励", reverse: false },
+            { id: 37, text: "我觉得自己不配拥有美好的东西", category: "自我奖励", reverse: true },
+            { id: 38, text: "我会用自己喜欢的方式犒劳辛苦的自己", category: "自我奖励", reverse: false },
+            { id: 39, text: "我已经记不清上次纯粹为自己庆祝是什么时候", category: "自我奖励", reverse: true },
+            { id: 40, text: "我会为自己买需要的东西，不总等特殊场合", category: "自我奖励", reverse: false },
 
-            // 自我实现维度 (41-50) - 加入日常生活问题
-            { id: 41, text: "我正在追求与我的核心价值观一致的生活目标", category: "自我实现", reverse: false },
-            { id: 42, text: "我感到生活缺乏意义和目标感", category: "自我实现", reverse: true },
-            { id: 43, text: "我能够发挥自己的潜能，成为更好的自己", category: "自我实现", reverse: false },
-            { id: 44, text: "我常常感到被困住，无法追求自己真正想要的生活", category: "自我实现", reverse: true },
-            { id: 45, text: "我对未来充满希望和期待", category: "自我实现", reverse: false },
-            { id: 46, text: "你觉得自己的生活缺乏方向和目的", category: "自我实现", reverse: true },
-            { id: 47, text: "我正在学习和成长，努力成为理想的自己", category: "自我实现", reverse: false },
-            { id: 48, text: "我感到自己的潜力没有得到充分发挥", category: "自我实现", reverse: true },
-            { id: 49, text: "我的生活与我的内在价值观是一致的", category: "自我实现", reverse: false },
-            { id: 50, text: "你是否经常因为忙碌而忘记照顾自己的基本需求？", category: "自我实现", reverse: true }
+            // 维度五：自我价值与边界维护 (41-50)
+            { id: 41, text: "我很难拒绝别人的请求，即使这会让我很累", category: "自我价值与边界", reverse: true },
+            { id: 42, text: "我能够设定健康的界限，保护自己的时间和精力", category: "自我价值与边界", reverse: false },
+            { id: 43, text: "我常常为了取悦他人而忽略自己的需求", category: "自我价值与边界", reverse: true },
+            { id: 44, text: "我相信自己的需求和他人的需求一样重要", category: "自我价值与边界", reverse: false },
+            { id: 45, text: "我经常因害怕让别人失望而勉强自己", category: "自我价值与边界", reverse: true },
+            { id: 46, text: "我能够温和但坚定地表达自己的需求和界限", category: "自我价值与边界", reverse: false },
+            { id: 47, text: "我觉得自己的时间没有别人的时间有价值", category: "自我价值与边界", reverse: true },
+            { id: 48, text: "我尊重自己的时间和安排，不轻易被打乱", category: "自我价值与边界", reverse: false },
+            { id: 49, text: "我经常把自己放在最后考虑", category: "自我价值与边界", reverse: true },
+            { id: 50, text: "我认为照顾好自己是对他人负责的前提", category: "自我价值与边界", reverse: false }
         ];
 
         // 答案选项
         const answerOptions = [
-            { text: "非常不符合", value: 1 },
-            { text: "不太符合", value: 2 },
-            { text: "一般", value: 3 },
-            { text: "比较符合", value: 4 },
-            { text: "非常符合", value: 5 }
+            { text: "从不", value: 1 },
+            { text: "偶尔", value: 2 },
+            { text: "有时", value: 3 },
+            { text: "经常", value: 4 },
+            { text: "总是", value: 5 }
         ];
+
+        // 兑换码相关全局变量
+        let isCodeValidated = false;
+        let accessToken = null;
+        const EDGE_FUNCTION_URL = 'https://whxquysnluktjhkfnsql.supabase.co/functions/v1/validate-redemption-code';
 
         // 全局变量
         let currentQuestion = 0;
@@ -1241,7 +1506,6 @@
         const questionText = document.getElementById('question-text');
         const optionsContainer = document.getElementById('options-container');
         const progressFill = document.getElementById('progress-fill');
-        const progressMarker = document.getElementById('progress-marker');
         const nextBtn = document.getElementById('next-btn');
         const prevBtn = document.getElementById('prev-btn');
         const scoreRingNumber = document.getElementById('score-ring-number');
@@ -1255,15 +1519,119 @@
         const suggestionsGrid = document.getElementById('suggestions-grid');
         const retakeBtn = document.getElementById('retake-btn');
         const homeBtn = document.getElementById('home-btn');
+        const declarationText = document.getElementById('declaration-text');
+
+        // 检查是否已经验证过兑换码（24小时内有效）
+        function checkAccess() {
+            const savedToken = localStorage.getItem('psych_access_token');
+            const savedTime = localStorage.getItem('psych_access_time');
+
+            if (savedToken && savedTime) {
+                const currentTime = new Date().getTime();
+                const accessTime = parseInt(savedTime);
+                if (currentTime - accessTime < 24 * 60 * 60 * 1000) {
+                    isCodeValidated = true;
+                    accessToken = savedToken;
+                    return true;
+                } else {
+                    localStorage.removeItem('psych_access_token');
+                    localStorage.removeItem('psych_access_time');
+                }
+            }
+            return false;
+        }
+
+        // 验证兑换码（通过 Edge Function）
+        async function validateCode(inputCode) {
+            const errorElement = document.getElementById('code-error');
+
+            if (!inputCode) {
+                errorElement.textContent = "请输入兑换码";
+                return false;
+            }
+
+            errorElement.textContent = "验证中...";
+
+            try {
+                // 调用 Edge Function 验证兑换码
+                const response = await fetch(EDGE_FUNCTION_URL, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({ code: inputCode })
+                });
+
+                const data = await response.json();
+
+                if (!response.ok) {
+                    throw new Error(data.error);
+                }
+
+                // 验证成功，保存访问记录
+                localStorage.setItem('psych_access_token', inputCode);
+                localStorage.setItem('psych_access_time', new Date().getTime().toString());
+
+                isCodeValidated = true;
+                document.getElementById('code-modal').classList.remove('active');
+                startTest();
+                return true;
+
+            } catch (error) {
+                errorElement.textContent = error.message;
+                return false;
+            }
+        }
+
+        // 显示兑换码弹窗
+        function showCodeModal() {
+            document.getElementById('code-modal').classList.add('active');
+            document.getElementById('code-input').value = '';
+            document.getElementById('code-error').textContent = '';
+            document.getElementById('code-input').focus();
+        }
 
         // 初始化
         function init() {
+            // 检查是否已有访问权限
+            if (checkAccess()) {
+                isCodeValidated = true;
+            }
+
             // 事件监听
-            startTestBtn.addEventListener('click', startTest);
+            startTestBtn.addEventListener('click', function () {
+                if (isCodeValidated) {
+                    startTest();
+                } else {
+                    showCodeModal();
+                }
+            });
             nextBtn.addEventListener('click', nextQuestion);
             prevBtn.addEventListener('click', prevQuestion);
             retakeBtn.addEventListener('click', retakeTest);
             homeBtn.addEventListener('click', goHome);
+
+            // 兑换码弹窗事件
+            document.getElementById('modal-close').addEventListener('click', () => {
+                document.getElementById('code-modal').classList.remove('active');
+            });
+
+            document.getElementById('cancel-btn').addEventListener('click', () => {
+                document.getElementById('code-modal').classList.remove('active');
+            });
+
+            document.getElementById('confirm-btn').addEventListener('click', () => {
+                const codeInput = document.getElementById('code-input').value;
+                validateCode(codeInput);
+            });
+
+            // 按回车键确认兑换码
+            document.getElementById('code-input').addEventListener('keypress', (e) => {
+                if (e.key === 'Enter') {
+                    const codeInput = document.getElementById('code-input').value;
+                    validateCode(codeInput);
+                }
+            });
 
             // 初始化问题显示
             displayQuestion(currentQuestion);
@@ -1271,6 +1639,62 @@
             // 移动端优化：确保按钮有足够点击区域
             document.querySelectorAll('.btn, .nav-btn, .action-btn, .option').forEach(el => {
                 el.style.cursor = 'pointer';
+            });
+
+            // 代码保护功能
+            initCodeProtection();
+        }
+
+        // 代码保护功能
+        function initCodeProtection() {
+            document.addEventListener('contextmenu', function (e) {
+                e.preventDefault();
+                return false;
+            });
+
+            document.addEventListener('keydown', function (e) {
+                // 禁用 F12
+                if (e.key === 'F12') {
+                    e.preventDefault();
+                    return false;
+                }
+                // 禁用 Ctrl+Shift+I
+                if (e.ctrlKey && e.shiftKey && e.key === 'I') {
+                    e.preventDefault();
+                    return false;
+                }
+                // 禁用 Ctrl+U
+                if (e.ctrlKey && e.key === 'u') {
+                    e.preventDefault();
+                    return false;
+                }
+                // 禁用 Ctrl+S
+                if (e.ctrlKey && e.key === 's') {
+                    e.preventDefault();
+                    return false;
+                }
+                // 禁用 Ctrl+Shift+J
+                if (e.ctrlKey && e.shiftKey && e.key === 'J') {
+                    e.preventDefault();
+                    return false;
+                }
+                // 禁用 Ctrl+Shift+C
+                if (e.ctrlKey && e.shiftKey && e.key === 'C') {
+                    e.preventDefault();
+                    return false;
+                }
+            });
+
+            // 禁止选择文本
+            document.addEventListener('selectstart', function (e) {
+                e.preventDefault();
+                return false;
+            });
+
+            // 禁止拖拽
+            document.addEventListener('dragstart', function (e) {
+                e.preventDefault();
+                return false;
             });
         }
 
@@ -1292,7 +1716,6 @@
             // 更新进度条
             const progress = ((index + 1) / testQuestions.length) * 100;
             progressFill.style.width = `${progress}%`;
-            progressMarker.style.left = `${progress}%`;
 
             // 生成选项
             optionsContainer.innerHTML = '';
@@ -1384,11 +1807,11 @@
             // 计算总分（反向题目需要反转计分）
             let totalScore = 0;
             let categoryScores = {
-                "自我接纳": { score: 0, total: 0, color: "#9d7bff", icon: "fas fa-heart" },
-                "自我关怀": { score: 0, total: 0, color: "#ff7eb3", icon: "fas fa-hands" },
-                "自我尊重": { score: 0, total: 0, color: "#7c5cf2", icon: "fas fa-crown" },
-                "自我认知": { score: 0, total: 0, color: "#7bdff2", icon: "fas fa-brain" },
-                "自我实现": { score: 0, total: 0, color: "#ffb366", icon: "fas fa-rocket" }
+                "自我接纳与肯定": { score: 0, total: 0, color: "#ff7eb3", icon: "fas fa-heart" },
+                "身心关怀": { score: 0, total: 0, color: "#7bdff2", icon: "fas fa-heartbeat" },
+                "工作生活平衡": { score: 0, total: 0, color: "#ffb366", icon: "fas fa-balance-scale" },
+                "自我奖励": { score: 0, total: 0, color: "#9d7bff", icon: "fas fa-gift" },
+                "自我价值与边界": { score: 0, total: 0, color: "#6bcf7f", icon: "fas fa-shield-alt" }
             };
 
             testQuestions.forEach((question, index) => {
@@ -1435,6 +1858,9 @@
 
             // 显示标签
             displayTags(categoryScores, scorePercentage);
+
+            // 显示爱自己宣言
+            displayDeclaration(scorePercentage);
 
             // 显示雷达图和文字分析
             displayRadarChart(categoryScores);
@@ -1488,24 +1914,12 @@
             scoreRingFill.classList.add('ring-animate');
 
             // 根据分数调整颜色
-            let gradient = "";
-            if (scorePercentage >= 80) {
-                gradient = "#9d7bff, #ff7eb3, #ffd166";
-            } else if (scorePercentage >= 60) {
-                gradient = "#9d7bff, #ff7eb3";
-            } else if (scorePercentage >= 40) {
-                gradient = "#9d7bff, #7bdff2";
-            } else {
-                gradient = "#9d7bff, #b8f2e6";
-            }
-
-            // 动态更新渐变颜色
             const gradientElement = document.querySelector('#ring-gradient stop:last-child');
             if (gradientElement) {
                 if (scorePercentage >= 80) {
-                    gradientElement.setAttribute('style', 'stop-color:#ffd166;stop-opacity:1');
+                    gradientElement.setAttribute('style', 'stop-color:#9d7bff;stop-opacity:1');
                 } else if (scorePercentage >= 60) {
-                    gradientElement.setAttribute('style', 'stop-color:#ff7eb3;stop-opacity:1');
+                    gradientElement.setAttribute('style', 'stop-color:#9d7bff;stop-opacity:1');
                 } else if (scorePercentage >= 40) {
                     gradientElement.setAttribute('style', 'stop-color:#7bdff2;stop-opacity:1');
                 } else {
@@ -1548,19 +1962,19 @@
             let analysisText = "";
 
             if (scorePercentage >= 80) {
-                analysisTitle = "深深爱着自己 - 懂得心疼自己的你";
+                analysisTitle = "非常爱自己 - 懂得心疼自己的你";
                 analysisText = "你真了不起！你懂得如何好好爱自己。你知道自己值得被珍惜，会在累的时候休息，会在难过的时候安慰自己。这种对自己的温柔，让你更有力量去面对生活的挑战。";
             } else if (scorePercentage >= 60) {
-                analysisTitle = "懂得心疼自己 - 正在学习爱自己的你";
+                analysisTitle = "比较关爱自己 - 正在学习爱自己的你";
                 analysisText = "你已经走在爱自己的路上了。有时候你会记得照顾自己，但偶尔还是会忽略自己的感受。没关系，爱自己是一辈子的功课，你已经做得很好了。";
             } else if (scorePercentage >= 40) {
-                analysisTitle = "学习关爱自己 - 开始觉察自我需求的你";
+                analysisTitle = "偶尔照顾自己 - 开始觉察自我需求的你";
                 analysisText = "你是不是常常忙着照顾别人，却忘了照顾自己？开始觉察自己的需求，就是爱自己的第一步。从今天起，每天问自己一次：'我今天需要什么？'";
             } else if (scorePercentage >= 20) {
-                analysisTitle = "开始觉察 - 准备好好爱自己的你";
+                analysisTitle = "经常忽略自己 - 准备好好爱自己的你";
                 analysisText = "你也许总是把自己放在最后，但内心深处，你也渴望被好好对待。给自己一个机会，从今天开始，学着像对待最好的朋友那样对待自己。";
             } else {
-                analysisTitle = "照顾他人忘了自己 - 需要被温柔对待的你";
+                analysisTitle = "严重忽视自己 - 需要被温柔对待的你";
                 analysisText = "我知道你总是把别人的需求放在第一位，却常常忘了自己也需要被关心。从今天起，试着每天为自己做一件小事，哪怕只是喝杯温水，对自己说句'辛苦了'。";
             }
 
@@ -1606,24 +2020,24 @@
             });
         }
 
-        // 显示标签 - 不同颜色，缩小尺寸
+        // 显示标签
         function displayTags(categoryScores, totalPercentage) {
             tagsContainer.innerHTML = "";
 
-            // 根据总分和维度得分生成标签 - 使用更温暖的标签
+            // 根据总分和维度得分生成标签
             const tags = [];
 
             // 总体标签
             if (totalPercentage >= 80) {
-                tags.push("懂得心疼自己", "会照顾自己", "知道自己值得", "内心有力量", "活得自在");
+                tags.push("懂得心疼自己", "会照顾自己", "知道自己值得", "内心有力量", "活得自在", "自我关怀大师");
             } else if (totalPercentage >= 60) {
-                tags.push("正在学习爱自己", "偶尔记得休息", "开始说不", "觉察情绪", "寻找方向");
+                tags.push("正在学习爱自己", "偶尔记得休息", "开始说不", "觉察情绪", "寻找方向", "成长中");
             } else if (totalPercentage >= 40) {
-                tags.push("照顾别人多过自己", "开始觉察需求", "学习设立边界", "倾听内心", "探索可能");
+                tags.push("照顾别人多过自己", "开始觉察需求", "学习设立边界", "倾听内心", "探索可能", "觉醒者");
             } else if (totalPercentage >= 20) {
-                tags.push("常常忽略自己", "需要休息", "学习说'不'", "了解自己", "寻找意义");
+                tags.push("常常忽略自己", "需要休息", "学习说'不'", "了解自己", "寻找意义", "需要关爱");
             } else {
-                tags.push("把别人放第一位", "需要被关心", "学习爱自己", "听见自己", "你是重要的");
+                tags.push("把别人放第一位", "需要被关心", "学习爱自己", "听见自己", "你是重要的", "关爱开始");
             }
 
             // 根据最弱维度添加标签
@@ -1651,6 +2065,25 @@
                 tagElement.textContent = tag;
                 tagsContainer.appendChild(tagElement);
             });
+        }
+
+        // 显示爱自己宣言
+        function displayDeclaration(scorePercentage) {
+            let declaration = "";
+
+            if (scorePercentage >= 80) {
+                declaration = "我值得被爱，我值得拥有美好的一切。我愿意继续用温柔对待自己，因为我是自己生命中最重要的人。";
+            } else if (scorePercentage >= 60) {
+                declaration = "我正在学习如何更好地爱自己。我允许自己犯错，允许自己不够完美，因为我本身就值得被爱。";
+            } else if (scorePercentage >= 40) {
+                declaration = "从今天起，我决定多爱自己一点。我的感受很重要，我的需求值得被满足，我值得被好好对待。";
+            } else if (scorePercentage >= 20) {
+                declaration = "我意识到，我需要被关心、被爱护。我允许自己停下来休息，允许自己说'不'，因为我同样重要。";
+            } else {
+                declaration = "我承认，我常常忽略自己。但从现在开始，我愿意每天为自己做一件小事，因为我值得被爱、被珍惜。";
+            }
+
+            declarationText.textContent = declaration;
         }
 
         // 显示雷达图
@@ -1729,8 +2162,8 @@
             }
 
             // 绘制数据区域
-            ctx.fillStyle = 'rgba(157, 123, 255, 0.3)';
-            ctx.strokeStyle = 'rgba(157, 123, 255, 0.8)';
+            ctx.fillStyle = 'rgba(255, 126, 179, 0.3)';
+            ctx.strokeStyle = 'rgba(255, 126, 179, 0.8)';
             ctx.lineWidth = 4;
 
             ctx.beginPath();
@@ -1752,7 +2185,7 @@
             ctx.stroke();
 
             // 绘制数据点
-            ctx.fillStyle = '#9d7bff';
+            ctx.fillStyle = '#ff7eb3';
             for (let i = 0; i < categories.length; i++) {
                 const percentage = percentages[i];
                 const angle = i * angleStep - Math.PI / 2;
@@ -1770,11 +2203,11 @@
                 ctx.textAlign = 'center';
                 ctx.textBaseline = 'bottom';
                 ctx.fillText(`${percentage}%`, x, y - 12);
-                ctx.fillStyle = '#9d7bff';
+                ctx.fillStyle = '#ff7eb3';
             }
         }
 
-        // 显示雷达图文字分析 - 使用更情感化的语言
+        // 显示雷达图文字分析
         function displayRadarAnalysis(categoryScores) {
             // 计算最弱和最强维度
             let minPercentage = 100;
@@ -1806,25 +2239,16 @@
                 balanceText = "你有些方面特别关注，有些方面可能忽略了。没关系，慢慢调整就好。";
             }
 
-            // 将维度名称转换为更易懂的说法
-            const dimensionNames = {
-                "自我接纳": "接纳真实的自己",
-                "自我关怀": "照顾自己的感受",
-                "自我尊重": "维护自己的边界",
-                "自我认知": "了解自己的内心",
-                "自我实现": "活出自己想要的样子"
-            };
-
             radarAnalysis.innerHTML = `
-                <p>从图中可以看到，你最擅长<strong>${dimensionNames[strongestCategory]}</strong>，而在<strong>${dimensionNames[weakestCategory]}</strong>方面可能需要多给自己一些关爱。${balanceText}</p>
+                <p>从图中可以看到，你最擅长<strong>${strongestCategory}</strong>，而在<strong>${weakestCategory}</strong>方面可能需要多给自己一些关爱。${balanceText}</p>
             `;
         }
 
-        // 显示个性化建议 - 使用更温暖的语言
+        // 显示个性化建议
         function displaySuggestions(categoryScores, totalPercentage) {
             suggestionsGrid.innerHTML = "";
 
-            // 根据得分生成建议 - 使用更贴近生活的语言
+            // 根据得分生成建议
             const suggestions = [];
 
             // 根据总分建议
@@ -1839,6 +2263,16 @@
                     icon: "fas fa-hands-helping",
                     description: "当你难过时，想想如果是好朋友遇到同样的事，你会怎么安慰ta？然后对自己说同样温柔的话。"
                 });
+                suggestions.push({
+                    title: "给自己一个小奖励",
+                    icon: "fas fa-gift",
+                    description: "完成一件小事后，给自己一个小奖励，比如一杯喜欢的饮料，或者看一集喜欢的剧。"
+                });
+                suggestions.push({
+                    title: "建立自我关怀仪式",
+                    icon: "fas fa-spa",
+                    description: "每周安排一个固定的'自我关怀时间'，做让自己放松和开心的事情。"
+                });
             } else if (totalPercentage < 60) {
                 suggestions.push({
                     title: "给自己一个小仪式",
@@ -1849,6 +2283,16 @@
                     title: "练习说'不'",
                     icon: "fas fa-comment-slash",
                     description: "当你感到疲惫时，试着温和但坚定地说'不'。你的感受和需求同样重要。"
+                });
+                suggestions.push({
+                    title: "设定工作界限",
+                    icon: "fas fa-clock",
+                    description: "设定明确的工作时间，下班后就真正休息，不把工作带回家。"
+                });
+                suggestions.push({
+                    title: "建立感恩日记",
+                    icon: "fas fa-book",
+                    description: "每天写下三件感恩自己的事，无论多小都可以，培养对自己的感激之情。"
                 });
             } else if (totalPercentage < 80) {
                 suggestions.push({
@@ -1861,6 +2305,16 @@
                     icon: "fas fa-microphone",
                     description: "允许自己犯错，允许自己不够完美。你不需要做到100分才值得被爱。"
                 });
+                suggestions.push({
+                    title: "定期自我奖励",
+                    icon: "fas fa-star",
+                    description: "每周为自己安排一个小奖励，庆祝自己又度过了一周的努力。"
+                });
+                suggestions.push({
+                    title: "探索新的爱好",
+                    icon: "fas fa-compass",
+                    description: "尝试一些新的、纯粹为了让自己开心而做的事情，不为其他目的。"
+                });
             } else {
                 suggestions.push({
                     title: "分享你的经验",
@@ -1871,6 +2325,16 @@
                     title: "继续深爱自己",
                     icon: "fas fa-rocket",
                     description: "你已经做得很好了，继续保持这份对自己的温柔，它会成为你生命中最坚实的力量。"
+                });
+                suggestions.push({
+                    title: "帮助他人爱自己",
+                    icon: "fas fa-hands-helping",
+                    description: "用你的经验帮助身边的人也开始学习爱自己，让爱流动起来。"
+                });
+                suggestions.push({
+                    title: "设立成长目标",
+                    icon: "fas fa-bullseye",
+                    description: "为自己设立一些关于自我成长的长期目标，持续投资自己。"
                 });
             }
 
@@ -1922,22 +2386,22 @@
                 }
             });
 
-            // 根据维度生成建议 - 使用更温暖的语言
+            // 根据维度生成建议
             switch (weakestCategory) {
-                case "自我接纳":
-                    suggestion = "每天睡前，想一件今天你接纳自己的小事，哪怕只是允许自己累了休息。";
+                case "自我接纳与肯定":
+                    suggestion = "每天对自己说三句肯定的话，尝试接纳自己的不完美，允许自己犯错和成长。";
                     break;
-                case "自我关怀":
+                case "身心关怀":
+                    suggestion = "每天关注身体感受，累了就休息，饿了就吃饭，睡前做5分钟深呼吸放松。";
+                    break;
+                case "工作生活平衡":
+                    suggestion = "尝试设定明确的工作时间，下班后就真正休息，周末至少留出半天完全属于自己的时间。";
+                    break;
+                case "自我奖励":
                     suggestion = "每周为自己做一件单纯让自己开心的事，比如买个小礼物，或者给自己放个假。";
                     break;
-                case "自我尊重":
+                case "自我价值与边界":
                     suggestion = "练习在感到不舒服时说'不'，你的感受和别人的感受一样重要。";
-                    break;
-                case "自我认知":
-                    suggestion = "每天花5分钟和自己对话，问问自己：'我今天感觉怎么样？'";
-                    break;
-                case "自我实现":
-                    suggestion = "想想什么让你眼睛发光，然后每周为它做一点小事。";
                     break;
             }
 
@@ -1962,22 +2426,22 @@
                 }
             });
 
-            // 根据维度生成巩固建议 - 使用更温暖的语言
+            // 根据维度生成巩固建议
             switch (strongestCategory) {
-                case "自我接纳":
-                    suggestion = "继续练习接纳不完美的自己，你的真实比完美更动人。";
+                case "自我接纳与肯定":
+                    suggestion = "继续保持对自己的接纳和肯定，尝试将这些积极的自我对话扩展到更多生活领域。";
                     break;
-                case "自我关怀":
-                    suggestion = "把对自己的温柔延伸到更具挑战的情境中，比如失败或被人批评时。";
+                case "身心关怀":
+                    suggestion = "保持对身体和情绪的觉察，尝试更多元化的自我关怀方式。";
                     break;
-                case "自我尊重":
-                    suggestion = "在复杂的人际关系中继续坚持做自己，同时保持对他人的理解。";
+                case "工作生活平衡":
+                    suggestion = "继续保持工作与生活的平衡，尝试探索更多放松和充电的方式。";
                     break;
-                case "自我认知":
-                    suggestion = "继续深入了解自己，探索内心更深处的渴望和梦想。";
+                case "自我奖励":
+                    suggestion = "继续用自己喜欢的方式奖励自己，探索更多能让自己开心的活动。";
                     break;
-                case "自我实现":
-                    suggestion = "基于现在的成长，设定一些让自己眼睛发光的新目标。";
+                case "自我价值与边界":
+                    suggestion = "继续坚持健康的界限，同时帮助身边的人也学会尊重自己的边界。";
                     break;
             }
 
@@ -2037,11 +2501,11 @@
             if (!userAnswers.some(answer => answer !== 0)) return null;
 
             let categoryScores = {
-                "自我接纳": { score: 0, total: 0, color: "#9d7bff", icon: "fas fa-heart" },
-                "自我关怀": { score: 0, total: 0, color: "#ff7eb3", icon: "fas fa-hands" },
-                "自我尊重": { score: 0, total: 0, color: "#7c5cf2", icon: "fas fa-crown" },
-                "自我认知": { score: 0, total: 0, color: "#7bdff2", icon: "fas fa-brain" },
-                "自我实现": { score: 0, total: 0, color: "#ffb366", icon: "fas fa-rocket" }
+                "自我接纳与肯定": { score: 0, total: 0, color: "#ff7eb3", icon: "fas fa-heart" },
+                "身心关怀": { score: 0, total: 0, color: "#7bdff2", icon: "fas fa-heartbeat" },
+                "工作生活平衡": { score: 0, total: 0, color: "#ffb366", icon: "fas fa-balance-scale" },
+                "自我奖励": { score: 0, total: 0, color: "#9d7bff", icon: "fas fa-gift" },
+                "自我价值与边界": { score: 0, total: 0, color: "#6bcf7f", icon: "fas fa-shield-alt" }
             };
 
             testQuestions.forEach((question, index) => {
