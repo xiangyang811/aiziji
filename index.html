@@ -33,7 +33,7 @@
             --dark-pink: #ff5e8e;
             --danger: #ff6b6b;
             --result-title-color: #ff6b9d;
-            --red-btn-color: #ff4757;
+            --red-button: #ff4757;
 
             /* 移动端字体大小 */
             --font-size-xs: 12px;
@@ -158,17 +158,17 @@
             line-height: 1.5;
         }
 
-        /* 首页按钮容器 */
-        .home-buttons {
+        /* 按钮容器 */
+        .button-container {
             display: flex;
             flex-direction: column;
             gap: var(--spacing-lg);
             align-items: center;
-            margin-top: var(--spacing-2xl);
+            margin-top: var(--spacing-xl);
         }
 
         @media (min-width: 768px) {
-            .home-buttons {
+            .button-container {
                 flex-direction: row;
                 justify-content: center;
             }
@@ -203,17 +203,17 @@
             transform: translateY(0);
         }
 
-        /* 红色按钮样式 - 获取兑换码按钮 */
-        .red-btn {
-            background: linear-gradient(135deg, #ff4757, #ff3742);
+        /* 获取兑换码按钮样式 - 红色 */
+        .get-code-btn {
+            background: linear-gradient(135deg, var(--red-button), #ff3838);
             color: white;
             border: none;
-            padding: var(--spacing-xl) var(--spacing-3xl);
-            font-size: var(--font-size-lg);
-            border-radius: 16px;
+            padding: var(--spacing-lg) var(--spacing-2xl);
+            font-size: var(--font-size-md);
+            border-radius: 12px;
             cursor: pointer;
             transition: all 0.3s ease;
-            box-shadow: 0 6px 20px rgba(255, 71, 87, 0.3);
+            box-shadow: 0 4px 12px rgba(255, 71, 87, 0.3);
             display: inline-flex;
             align-items: center;
             justify-content: center;
@@ -221,15 +221,15 @@
             font-weight: 600;
             width: 100%;
             max-width: 320px;
-            height: 56px;
+            height: 48px;
         }
 
-        .red-btn:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 10px 25px rgba(255, 71, 87, 0.4);
+        .get-code-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 16px rgba(255, 71, 87, 0.4);
         }
 
-        .red-btn:active {
+        .get-code-btn:active {
             transform: translateY(0);
         }
 
@@ -378,34 +378,6 @@
             display: none;
         }
 
-        .encouragement-text {
-            font-size: var(--font-size-xl);
-            color: var(--primary-color);
-            margin: var(--spacing-xl) 0;
-            line-height: 1.5;
-            font-weight: 600;
-            text-align: center;
-            padding: var(--spacing-lg);
-            background: rgba(255, 255, 255, 0.15);
-            border-radius: 16px;
-            border-left: 4px solid var(--accent-color);
-            animation: fadeIn 1s ease;
-        }
-
-        /* 得分可视化上方文字 */
-        .score-preface {
-            font-size: var(--font-size-xl);
-            color: var(--dark-color);
-            margin-bottom: var(--spacing-xl);
-            line-height: 1.5;
-            font-weight: 600;
-            text-align: center;
-            padding: var(--spacing-md);
-            background: rgba(255, 255, 255, 0.1);
-            border-radius: 12px;
-            animation: fadeIn 1s ease 0.3s both;
-        }
-
         /* 新增情感文案样式 */
         .emotional-text {
             font-size: var(--font-size-lg);
@@ -420,27 +392,12 @@
             animation: fadeIn 1s ease 0.5s both;
         }
 
-        /* 多久没爱自己了文字 */
-        .time-text {
-            font-size: var(--font-size-lg);
-            color: var(--primary-color);
-            margin: var(--spacing-lg) 0;
-            line-height: 1.6;
-            text-align: center;
-            padding: var(--spacing-md);
-            background: rgba(255, 255, 255, 0.1);
-            border-radius: 12px;
-            border-right: 3px solid var(--accent-color);
-            font-weight: 600;
-            animation: fadeIn 1s ease 0.8s both;
-        }
-
         /* 圆环得分显示样式 */
         .score-ring-container {
             position: relative;
             width: 200px;
             height: 200px;
-            margin: var(--spacing-xl) auto var(--spacing-2xl);
+            margin: var(--spacing-2xl) auto;
         }
 
         .score-ring {
@@ -1061,6 +1018,21 @@
             }
         }
 
+        /* 首屏一句话样式 */
+        .result-summary-text {
+            font-size: var(--font-size-xl);
+            color: var(--primary-color);
+            margin-bottom: var(--spacing-lg);
+            line-height: 1.5;
+            font-weight: 600;
+            text-align: center;
+            padding: var(--spacing-lg);
+            background: rgba(255, 255, 255, 0.15);
+            border-radius: 16px;
+            border-left: 4px solid var(--accent-color);
+            animation: fadeIn 1s ease;
+        }
+
         /* 平板和桌面端样式 */
         @media (min-width: 768px) {
             body {
@@ -1102,11 +1074,16 @@
                 max-width: 200px;
             }
 
-            .btn, .red-btn {
+            .btn,
+            .get-code-btn {
                 width: auto;
                 max-width: none;
                 padding: 18px 45px;
                 font-size: 1.3rem;
+            }
+
+            .button-container {
+                gap: 30px;
             }
 
             .score-ring-container {
@@ -1268,7 +1245,6 @@
 
         /* 改善按钮交互反馈 */
         .btn:active,
-        .red-btn:active,
         .nav-btn:active,
         .action-btn:active {
             transform: scale(0.98);
@@ -1320,14 +1296,14 @@
                 </div>
             </div>
 
-            <div class="home-buttons">
+            <div class="button-container">
                 <button id="start-test" class="btn">
                     <span>开始测试</span>
                     <i class="fas fa-arrow-right"></i>
                 </button>
 
                 <!-- 获取兑换码按钮 -->
-                <button id="get-code-btn" class="red-btn">
+                <button id="get-code-btn" class="get-code-btn">
                     <i class="fas fa-key"></i>
                     <span>获取兑换码</span>
                 </button>
@@ -1367,19 +1343,9 @@
             <div class="result-header">
                 <h1 class="result-title">你的自我关怀报告</h1>
 
-                <!-- 鼓励文字 -->
-                <div class="encouragement-text" id="encouragement-text">
-                    亲爱的，你已经很久没有好好爱自己了... 是时候停下来，听听内心的声音，给自己一个温暖的拥抱了。
-                </div>
-
-                <!-- 多久没爱自己了文字 -->
-                <div class="time-text" id="time-text">
-                    根据你的测试结果，你可能已经很久没有好好爱自己了...
-                </div>
-
-                <!-- 得分可视化上方文字 -->
-                <div class="score-preface" id="score-preface">
-                    你的自我关怀指数为
+                <!-- 一句话说明多久没好好爱自己了 -->
+                <div class="result-summary-text" id="result-summary-text">
+                    你可能已经很久没有好好爱自己了...
                 </div>
 
                 <!-- 圆环得分显示 -->
@@ -1399,11 +1365,6 @@
                         <div class="score-ring-number" id="score-ring-number">0</div>
                         <div class="score-ring-label">自我关怀指数</div>
                     </div>
-                </div>
-
-                <!-- 新增情感文案 -->
-                <div class="emotional-text" id="emotional-text">
-                    爱自己，是一场需要终生学习的温柔革命。它不是自私，而是对自己的慈悲；不是放纵，而是对自己的负责。
                 </div>
             </div>
 
@@ -1428,6 +1389,11 @@
                 </div>
             </div>
 
+            <!-- 新增情感文案 -->
+            <div class="emotional-text" id="emotional-text">
+                爱自己，是一场需要终生学习的温柔革命。它不是自私，而是对自己的慈悲；不是放纵，而是对自己的负责。
+            </div>
+
             <!-- 维度得分 - 大数字样式 -->
             <div class="big-number-section">
                 <h3 class="section-title">你在这些方面的表现</h3>
@@ -1444,14 +1410,6 @@
                 </div>
             </div>
 
-            <!-- 给你的悄悄话 -->
-            <div class="whisper-section">
-                <h3>给你的悄悄话</h3>
-                <div class="whisper-text" id="whisper-text">
-                    亲爱的，无论你现在的状态如何，都请记得：你值得被爱，值得被善待，值得拥有所有美好的一切。
-                </div>
-            </div>
-
             <!-- 雷达图 -->
             <div class="big-number-section">
                 <h3 class="section-title">你的内在平衡图</h3>
@@ -1460,6 +1418,14 @@
                 </div>
                 <div class="radar-analysis" id="radar-analysis">
                     <!-- 雷达图分析将通过JavaScript动态生成 -->
+                </div>
+            </div>
+
+            <!-- 给你的悄悄话 -->
+            <div class="whisper-section">
+                <h3>给你的悄悄话</h3>
+                <div class="whisper-text" id="whisper-text">
+                    亲爱的，无论你现在的状态如何，都请记得：你值得被爱，值得被善待，值得拥有所有美好的一切。
                 </div>
             </div>
 
@@ -1615,10 +1581,8 @@
         const prevBtn = document.getElementById('prev-btn');
         const scoreRingNumber = document.getElementById('score-ring-number');
         const scoreRingFill = document.getElementById('score-ring-fill');
-        const encouragementText = document.getElementById('encouragement-text');
+        const resultSummaryText = document.getElementById('result-summary-text');
         const emotionalText = document.getElementById('emotional-text');
-        const timeText = document.getElementById('time-text');
-        const scorePreface = document.getElementById('score-preface');
         const whisperText = document.getElementById('whisper-text');
         const indicatorMarker = document.getElementById('indicator-marker');
         const indicatorAnalysis = document.getElementById('indicator-analysis');
@@ -1745,7 +1709,7 @@
 
             displayQuestion(currentQuestion);
 
-            document.querySelectorAll('.btn, .nav-btn, .action-btn, .option, .red-btn').forEach(el => {
+            document.querySelectorAll('.btn, .nav-btn, .action-btn, .option, .get-code-btn').forEach(el => {
                 el.style.cursor = 'pointer';
             });
 
@@ -1924,10 +1888,8 @@
 
             window.scrollTo(0, 0);
 
-            displayEncouragementText(scorePercentage);
-            displayTimeText(scorePercentage);
+            displayResultSummaryText(scorePercentage);
             displayEmotionalText(scorePercentage);
-            displayScorePreface(scorePercentage);
             displayScoreRing(scorePercentage);
             updateScoreIndicator(scorePercentage);
             displayBigNumberCards(categoryScores);
@@ -1945,61 +1907,23 @@
             }, 500);
         }
 
-        // 显示鼓励文字
-        function displayEncouragementText(scorePercentage) {
-            let encouragement = "";
+        // 显示一句话总结
+        function displayResultSummaryText(scorePercentage) {
+            let summary = "";
 
             if (scorePercentage >= 80) {
-                encouragement = "亲爱的，你真棒！你已经很懂得如何爱自己了。这份自我关怀的能力，是你生命中最宝贵的礼物，请继续好好珍惜它。";
+                summary = "你一直记得好好爱自己，这真是一件美好的事！继续保持这份对自己的温柔和关怀吧。";
             } else if (scorePercentage >= 60) {
-                encouragement = "亲爱的，你正在学习如何更好地爱自己。记住，你值得被温柔对待，包括被你自己。每一次对自己的善意，都是在积蓄内心的力量。";
+                summary = "你可能有一段时间没有好好爱自己了，但没关系，从今天开始重新学习，一切都来得及。";
             } else if (scorePercentage >= 40) {
-                encouragement = "亲爱的，你是不是常常照顾别人却忘了自己？是时候停下来，听听内心的声音，给自己一个温暖的拥抱了。你同样需要被爱和被关心。";
+                summary = "根据你的测试结果，你可能已经几个月没有好好爱自己了。是时候停下来，给自己一些关怀和温暖了。";
             } else if (scorePercentage >= 20) {
-                encouragement = "亲爱的，也许你总是忙于照顾他人，却忘了照顾自己。从今天开始，请把一部分的爱留给自己，好吗？你同样值得被好好对待。";
+                summary = "看起来你已经很久很久没有好好爱自己了。那些被忽略的需求和感受，都在等待你的关注。";
             } else {
-                encouragement = "亲爱的，我知道你一直在努力，但别忘了，你也需要被爱和被关心。从今天起，每天给自己一个小小温柔吧。你值得所有的美好。";
+                summary = "亲爱的，测试结果显示，你可能已经太久太久没有好好爱自己了。那些被压抑的需求和疲惫的身心，都在呼唤你的关怀。";
             }
 
-            encouragementText.textContent = encouragement;
-        }
-
-        // 显示多久没爱自己了文字
-        function displayTimeText(scorePercentage) {
-            let timeMessage = "";
-
-            if (scorePercentage >= 80) {
-                timeMessage = "你一直记得好好爱自己，这真是一件美好的事！继续保持这份对自己的温柔和关怀吧。";
-            } else if (scorePercentage >= 60) {
-                timeMessage = "你可能有一段时间没有好好爱自己了，但没关系，从今天开始重新学习，一切都来得及。";
-            } else if (scorePercentage >= 40) {
-                timeMessage = "根据你的测试结果，你可能已经几个月没有好好爱自己了。是时候停下来，给自己一些关怀和温暖了。";
-            } else if (scorePercentage >= 20) {
-                timeMessage = "看起来你已经很久很久没有好好爱自己了。那些被忽略的需求和感受，都在等待你的关注。";
-            } else {
-                timeMessage = "亲爱的，测试结果显示，你可能已经太久太久没有好好爱自己了。那些被压抑的需求和疲惫的身心，都在呼唤你的关怀。";
-            }
-
-            timeText.textContent = timeMessage;
-        }
-
-        // 显示得分可视化上方文字
-        function displayScorePreface(scorePercentage) {
-            let preface = "";
-
-            if (scorePercentage >= 80) {
-                preface = "太棒了！你的自我关怀指数为";
-            } else if (scorePercentage >= 60) {
-                preface = "不错哦！你的自我关怀指数为";
-            } else if (scorePercentage >= 40) {
-                preface = "你的自我关怀指数为";
-            } else if (scorePercentage >= 20) {
-                preface = "需要关注了，你的自我关怀指数为";
-            } else {
-                preface = "请好好爱自己，你的自我关怀指数为";
-            }
-
-            scorePreface.textContent = preface;
+            resultSummaryText.textContent = summary;
         }
 
         // 显示情感文案
@@ -2334,7 +2258,7 @@
             }
 
             radarAnalysis.innerHTML = `
-                <p>从图中可以看到，你最擅长<strong>${strongestCategory}</strong>，而在<strong>${weakestCategory}</strong>方面可能需要多给自己一些关爱。${balanceText}</p>
+                <p>你最擅长<strong>${strongestCategory}</strong>，而在<strong>${weakestCategory}</strong>方面可能需要多给自己一些关爱。${balanceText}</p>
             `;
         }
 
