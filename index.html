@@ -33,18 +33,18 @@
             --dark-pink: #ff5e8e;
             --danger: #ff6b6b;
             --result-title-color: #ff6b9d;
-            --red-button: #ff4757;
+            --red-btn: #ff4d4f;
 
-            /* 移动端字体大小 */
-            --font-size-xs: 12px;
-            --font-size-sm: 14px;
-            --font-size-md: 16px;
-            --font-size-lg: 18px;
-            --font-size-xl: 20px;
-            --font-size-2xl: 24px;
-            --font-size-3xl: 28px;
-            --font-size-4xl: 32px;
-            --font-size-5xl: 48px;
+            /* 移动端字体大小 - 整体加大 */
+            --font-size-xs: 11px;
+            --font-size-sm: 13px;
+            --font-size-md: 15px;
+            --font-size-lg: 17px;
+            --font-size-xl: 19px;
+            --font-size-2xl: 21px;
+            --font-size-3xl: 24px;
+            --font-size-4xl: 28px;
+            --font-size-5xl: 36px;
 
             /* 移动端间距 */
             --spacing-xs: 4px;
@@ -81,11 +81,11 @@
             background: var(--glass-bg);
             backdrop-filter: blur(12px);
             -webkit-backdrop-filter: blur(12px);
-            border-radius: 20px;
+            border-radius: 16px;
             border: 1px solid var(--glass-border);
             box-shadow: var(--shadow);
             overflow: hidden;
-            padding: 24px;
+            padding: 20px;
             transition: all 0.4s ease;
             width: 100%;
         }
@@ -98,23 +98,23 @@
         .logo {
             font-size: var(--font-size-4xl);
             color: var(--primary-color);
-            margin-bottom: var(--spacing-xl);
+            margin-bottom: var(--spacing-lg);
             display: inline-block;
         }
 
         h1 {
-            font-size: var(--font-size-3xl);
+            font-size: var(--font-size-2xl);
             color: var(--dark-color);
-            margin-bottom: var(--spacing-lg);
+            margin-bottom: var(--spacing-md);
             line-height: 1.3;
             font-weight: 700;
             letter-spacing: -0.2px;
         }
 
         .subtitle {
-            font-size: var(--font-size-lg);
+            font-size: var(--font-size-md);
             color: #5a5678;
-            margin-bottom: var(--spacing-3xl);
+            margin-bottom: var(--spacing-xl);
             line-height: 1.6;
             font-weight: 400;
         }
@@ -123,64 +123,58 @@
             display: flex;
             flex-wrap: wrap;
             justify-content: center;
-            gap: var(--spacing-xl);
-            margin-bottom: var(--spacing-3xl);
+            gap: var(--spacing-md);
+            margin-bottom: var(--spacing-xl);
         }
 
         .feature {
             background: rgba(255, 255, 255, 0.25);
-            border-radius: 16px;
-            padding: var(--spacing-xl);
+            border-radius: 12px;
+            padding: var(--spacing-md);
             width: 100%;
-            max-width: 280px;
+            max-width: 100%;
             transition: transform 0.3s ease;
+            margin-bottom: var(--spacing-sm);
         }
 
         .feature:hover {
-            transform: translateY(-8px);
+            transform: translateY(-4px);
         }
 
         .feature-icon {
-            font-size: var(--font-size-3xl);
+            font-size: var(--font-size-2xl);
             color: var(--primary-color);
-            margin-bottom: var(--spacing-lg);
+            margin-bottom: var(--spacing-sm);
         }
 
         .feature h3 {
-            font-size: var(--font-size-lg);
-            margin-bottom: var(--spacing-sm);
+            font-size: var(--font-size-md);
+            margin-bottom: var(--spacing-xs);
             font-weight: 600;
         }
 
         .feature p {
-            font-size: var(--font-size-md);
+            font-size: var(--font-size-sm);
             color: #5a5678;
-            line-height: 1.5;
+            line-height: 1.4;
         }
 
         /* 按钮容器 */
         .button-container {
             display: flex;
             flex-direction: column;
-            gap: var(--spacing-lg);
-            align-items: center;
+            gap: var(--spacing-md);
             margin-top: var(--spacing-xl);
-        }
-
-        @media (min-width: 768px) {
-            .button-container {
-                flex-direction: row;
-                justify-content: center;
-            }
+            width: 100%;
         }
 
         .btn {
             background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
             color: white;
             border: none;
-            padding: var(--spacing-xl) var(--spacing-3xl);
-            font-size: var(--font-size-lg);
-            border-radius: 16px;
+            padding: var(--spacing-lg) var(--spacing-xl);
+            font-size: var(--font-size-md);
+            border-radius: 12px;
             cursor: pointer;
             transition: all 0.3s ease;
             box-shadow: 0 6px 20px rgba(255, 126, 179, 0.3);
@@ -190,8 +184,7 @@
             gap: var(--spacing-sm);
             font-weight: 600;
             width: 100%;
-            max-width: 320px;
-            height: 56px;
+            height: 48px;
         }
 
         .btn:hover {
@@ -205,28 +198,27 @@
 
         /* 获取兑换码按钮样式 - 红色 */
         .get-code-btn {
-            background: linear-gradient(135deg, var(--red-button), #ff3838);
+            background: linear-gradient(135deg, var(--red-btn), #ff3333);
             color: white;
             border: none;
-            padding: var(--spacing-lg) var(--spacing-2xl);
+            padding: var(--spacing-lg) var(--spacing-xl);
             font-size: var(--font-size-md);
             border-radius: 12px;
             cursor: pointer;
             transition: all 0.3s ease;
-            box-shadow: 0 4px 12px rgba(255, 71, 87, 0.3);
+            box-shadow: 0 6px 20px rgba(255, 77, 79, 0.3);
             display: inline-flex;
             align-items: center;
             justify-content: center;
             gap: var(--spacing-sm);
             font-weight: 600;
             width: 100%;
-            max-width: 320px;
             height: 48px;
         }
 
         .get-code-btn:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 6px 16px rgba(255, 71, 87, 0.4);
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(255, 77, 79, 0.4);
         }
 
         .get-code-btn:active {
@@ -244,11 +236,11 @@
         }
 
         .progress-container {
-            margin-bottom: var(--spacing-lg);
+            margin-bottom: var(--spacing-md);
         }
 
         .progress-bar {
-            height: 6px;
+            height: 4px;
             background: rgba(255, 255, 255, 0.3);
             border-radius: 10px;
             overflow: hidden;
@@ -264,34 +256,35 @@
         }
 
         .question-container {
-            margin: var(--spacing-xl) 0;
-            min-height: 200px;
+            margin: var(--spacing-md) 0;
+            min-height: 160px;
         }
 
+        /* 测试页文字加大 */
         .question-text {
-            font-size: var(--font-size-2xl);
+            font-size: var(--font-size-xl);
             line-height: 1.4;
-            margin-bottom: var(--spacing-xl);
+            margin-bottom: var(--spacing-lg);
             font-weight: 600;
             letter-spacing: -0.1px;
         }
 
         .options-container {
             display: grid;
-            gap: var(--spacing-md);
+            gap: var(--spacing-sm);
         }
 
         .option {
             background: rgba(255, 255, 255, 0.3);
             border: 2px solid transparent;
-            border-radius: 16px;
-            padding: var(--spacing-lg);
+            border-radius: 12px;
+            padding: var(--spacing-md);
             cursor: pointer;
             transition: all 0.2s ease;
             display: flex;
             align-items: center;
-            gap: var(--spacing-lg);
-            min-height: 72px;
+            gap: var(--spacing-md);
+            min-height: 56px;
         }
 
         .option:hover {
@@ -304,9 +297,9 @@
         }
 
         .option-circle {
-            width: 24px;
-            height: 24px;
-            min-width: 24px;
+            width: 20px;
+            height: 20px;
+            min-width: 20px;
             border-radius: 50%;
             border: 2px solid var(--primary-color);
             display: flex;
@@ -322,9 +315,10 @@
         .option.selected .option-circle:after {
             content: "✓";
             color: white;
-            font-size: 14px;
+            font-size: 12px;
         }
 
+        /* 测试页选项文字加大 */
         .option-text {
             font-size: var(--font-size-lg);
             flex-grow: 1;
@@ -334,15 +328,15 @@
         .nav-buttons {
             display: flex;
             justify-content: space-between;
-            margin-top: var(--spacing-xl);
-            gap: var(--spacing-lg);
+            margin-top: var(--spacing-md);
+            gap: var(--spacing-md);
         }
 
         .nav-btn {
             background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
             color: white;
             border: none;
-            padding: var(--spacing-lg) var(--spacing-xl);
+            padding: var(--spacing-md) var(--spacing-lg);
             font-size: var(--font-size-md);
             border-radius: 12px;
             cursor: pointer;
@@ -354,7 +348,7 @@
             gap: var(--spacing-sm);
             font-weight: 600;
             flex: 1;
-            height: 52px;
+            height: 44px;
         }
 
         .nav-btn:hover {
@@ -369,7 +363,7 @@
         /* 结果页面样式 */
         .result-header {
             text-align: center;
-            margin-bottom: var(--spacing-2xl);
+            margin-bottom: var(--spacing-md);
             position: relative;
         }
 
@@ -378,26 +372,83 @@
             display: none;
         }
 
-        /* 新增情感文案样式 */
-        .emotional-text {
-            font-size: var(--font-size-lg);
+        /* 结果页顶部文字 - 小字号 */
+        .result-top-text {
+            font-size: var(--font-size-sm);
             color: #5a5678;
-            margin: var(--spacing-xl) 0;
-            line-height: 1.6;
+            margin: var(--spacing-sm) 0;
+            line-height: 1.5;
             text-align: center;
-            padding: var(--spacing-lg);
+        }
+
+        .encouragement-text {
+            font-size: var(--font-size-sm);
+            color: var(--primary-color);
+            margin: var(--spacing-sm) 0;
+            line-height: 1.5;
+            font-weight: 600;
+            text-align: center;
+            padding: var(--spacing-sm);
             background: rgba(255, 255, 255, 0.1);
-            border-radius: 16px;
-            border-top: 2px solid rgba(255, 126, 179, 0.3);
+            border-radius: 12px;
+            border-left: 3px solid var(--accent-color);
+            animation: fadeIn 1s ease;
+        }
+
+        /* 情感文案样式 */
+        .emotional-text {
+            font-size: var(--font-size-sm);
+            color: #5a5678;
+            margin: var(--spacing-sm) 0;
+            line-height: 1.5;
+            text-align: center;
+            padding: var(--spacing-sm);
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 12px;
             animation: fadeIn 1s ease 0.5s both;
         }
 
-        /* 圆环得分显示样式 */
+        /* 多久没爱自己了文字 */
+        .time-text {
+            font-size: var(--font-size-sm);
+            color: var(--primary-color);
+            margin: var(--spacing-sm) 0;
+            line-height: 1.5;
+            text-align: center;
+            padding: var(--spacing-sm);
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 10px;
+            border-right: 2px solid var(--accent-color);
+            font-weight: 600;
+            animation: fadeIn 1s ease 0.8s both;
+        }
+
+        /* 得分可视化和进度条之间的情感文字 */
+        .score-emotional-text {
+            font-size: var(--font-size-sm);
+            color: #5a5678;
+            margin: var(--spacing-sm) 0;
+            line-height: 1.5;
+            text-align: center;
+            padding: var(--spacing-sm);
+        }
+
+        /* 进度条下面的文字 */
+        .progress-bottom-text {
+            font-size: var(--font-size-sm);
+            color: #5a5678;
+            margin: var(--spacing-xs) 0 var(--spacing-md);
+            line-height: 1.5;
+            text-align: center;
+            padding: 0 var(--spacing-sm);
+        }
+
+        /* 圆环得分显示样式 - 加大 */
         .score-ring-container {
             position: relative;
-            width: 200px;
-            height: 200px;
-            margin: var(--spacing-2xl) auto;
+            width: 180px;
+            height: 180px;
+            margin: var(--spacing-md) auto;
         }
 
         .score-ring {
@@ -419,8 +470,8 @@
 
         .score-ring-fill {
             stroke: url(#ring-gradient);
-            stroke-dasharray: 565;
-            stroke-dashoffset: 565;
+            stroke-dasharray: 508;
+            stroke-dashoffset: 508;
             transition: stroke-dashoffset 2s ease;
         }
 
@@ -449,29 +500,29 @@
         }
 
         .result-title {
-            font-size: var(--font-size-2xl);
-            margin-bottom: var(--spacing-lg);
+            font-size: var(--font-size-xl);
+            margin-bottom: var(--spacing-sm);
             font-weight: 700;
             color: var(--result-title-color);
         }
 
-        /* 得分指示条样式 */
+        /* 得分指示条样式 - 加大 */
         .score-indicator-container {
             width: 100%;
-            margin: 0 auto var(--spacing-3xl);
+            margin: 0 auto var(--spacing-lg);
         }
 
         .score-indicator {
             width: 100%;
-            margin-bottom: var(--spacing-lg);
+            margin-bottom: var(--spacing-md);
         }
 
         .indicator-bar {
-            height: 20px;
+            height: 18px;
             background: linear-gradient(90deg, #ff6b6b, #ffb366, #ffd93d, #6bcf7f, #4d96ff);
             border-radius: 12px;
             position: relative;
-            margin-bottom: var(--spacing-lg);
+            margin-bottom: var(--spacing-md);
             overflow: hidden;
         }
 
@@ -480,8 +531,8 @@
             position: absolute;
             top: 50%;
             transform: translate(-50%, -50%);
-            width: 24px;
-            height: 24px;
+            width: 22px;
+            height: 22px;
             background: white;
             border-radius: 50%;
             box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
@@ -492,7 +543,7 @@
         .indicator-labels {
             display: flex;
             justify-content: space-between;
-            margin-top: var(--spacing-md);
+            margin-top: var(--spacing-xs);
             font-size: var(--font-size-xs);
             color: #5a5678;
             line-height: 1.3;
@@ -506,36 +557,36 @@
 
         .indicator-analysis {
             text-align: center;
-            margin-top: var(--spacing-xl);
-            padding: var(--spacing-lg);
-            background: rgba(255, 255, 255, 0.2);
-            border-radius: 16px;
-            border-left: 4px solid var(--primary-color);
+            margin-top: var(--spacing-md);
+            padding: var(--spacing-md);
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 12px;
+            border-left: 3px solid var(--primary-color);
         }
 
         .indicator-analysis h4 {
             color: var(--primary-color);
-            margin-bottom: var(--spacing-sm);
+            margin-bottom: var(--spacing-xs);
             font-size: var(--font-size-lg);
             font-weight: 600;
         }
 
         .indicator-analysis p {
-            line-height: 1.6;
+            line-height: 1.5;
             color: #5a5678;
             font-size: var(--font-size-md);
         }
 
-        /* 大数字卡片样式 */
+        /* 大数字卡片样式 - 加大 */
         .big-number-section {
-            margin: var(--spacing-3xl) 0;
+            margin: var(--spacing-lg) 0;
         }
 
         .section-title {
             text-align: center;
-            font-size: var(--font-size-xl);
+            font-size: var(--font-size-lg);
             color: var(--primary-color);
-            margin-bottom: var(--spacing-xl);
+            margin-bottom: var(--spacing-md);
             position: relative;
             font-weight: 600;
         }
@@ -543,40 +594,40 @@
         .section-title:after {
             content: '';
             display: block;
-            width: 48px;
-            height: 3px;
+            width: 36px;
+            height: 2px;
             background: linear-gradient(90deg, var(--primary-color), var(--accent-color));
-            margin: var(--spacing-sm) auto 0;
-            border-radius: 3px;
+            margin: var(--spacing-xs) auto 0;
+            border-radius: 2px;
         }
 
         .big-number-container {
             display: grid;
             grid-template-columns: repeat(2, 1fr);
-            gap: var(--spacing-lg);
-            margin-bottom: var(--spacing-xl);
+            gap: var(--spacing-sm);
+            margin-bottom: var(--spacing-md);
         }
 
         .big-number-card {
-            background: rgba(255, 255, 255, 0.25);
-            border-radius: 16px;
-            padding: var(--spacing-lg);
+            background: rgba(255, 255, 255, 0.15);
+            border-radius: 12px;
+            padding: var(--spacing-md);
             text-align: center;
             transition: transform 0.3s ease, box-shadow 0.3s ease;
             border: 1px solid rgba(255, 255, 255, 0.1);
             display: flex;
             flex-direction: column;
             justify-content: center;
-            min-height: 140px;
+            min-height: 110px;
         }
 
         .big-number-card:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 12px 24px rgba(0, 0, 0, 0.1);
+            transform: translateY(-4px);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
         }
 
         .big-number {
-            font-size: var(--font-size-3xl);
+            font-size: var(--font-size-2xl);
             font-weight: 800;
             line-height: 1;
             margin-bottom: var(--spacing-xs);
@@ -598,30 +649,30 @@
             line-height: 1.4;
         }
 
-        /* 标签卡片样式 */
+        /* 标签卡片样式 - 加大 */
         .tags-container {
             display: flex;
             flex-wrap: wrap;
             justify-content: center;
-            gap: var(--spacing-sm);
-            margin: var(--spacing-lg) 0 var(--spacing-2xl);
+            gap: var(--spacing-xs);
+            margin: var(--spacing-sm) 0 var(--spacing-md);
         }
 
         .tag {
-            border-radius: 50px;
-            padding: var(--spacing-xs) var(--spacing-md);
+            border-radius: 30px;
+            padding: var(--spacing-xs) var(--spacing-sm);
             font-size: var(--font-size-sm);
             font-weight: 600;
             color: white;
-            border: 2px solid rgba(255, 255, 255, 0.3);
+            border: 1px solid rgba(255, 255, 255, 0.3);
             transition: all 0.3s ease;
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
             white-space: nowrap;
         }
 
         .tag:hover {
             transform: scale(1.05);
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
         }
 
         /* 标签颜色类 */
@@ -657,129 +708,129 @@
             background: linear-gradient(135deg, #a882ff, #8a5cf2);
         }
 
-        /* 雷达图样式 */
+        /* 雷达图样式 - 加大 */
         .radar-container {
             width: 100%;
             max-width: 100%;
-            margin: var(--spacing-xl) auto;
+            margin: var(--spacing-md) auto;
             position: relative;
         }
 
         .radar-chart {
             width: 100%;
-            height: 280px;
+            height: 240px;
         }
 
-        /* 雷达图文字分析 */
+        /* 雷达图文字分析 - 加大 */
         .radar-analysis {
             text-align: center;
-            margin-top: var(--spacing-lg);
+            margin-top: var(--spacing-md);
             padding: var(--spacing-md);
-            background: rgba(255, 255, 255, 0.15);
+            background: rgba(255, 255, 255, 0.1);
             border-radius: 12px;
             font-size: var(--font-size-md);
             color: #5a5678;
             line-height: 1.5;
         }
 
-        /* 建议板块 */
+        /* 建议板块 - 加大 */
         .suggestions-section {
-            background: rgba(255, 255, 255, 0.25);
-            border-radius: 16px;
-            padding: var(--spacing-xl);
-            margin-top: var(--spacing-2xl);
+            background: rgba(255, 255, 255, 0.15);
+            border-radius: 12px;
+            padding: var(--spacing-lg);
+            margin-top: var(--spacing-md);
         }
 
         .suggestions-section h3 {
             color: var(--primary-color);
-            font-size: var(--font-size-xl);
-            margin-bottom: var(--spacing-lg);
+            font-size: var(--font-size-lg);
+            margin-bottom: var(--spacing-md);
             display: flex;
             align-items: center;
-            gap: var(--spacing-sm);
+            gap: var(--spacing-xs);
             font-weight: 600;
         }
 
         .suggestions-grid {
             display: grid;
             grid-template-columns: 1fr;
-            gap: var(--spacing-lg);
+            gap: var(--spacing-md);
         }
 
         .suggestion-item {
-            background: rgba(255, 255, 255, 0.3);
-            border-radius: 14px;
-            padding: var(--spacing-lg);
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+            padding: var(--spacing-md);
             transition: transform 0.3s ease;
         }
 
         .suggestion-item:hover {
-            transform: translateY(-5px);
+            transform: translateY(-3px);
         }
 
         .suggestion-item h4 {
             display: flex;
             align-items: center;
-            gap: var(--spacing-sm);
+            gap: var(--spacing-xs);
             color: var(--primary-color);
-            margin-bottom: var(--spacing-sm);
-            font-size: var(--font-size-lg);
+            margin-bottom: var(--spacing-xs);
+            font-size: var(--font-size-md);
             font-weight: 600;
         }
 
         .suggestion-item p {
             color: #5a5678;
-            line-height: 1.6;
+            line-height: 1.5;
             font-size: var(--font-size-md);
         }
 
-        /* 给你的悄悄话 */
+        /* 给你的悄悄话 - 加大 */
         .whisper-section {
             background: linear-gradient(135deg, rgba(255, 126, 179, 0.1), rgba(157, 123, 255, 0.1));
-            border-radius: 16px;
-            padding: var(--spacing-xl);
-            margin-top: var(--spacing-2xl);
+            border-radius: 12px;
+            padding: var(--spacing-lg);
+            margin-top: var(--spacing-md);
             text-align: center;
-            border-left: 4px solid var(--primary-color);
+            border-left: 3px solid var(--primary-color);
         }
 
         .whisper-section h3 {
             color: var(--primary-color);
-            font-size: var(--font-size-xl);
-            margin-bottom: var(--spacing-lg);
+            font-size: var(--font-size-lg);
+            margin-bottom: var(--spacing-md);
             font-weight: 600;
         }
 
         .whisper-text {
-            font-size: var(--font-size-lg);
+            font-size: var(--font-size-md);
             color: var(--dark-color);
-            line-height: 1.6;
-            margin-bottom: var(--spacing-lg);
+            line-height: 1.5;
+            margin-bottom: var(--spacing-sm);
             font-weight: 500;
         }
 
-        /* 科学理论依据 */
+        /* 科学理论依据 - 加大 */
         .theory-section {
-            background: rgba(255, 255, 255, 0.15);
-            border-radius: 16px;
-            padding: var(--spacing-lg);
-            margin-top: var(--spacing-2xl);
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 12px;
+            padding: var(--spacing-md);
+            margin-top: var(--spacing-md);
             font-size: var(--font-size-sm);
         }
 
         .theory-section h3 {
             color: var(--primary-color);
             font-size: var(--font-size-md);
-            margin-bottom: var(--spacing-md);
+            margin-bottom: var(--spacing-xs);
             display: flex;
             align-items: center;
-            gap: var(--spacing-sm);
+            gap: var(--spacing-xs);
             font-weight: 600;
         }
 
         .theory-section p {
             line-height: 1.5;
-            margin-bottom: var(--spacing-md);
+            margin-bottom: var(--spacing-xs);
             font-size: var(--font-size-sm);
         }
 
@@ -788,28 +839,28 @@
             display: flex;
             flex-direction: row;
             justify-content: center;
-            gap: var(--spacing-lg);
-            margin-top: var(--spacing-xl);
+            gap: var(--spacing-md);
+            margin-top: var(--spacing-lg);
         }
 
         .action-btn {
             background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
             color: white;
             border: none;
-            padding: var(--spacing-md) var(--spacing-xl);
+            padding: var(--spacing-sm) var(--spacing-md);
             font-size: var(--font-size-md);
-            border-radius: 12px;
+            border-radius: 10px;
             cursor: pointer;
             transition: all 0.3s ease;
             box-shadow: 0 4px 12px rgba(255, 126, 179, 0.3);
             display: flex;
             align-items: center;
             justify-content: center;
-            gap: var(--spacing-sm);
+            gap: var(--spacing-xs);
             font-weight: 600;
             flex: 1;
-            max-width: 160px;
-            height: 48px;
+            max-width: 140px;
+            height: 44px;
         }
 
         .action-btn:hover {
@@ -854,10 +905,10 @@
 
         .modal-content {
             background: var(--white);
-            padding: 25px 20px;
-            border-radius: 20px;
+            padding: 20px 16px;
+            border-radius: 16px;
             box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
-            max-width: 500px;
+            max-width: 400px;
             width: 100%;
             text-align: center;
             position: relative;
@@ -879,14 +930,14 @@
 
         .modal-close {
             position: absolute;
-            top: 12px;
-            right: 15px;
-            font-size: 1.6rem;
+            top: 10px;
+            right: 12px;
+            font-size: 1.4rem;
             cursor: pointer;
             color: var(--light-pink);
             transition: all 0.3s ease;
-            width: 30px;
-            height: 30px;
+            width: 26px;
+            height: 26px;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -900,32 +951,32 @@
         }
 
         .modal-icon {
-            font-size: 48px;
+            font-size: 36px;
             color: var(--primary-color);
-            margin-bottom: 15px;
+            margin-bottom: 12px;
         }
 
         .modal-title {
-            font-size: var(--font-size-xl);
+            font-size: var(--font-size-lg);
             color: var(--dark-color);
-            margin-bottom: 10px;
+            margin-bottom: 8px;
             font-weight: 700;
         }
 
         .modal-description {
             color: #5a5678;
-            margin-bottom: 20px;
-            font-size: var(--font-size-md);
+            margin-bottom: 16px;
+            font-size: var(--font-size-sm);
             line-height: 1.5;
         }
 
         .code-input {
             width: 100%;
-            padding: 16px 18px;
+            padding: 14px 16px;
             border: 2px solid var(--light-pink);
-            border-radius: 12px;
-            font-size: 1.1rem;
-            margin-bottom: 15px;
+            border-radius: 10px;
+            font-size: 14px;
+            margin-bottom: 12px;
             text-align: center;
             transition: all 0.3s ease;
             background-color: rgba(255, 214, 231, 0.2);
@@ -942,22 +993,22 @@
 
         .code-error {
             color: var(--danger);
-            margin-bottom: 15px;
-            min-height: 20px;
+            margin-bottom: 12px;
+            min-height: 18px;
             font-weight: 600;
-            font-size: 0.9rem;
+            font-size: 11px;
         }
 
         .modal-buttons {
             display: flex;
-            gap: 15px;
-            margin-bottom: 20px;
+            gap: 12px;
+            margin-bottom: 16px;
         }
 
         .modal-buttons .btn {
             flex: 1;
-            height: 48px;
-            font-size: var(--font-size-md);
+            height: 42px;
+            font-size: var(--font-size-sm);
         }
 
         .btn-secondary {
@@ -969,11 +1020,11 @@
         }
 
         .modal-footer-info {
-            font-size: var(--font-size-sm);
+            font-size: var(--font-size-xs);
             color: #888;
             border-top: 1px solid #eee;
-            padding-top: 15px;
-            margin-top: 10px;
+            padding-top: 12px;
+            margin-top: 8px;
         }
 
         .modal-footer-info i {
@@ -992,13 +1043,13 @@
         .code-feature-card::after {
             content: "✨ 点击获取 ✨";
             position: absolute;
-            top: -10px;
-            right: 15px;
+            top: -8px;
+            right: 12px;
             background: white;
             color: var(--primary-pink);
-            padding: 4px 12px;
+            padding: 3px 10px;
             border-radius: 20px;
-            font-size: 0.8rem;
+            font-size: 10px;
             font-weight: 700;
             box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
             animation: pulseGlow 2s infinite;
@@ -1018,81 +1069,53 @@
             }
         }
 
-        /* 首屏一句话样式 */
-        .result-summary-text {
-            font-size: var(--font-size-xl);
-            color: var(--primary-color);
-            margin-bottom: var(--spacing-lg);
-            line-height: 1.5;
-            font-weight: 600;
-            text-align: center;
-            padding: var(--spacing-lg);
-            background: rgba(255, 255, 255, 0.15);
-            border-radius: 16px;
-            border-left: 4px solid var(--accent-color);
-            animation: fadeIn 1s ease;
-        }
-
         /* 平板和桌面端样式 */
         @media (min-width: 768px) {
+            :root {
+                --font-size-xs: 12px;
+                --font-size-sm: 14px;
+                --font-size-md: 16px;
+                --font-size-lg: 18px;
+                --font-size-xl: 20px;
+                --font-size-2xl: 22px;
+                --font-size-3xl: 26px;
+                --font-size-4xl: 30px;
+                --font-size-5xl: 42px;
+            }
+
             body {
                 align-items: center;
-                padding: 24px;
+                padding: 20px;
             }
 
             .container {
-                max-width: 1100px;
+                max-width: 800px;
             }
 
             .glass-card {
-                padding: 40px;
-                border-radius: 24px;
+                padding: 30px;
+                border-radius: 20px;
             }
 
-            .logo {
-                font-size: 3.5rem;
-                margin-bottom: 20px;
-            }
-
-            h1 {
-                font-size: 2.8rem;
-                margin-bottom: 15px;
-            }
-
-            .subtitle {
-                font-size: 1.3rem;
-                margin-bottom: 40px;
-            }
-
-            .features {
-                gap: 25px;
-                margin-bottom: 50px;
-            }
-
-            .feature {
-                padding: 25px;
-                max-width: 200px;
+            .button-container {
+                flex-direction: row;
+                justify-content: center;
             }
 
             .btn,
             .get-code-btn {
                 width: auto;
-                max-width: none;
-                padding: 18px 45px;
-                font-size: 1.3rem;
-            }
-
-            .button-container {
-                gap: 30px;
+                max-width: 200px;
+                padding: var(--spacing-md) var(--spacing-xl);
             }
 
             .score-ring-container {
-                width: 250px;
-                height: 250px;
+                width: 220px;
+                height: 220px;
             }
 
             .score-ring-number {
-                font-size: 4rem;
+                font-size: var(--font-size-5xl);
             }
 
             .big-number-container {
@@ -1100,36 +1123,36 @@
             }
 
             .suggestions-grid {
-                grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+                grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
             }
 
             .radar-chart {
-                height: 400px;
+                height: 300px;
             }
 
             .action-btn {
-                max-width: 180px;
-                height: 52px;
+                max-width: 160px;
+                height: 48px;
             }
         }
 
         /* 小屏幕手机优化 */
         @media (max-width: 360px) {
             .glass-card {
-                padding: 20px;
-                border-radius: 18px;
+                padding: 16px;
+                border-radius: 14px;
             }
 
             h1 {
-                font-size: var(--font-size-2xl);
+                font-size: var(--font-size-xl);
             }
 
             .subtitle {
-                font-size: var(--font-size-md);
+                font-size: var(--font-size-sm);
             }
 
             .question-text {
-                font-size: var(--font-size-xl);
+                font-size: var(--font-size-lg);
             }
 
             .option-text {
@@ -1137,8 +1160,8 @@
             }
 
             .score-ring-container {
-                width: 180px;
-                height: 180px;
+                width: 160px;
+                height: 160px;
             }
 
             .score-ring-number {
@@ -1147,12 +1170,12 @@
 
             .big-number-container {
                 grid-template-columns: 1fr;
-                gap: var(--spacing-md);
+                gap: var(--spacing-xs);
             }
 
             .tag {
-                font-size: var(--font-size-xs);
-                padding: var(--spacing-xs) var(--spacing-sm);
+                font-size: 11px;
+                padding: 3px 8px;
             }
 
             .actions {
@@ -1170,7 +1193,7 @@
         @keyframes fadeIn {
             from {
                 opacity: 0;
-                transform: translateY(20px);
+                transform: translateY(10px);
             }
 
             to {
@@ -1231,7 +1254,7 @@
 
         @keyframes ringFill {
             from {
-                stroke-dashoffset: 565;
+                stroke-dashoffset: 508;
             }
 
             to {
@@ -1266,7 +1289,7 @@
         <!-- 首页 -->
         <div id="home-page" class="glass-card page active">
             <div class="logo">
-                <i class="fas fa-heart-crack"></i>
+                <i class="fas fa-heart-broken"></i>
             </div>
             <h1>你有多久没好好爱自己了？</h1>
             <p class="subtitle">本测试基于Kristin
@@ -1343,9 +1366,19 @@
             <div class="result-header">
                 <h1 class="result-title">你的自我关怀报告</h1>
 
-                <!-- 一句话说明多久没好好爱自己了 -->
-                <div class="result-summary-text" id="result-summary-text">
-                    你可能已经很久没有好好爱自己了...
+                <!-- 结果页顶部文字 -->
+                <div class="result-top-text">
+                    在这个快节奏的世界里，你有多久没有停下来好好照顾自己了？
+                </div>
+
+                <!-- 鼓励文字 -->
+                <div class="encouragement-text" id="encouragement-text">
+                    亲爱的，你已经很久没有好好爱自己了... 是时候停下来，听听内心的声音，给自己一个温暖的拥抱了。
+                </div>
+
+                <!-- 多久没爱自己了文字 -->
+                <div class="time-text" id="time-text">
+                    根据你的测试结果，你可能已经很久没有好好爱自己了...
                 </div>
 
                 <!-- 圆环得分显示 -->
@@ -1366,32 +1399,42 @@
                         <div class="score-ring-label">自我关怀指数</div>
                     </div>
                 </div>
-            </div>
 
-            <!-- 得分指示条 -->
-            <div class="score-indicator-container">
-                <div class="score-indicator">
-                    <div class="indicator-bar">
-                        <div class="indicator-marker" id="indicator-marker"></div>
-                    </div>
-                    <div class="indicator-labels">
-                        <div class="indicator-label">严重忽视自己<br>(0-20分)</div>
-                        <div class="indicator-label">经常忽略自己<br>(21-40分)</div>
-                        <div class="indicator-label">偶尔照顾自己<br>(41-60分)</div>
-                        <div class="indicator-label">比较关爱自己<br>(61-80分)</div>
-                        <div class="indicator-label">非常爱自己<br>(81-100分)</div>
-                    </div>
+                <!-- 得分可视化和进度条之间的情感文字 -->
+                <div class="score-emotional-text" id="score-emotional-text">
+                    这个分数不仅是一个数字，它反映了你与自己相处的方式。无论得分高低，都是重新认识自己的开始。
                 </div>
 
-                <!-- 文字分析 -->
-                <div class="indicator-analysis" id="indicator-analysis">
-                    <!-- 文字分析将通过JavaScript动态生成 -->
+                <!-- 得分指示条 -->
+                <div class="score-indicator-container">
+                    <div class="score-indicator">
+                        <div class="indicator-bar">
+                            <div class="indicator-marker" id="indicator-marker"></div>
+                        </div>
+                        <div class="indicator-labels">
+                            <div class="indicator-label">严重忽视自己<br>(0-20分)</div>
+                            <div class="indicator-label">经常忽略自己<br>(21-40分)</div>
+                            <div class="indicator-label">偶尔照顾自己<br>(41-60分)</div>
+                            <div class="indicator-label">比较关爱自己<br>(61-80分)</div>
+                            <div class="indicator-label">非常爱自己<br>(81-100分)</div>
+                        </div>
+                    </div>
+
+                    <!-- 进度条下面的文字 -->
+                    <div class="progress-bottom-text" id="progress-bottom-text">
+                        无论你现在的得分如何，爱自己都是一场需要终生学习的温柔革命
+                    </div>
+
+                    <!-- 文字分析 -->
+                    <div class="indicator-analysis" id="indicator-analysis">
+                        <!-- 文字分析将通过JavaScript动态生成 -->
+                    </div>
                 </div>
             </div>
 
             <!-- 新增情感文案 -->
             <div class="emotional-text" id="emotional-text">
-                爱自己，是一场需要终生学习的温柔革命。它不是自私，而是对自己的慈悲；不是放纵，而是对自己的负责。
+                爱自己，是一场需要终生学习的温柔革命。它不是自私，而是对自己的慈悲；不是放纵，而是对自己的负责。真正的爱自己，是允许自己不够完美，允许自己偶尔脆弱，允许自己在疲惫时停下来休息。
             </div>
 
             <!-- 维度得分 - 大数字样式 -->
@@ -1410,6 +1453,14 @@
                 </div>
             </div>
 
+            <!-- 给你的悄悄话 -->
+            <div class="whisper-section">
+                <h3>给你的悄悄话</h3>
+                <div class="whisper-text" id="whisper-text">
+                    亲爱的，无论你现在的状态如何，都请记得：你值得被爱，值得被善待，值得拥有所有美好的一切。那些被压抑的感受和需求都在等待你的关注，从今天起，试着多关注自己一点。
+                </div>
+            </div>
+
             <!-- 雷达图 -->
             <div class="big-number-section">
                 <h3 class="section-title">你的内在平衡图</h3>
@@ -1418,14 +1469,6 @@
                 </div>
                 <div class="radar-analysis" id="radar-analysis">
                     <!-- 雷达图分析将通过JavaScript动态生成 -->
-                </div>
-            </div>
-
-            <!-- 给你的悄悄话 -->
-            <div class="whisper-section">
-                <h3>给你的悄悄话</h3>
-                <div class="whisper-text" id="whisper-text">
-                    亲爱的，无论你现在的状态如何，都请记得：你值得被爱，值得被善待，值得拥有所有美好的一切。
                 </div>
             </div>
 
@@ -1581,9 +1624,12 @@
         const prevBtn = document.getElementById('prev-btn');
         const scoreRingNumber = document.getElementById('score-ring-number');
         const scoreRingFill = document.getElementById('score-ring-fill');
-        const resultSummaryText = document.getElementById('result-summary-text');
+        const encouragementText = document.getElementById('encouragement-text');
         const emotionalText = document.getElementById('emotional-text');
+        const timeText = document.getElementById('time-text');
         const whisperText = document.getElementById('whisper-text');
+        const scoreEmotionalText = document.getElementById('score-emotional-text');
+        const progressBottomText = document.getElementById('progress-bottom-text');
         const indicatorMarker = document.getElementById('indicator-marker');
         const indicatorAnalysis = document.getElementById('indicator-analysis');
         const bigNumberContainer = document.getElementById('big-number-container');
@@ -1888,9 +1934,11 @@
 
             window.scrollTo(0, 0);
 
-            displayResultSummaryText(scorePercentage);
+            displayEncouragementText(scorePercentage);
+            displayTimeText(scorePercentage);
             displayEmotionalText(scorePercentage);
             displayScoreRing(scorePercentage);
+            displayScoreEmotionalText(scorePercentage);
             updateScoreIndicator(scorePercentage);
             displayBigNumberCards(categoryScores);
             displayTags(categoryScores, scorePercentage);
@@ -1907,23 +1955,61 @@
             }, 500);
         }
 
-        // 显示一句话总结
-        function displayResultSummaryText(scorePercentage) {
-            let summary = "";
+        // 显示鼓励文字
+        function displayEncouragementText(scorePercentage) {
+            let encouragement = "";
 
             if (scorePercentage >= 80) {
-                summary = "你一直记得好好爱自己，这真是一件美好的事！继续保持这份对自己的温柔和关怀吧。";
+                encouragement = "亲爱的，你真棒！你已经很懂得如何爱自己了。这份自我关怀的能力，是你生命中最宝贵的礼物，请继续好好珍惜它。";
             } else if (scorePercentage >= 60) {
-                summary = "你可能有一段时间没有好好爱自己了，但没关系，从今天开始重新学习，一切都来得及。";
+                encouragement = "亲爱的，你正在学习如何更好地爱自己。记住，你值得被温柔对待，包括被你自己。每一次对自己的善意，都是在积蓄内心的力量。";
             } else if (scorePercentage >= 40) {
-                summary = "根据你的测试结果，你可能已经几个月没有好好爱自己了。是时候停下来，给自己一些关怀和温暖了。";
+                encouragement = "亲爱的，你是不是常常照顾别人却忘了自己？是时候停下来，听听内心的声音，给自己一个温暖的拥抱了。你同样需要被爱和被关心。";
             } else if (scorePercentage >= 20) {
-                summary = "看起来你已经很久很久没有好好爱自己了。那些被忽略的需求和感受，都在等待你的关注。";
+                encouragement = "亲爱的，也许你总是忙于照顾他人，却忘了照顾自己。从今天开始，请把一部分的爱留给自己，好吗？你同样值得被好好对待。";
             } else {
-                summary = "亲爱的，测试结果显示，你可能已经太久太久没有好好爱自己了。那些被压抑的需求和疲惫的身心，都在呼唤你的关怀。";
+                encouragement = "亲爱的，我知道你一直在努力，但别忘了，你也需要被爱和被关心。从今天起，每天给自己一个小小温柔吧。你值得所有的美好。";
             }
 
-            resultSummaryText.textContent = summary;
+            encouragementText.textContent = encouragement;
+        }
+
+        // 显示多久没爱自己了文字
+        function displayTimeText(scorePercentage) {
+            let timeMessage = "";
+
+            if (scorePercentage >= 80) {
+                timeMessage = "你一直记得好好爱自己，这真是一件美好的事！继续保持这份对自己的温柔和关怀吧。";
+            } else if (scorePercentage >= 60) {
+                timeMessage = "你可能有一段时间没有好好爱自己了，但没关系，从今天开始重新学习，一切都来得及。";
+            } else if (scorePercentage >= 40) {
+                timeMessage = "根据你的测试结果，你可能已经几个月没有好好爱自己了。是时候停下来，给自己一些关怀和温暖了。";
+            } else if (scorePercentage >= 20) {
+                timeMessage = "看起来你已经很久很久没有好好爱自己了。那些被忽略的需求和感受，都在等待你的关注。";
+            } else {
+                timeMessage = "亲爱的，测试结果显示，你可能已经太久太久没有好好爱自己了。那些被压抑的需求和疲惫的身心，都在呼唤你的关怀。";
+            }
+
+            timeText.textContent = timeMessage;
+        }
+
+        // 显示得分可视化和进度条之间的情感文字
+        function displayScoreEmotionalText(scorePercentage) {
+            let text = "";
+
+            if (scorePercentage >= 80) {
+                text = "你真的很懂得如何好好爱自己，这种能力是你生命中最宝贵的财富。继续保持这份温柔与关怀吧，它们会成为你面对一切挑战的力量源泉。";
+            } else if (scorePercentage >= 60) {
+                text = "这个分数代表你正在学习如何更好地爱自己。每一次对自己的温柔，每一次对自己的理解，都是在积蓄内心的力量。";
+            } else if (scorePercentage >= 40) {
+                text = "这个分数提醒你，是时候多关注自己的需求了。你不需要完美才值得被爱，从今天起，试着对自己温柔一点。";
+            } else if (scorePercentage >= 20) {
+                text = "这个分数是一个温柔的提醒：你也需要被好好对待。那些被压抑的感受和需求，都在等待你的关注与关怀。";
+            } else {
+                text = "这个分数不代表你不值得被爱，只代表你太久没有好好爱自己了。从今天开始，每天给自己一点小小的温柔吧。";
+            }
+
+            scoreEmotionalText.textContent = text;
         }
 
         // 显示情感文案
@@ -1931,15 +2017,15 @@
             let emotional = "";
 
             if (scorePercentage >= 80) {
-                emotional = "真正的爱自己，是能够在风雨中为自己撑伞，在黑暗中为自己点灯。你已经拥有了这份珍贵的能力，请继续用它照亮自己的生命旅程。";
+                emotional = "真正的爱自己，是能够在风雨中为自己撑伞，在黑暗中为自己点灯。你已经拥有了这份珍贵的能力，请继续用它照亮自己的生命旅程。爱自己，不是自私，而是对自己最基本的责任。当你学会好好爱自己时，你会发现整个世界都变得更加温柔。";
             } else if (scorePercentage >= 60) {
-                emotional = "爱自己的路，不是一条笔直的坦途，而是一条蜿蜒的小径。你已经走在了正确的道路上，每一步都值得庆祝，每一刻都值得珍惜。";
+                emotional = "爱自己的路，不是一条笔直的坦途，而是一条蜿蜒的小径。你已经走在了正确的道路上，每一步都值得庆祝，每一刻都值得珍惜。真正的爱自己，是允许自己不够完美，允许自己偶尔脆弱，允许自己在疲惫时停下来休息。";
             } else if (scorePercentage >= 40) {
-                emotional = "有时候，我们太习惯照顾别人，却忘了自己也需要被照顾。今天的结果是一个温柔的提醒：你同样重要，你同样值得被好好对待。";
+                emotional = "有时候，我们太习惯照顾别人，却忘了自己也需要被照顾。今天的结果是一个温柔的提醒：你同样重要，你同样值得被好好对待。真正的爱自己，是允许自己不够完美，允许自己偶尔脆弱，允许自己在疲惫时停下来休息。";
             } else if (scorePercentage >= 20) {
-                emotional = "爱自己，不是自私，而是对自己最基本的责任。从今天起，试着像对待最好的朋友那样对待自己，给自己同样的耐心和理解。";
+                emotional = "爱自己，不是自私，而是对自己最基本的责任。从今天起，试着像对待最好的朋友那样对待自己，给自己同样的耐心和理解。真正的爱自己，是允许自己不够完美，允许自己偶尔脆弱，允许自己在疲惫时停下来休息。";
             } else {
-                emotional = "亲爱的，我知道你总是把别人放在第一位。但请记住，只有先填满自己的杯子，才能有余力去滋养他人。今天，就从好好爱自己开始吧。";
+                emotional = "亲爱的，我知道你总是把别人放在第一位。但请记住，只有先填满自己的杯子，才能有余力去滋养他人。今天，就从好好爱自己开始吧。真正的爱自己，是允许自己不够完美，允许自己偶尔脆弱，允许自己在疲惫时停下来休息。";
             }
 
             emotionalText.textContent = emotional;
@@ -1950,15 +2036,15 @@
             let whisper = "";
 
             if (scorePercentage >= 80) {
-                whisper = "亲爱的，你已经做得很好了。请继续保持这份对自己的温柔，让它成为你生命中最坚实的力量。记得，你值得所有的美好和幸福。";
+                whisper = "亲爱的，你已经做得很好了。请继续保持这份对自己的温柔，让它成为你生命中最坚实的力量。记得，你值得所有的美好和幸福。那些被压抑的感受和需求都在等待你的关注，从今天起，试着多关注自己一点。";
             } else if (scorePercentage >= 60) {
-                whisper = "亲爱的，你正在学习如何更好地爱自己，这本身就是一件很了不起的事。给自己多一点耐心和宽容，就像对待最好的朋友那样。";
+                whisper = "亲爱的，你正在学习如何更好地爱自己，这本身就是一件很了不起的事。给自己多一点耐心和宽容，就像对待最好的朋友那样。那些被压抑的感受和需求都在等待你的关注，从今天起，试着多关注自己一点。";
             } else if (scorePercentage >= 40) {
-                whisper = "亲爱的，我知道你总是把别人的需求放在前面。但从今天起，试着也把自己的需求放在同等重要的位置，好吗？你同样值得被好好对待。";
+                whisper = "亲爱的，我知道你总是把别人的需求放在前面。但从今天起，试着也把自己的需求放在同等重要的位置，好吗？你同样值得被好好对待。那些被压抑的感受和需求都在等待你的关注，从今天起，试着多关注自己一点。";
             } else if (scorePercentage >= 20) {
-                whisper = "亲爱的，也许你已经习惯了忽略自己，但你的内心一直在呼唤关怀。从今天开始，每天为自己做一件小事，哪怕只是喝杯温水，对自己说声辛苦了。";
+                whisper = "亲爱的，也许你已经习惯了忽略自己，但你的内心一直在呼唤关怀。从今天开始，每天为自己做一件小事，哪怕只是喝杯温水，对自己说声辛苦了。那些被压抑的感受和需求都在等待你的关注，从今天起，试着多关注自己一点。";
             } else {
-                whisper = "亲爱的，我知道你已经很久没有好好爱自己了。那些被压抑的感受和需求都在等待你的关注。从今天起，请试着多关注自己一点，你值得被爱、被珍惜。";
+                whisper = "亲爱的，我知道你已经很久没有好好爱自己了。那些被压抑的感受和需求都在等待你的关注。从今天起，请试着多关注自己一点，你值得被爱、被珍惜。那些被压抑的感受和需求都在等待你的关注，从今天起，试着多关注自己一点。";
             }
 
             whisperText.textContent = whisper;
@@ -2000,19 +2086,19 @@
 
             const markerScore = document.createElement('div');
             markerScore.style.position = 'absolute';
-            markerScore.style.top = '-30px';
-            markerScore.style.left = '-12px';
-            markerScore.style.width = '24px';
-            markerScore.style.height = '18px';
+            markerScore.style.top = '-26px';
+            markerScore.style.left = '-10px';
+            markerScore.style.width = '20px';
+            markerScore.style.height = '16px';
             markerScore.style.background = 'white';
             markerScore.style.color = 'var(--primary-color)';
-            markerScore.style.borderRadius = '4px';
+            markerScore.style.borderRadius = '3px';
             markerScore.style.display = 'flex';
             markerScore.style.alignItems = 'center';
             markerScore.style.justifyContent = 'center';
-            markerScore.style.fontSize = '10px';
+            markerScore.style.fontSize = '9px';
             markerScore.style.fontWeight = 'bold';
-            markerScore.style.border = '2px solid var(--primary-color)';
+            markerScore.style.border = '1px solid var(--primary-color)';
             markerScore.textContent = `${scorePercentage}%`;
             indicatorMarker.appendChild(markerScore);
 
@@ -2065,7 +2151,7 @@
 
                 const cardElement = document.createElement('div');
                 cardElement.className = 'big-number-card';
-                cardElement.style.borderTop = `4px solid ${scoreData.color}`;
+                cardElement.style.borderTop = `3px solid ${scoreData.color}`;
                 cardElement.innerHTML = `
                     <div class="big-number">${percentage}%</div>
                     <div class="big-number-label">${category}</div>
@@ -2123,9 +2209,9 @@
             const ctx = canvas.getContext('2d');
 
             canvas.width = canvas.offsetWidth * 2;
-            canvas.height = 280 * 2;
+            canvas.height = 240 * 2;
             canvas.style.width = `${canvas.offsetWidth}px`;
-            canvas.style.height = '280px';
+            canvas.style.height = '240px';
 
             const categories = Object.keys(categoryScores);
             const percentages = categories.map(category => {
@@ -2135,13 +2221,13 @@
 
             const centerX = canvas.width / 2;
             const centerY = canvas.height / 2;
-            const radius = Math.min(centerX, centerY) - 70;
+            const radius = Math.min(centerX, centerY) - 60;
             const angleStep = (Math.PI * 2) / categories.length;
 
             ctx.clearRect(0, 0, canvas.width, canvas.height);
 
             ctx.strokeStyle = 'rgba(255, 255, 255, 0.3)';
-            ctx.lineWidth = 2;
+            ctx.lineWidth = 1;
 
             for (let i = 1; i <= 5; i++) {
                 const r = (radius / 5) * i;
@@ -2162,7 +2248,7 @@
             }
 
             ctx.strokeStyle = 'rgba(255, 255, 255, 0.5)';
-            ctx.lineWidth = 2;
+            ctx.lineWidth = 1;
 
             for (let i = 0; i < categories.length; i++) {
                 const angle = i * angleStep - Math.PI / 2;
@@ -2174,11 +2260,11 @@
                 ctx.lineTo(x, y);
                 ctx.stroke();
 
-                const labelX = centerX + Math.cos(angle) * (radius + 40);
-                const labelY = centerY + Math.sin(angle) * (radius + 40);
+                const labelX = centerX + Math.cos(angle) * (radius + 30);
+                const labelY = centerY + Math.sin(angle) * (radius + 30);
 
                 ctx.fillStyle = '#5a5678';
-                ctx.font = 'bold 20px Arial';
+                ctx.font = 'bold 18px Arial';
                 ctx.textAlign = 'center';
                 ctx.textBaseline = 'middle';
                 ctx.fillText(categories[i], labelX, labelY);
@@ -2186,7 +2272,7 @@
 
             ctx.fillStyle = 'rgba(255, 126, 179, 0.3)';
             ctx.strokeStyle = 'rgba(255, 126, 179, 0.8)';
-            ctx.lineWidth = 4;
+            ctx.lineWidth = 3;
 
             ctx.beginPath();
             for (let i = 0; i < categories.length; i++) {
@@ -2215,14 +2301,14 @@
                 const y = centerY + Math.sin(angle) * r;
 
                 ctx.beginPath();
-                ctx.arc(x, y, 6, 0, Math.PI * 2);
+                ctx.arc(x, y, 5, 0, Math.PI * 2);
                 ctx.fill();
 
                 ctx.fillStyle = '#5a5678';
                 ctx.font = 'bold 16px Arial';
                 ctx.textAlign = 'center';
                 ctx.textBaseline = 'bottom';
-                ctx.fillText(`${percentage}%`, x, y - 12);
+                ctx.fillText(`${percentage}%`, x, y - 10);
                 ctx.fillStyle = '#ff7eb3';
             }
         }
