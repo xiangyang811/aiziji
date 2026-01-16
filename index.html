@@ -35,16 +35,16 @@
             --result-title-color: #ff6b9d;
             --red-btn: #ff4d4f;
 
-            /* 移动端字体大小 - 整体加大 */
-            --font-size-xs: 11px;
-            --font-size-sm: 13px;
-            --font-size-md: 15px;
-            --font-size-lg: 17px;
-            --font-size-xl: 19px;
-            --font-size-2xl: 21px;
-            --font-size-3xl: 24px;
-            --font-size-4xl: 28px;
-            --font-size-5xl: 36px;
+            /* 移动端字体大小 */
+            --font-size-xs: 10px;
+            --font-size-sm: 12px;
+            --font-size-md: 14px;
+            --font-size-lg: 16px;
+            --font-size-xl: 18px;
+            --font-size-2xl: 20px;
+            --font-size-3xl: 22px;
+            --font-size-4xl: 24px;
+            --font-size-5xl: 32px;
 
             /* 移动端间距 */
             --spacing-xs: 4px;
@@ -260,11 +260,10 @@
             min-height: 160px;
         }
 
-        /* 测试页文字加大 */
         .question-text {
-            font-size: var(--font-size-xl);
+            font-size: var(--font-size-lg);
             line-height: 1.4;
-            margin-bottom: var(--spacing-lg);
+            margin-bottom: var(--spacing-md);
             font-weight: 600;
             letter-spacing: -0.1px;
         }
@@ -318,9 +317,8 @@
             font-size: 12px;
         }
 
-        /* 测试页选项文字加大 */
         .option-text {
-            font-size: var(--font-size-lg);
+            font-size: var(--font-size-md);
             flex-grow: 1;
             line-height: 1.4;
         }
@@ -372,23 +370,15 @@
             display: none;
         }
 
-        /* 结果页顶部文字 - 小字号 */
-        .result-top-text {
-            font-size: var(--font-size-sm);
-            color: #5a5678;
-            margin: var(--spacing-sm) 0;
-            line-height: 1.5;
-            text-align: center;
-        }
-
+        /* 鼓励文字 */
         .encouragement-text {
-            font-size: var(--font-size-sm);
+            font-size: var(--font-size-md);
             color: var(--primary-color);
-            margin: var(--spacing-sm) 0;
+            margin: var(--spacing-md) 0;
             line-height: 1.5;
             font-weight: 600;
             text-align: center;
-            padding: var(--spacing-sm);
+            padding: var(--spacing-md);
             background: rgba(255, 255, 255, 0.1);
             border-radius: 12px;
             border-left: 3px solid var(--accent-color);
@@ -399,23 +389,23 @@
         .emotional-text {
             font-size: var(--font-size-sm);
             color: #5a5678;
-            margin: var(--spacing-sm) 0;
+            margin: var(--spacing-md) 0;
             line-height: 1.5;
             text-align: center;
-            padding: var(--spacing-sm);
+            padding: var(--spacing-md);
             background: rgba(255, 255, 255, 0.05);
             border-radius: 12px;
             animation: fadeIn 1s ease 0.5s both;
         }
 
-        /* 多久没爱自己了文字 */
+        /* 多久没爱自己了文字 - 移动到圆环和指示条之间 */
         .time-text {
             font-size: var(--font-size-sm);
             color: var(--primary-color);
-            margin: var(--spacing-sm) 0;
+            margin: var(--spacing-md) 0;
             line-height: 1.5;
             text-align: center;
-            padding: var(--spacing-sm);
+            padding: var(--spacing-md);
             background: rgba(255, 255, 255, 0.05);
             border-radius: 10px;
             border-right: 2px solid var(--accent-color);
@@ -423,32 +413,12 @@
             animation: fadeIn 1s ease 0.8s both;
         }
 
-        /* 得分可视化和进度条之间的情感文字 */
-        .score-emotional-text {
-            font-size: var(--font-size-sm);
-            color: #5a5678;
-            margin: var(--spacing-sm) 0;
-            line-height: 1.5;
-            text-align: center;
-            padding: var(--spacing-sm);
-        }
-
-        /* 进度条下面的文字 */
-        .progress-bottom-text {
-            font-size: var(--font-size-sm);
-            color: #5a5678;
-            margin: var(--spacing-xs) 0 var(--spacing-md);
-            line-height: 1.5;
-            text-align: center;
-            padding: 0 var(--spacing-sm);
-        }
-
-        /* 圆环得分显示样式 - 加大 */
+        /* 圆环得分显示样式 */
         .score-ring-container {
             position: relative;
-            width: 180px;
-            height: 180px;
-            margin: var(--spacing-md) auto;
+            width: 200px;
+            height: 200px;
+            margin: var(--spacing-lg) auto;
         }
 
         .score-ring {
@@ -470,8 +440,8 @@
 
         .score-ring-fill {
             stroke: url(#ring-gradient);
-            stroke-dasharray: 508;
-            stroke-dashoffset: 508;
+            stroke-dasharray: 565;
+            stroke-dashoffset: 565;
             transition: stroke-dashoffset 2s ease;
         }
 
@@ -484,7 +454,7 @@
         }
 
         .score-ring-number {
-            font-size: var(--font-size-5xl);
+            font-size: 60px;
             font-weight: 900;
             background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
             -webkit-background-clip: text;
@@ -492,24 +462,17 @@
             line-height: 1;
         }
 
-        .score-ring-label {
-            font-size: var(--font-size-md);
-            color: #5a5678;
-            font-weight: 600;
-            margin-top: var(--spacing-xs);
-        }
-
         .result-title {
             font-size: var(--font-size-xl);
-            margin-bottom: var(--spacing-sm);
+            margin-bottom: var(--spacing-md);
             font-weight: 700;
             color: var(--result-title-color);
         }
 
-        /* 得分指示条样式 - 加大 */
+        /* 得分指示条样式 */
         .score-indicator-container {
             width: 100%;
-            margin: 0 auto var(--spacing-lg);
+            margin: var(--spacing-xl) auto;
         }
 
         .score-indicator {
@@ -518,24 +481,24 @@
         }
 
         .indicator-bar {
-            height: 18px;
+            height: 20px;
             background: linear-gradient(90deg, #ff6b6b, #ffb366, #ffd93d, #6bcf7f, #4d96ff);
-            border-radius: 12px;
+            border-radius: 10px;
             position: relative;
             margin-bottom: var(--spacing-md);
             overflow: hidden;
         }
 
-        /* 指示器标记 */
+        /* 指示器标记 - 修改为粉色，去掉描边 */
         .indicator-marker {
             position: absolute;
             top: 50%;
             transform: translate(-50%, -50%);
-            width: 22px;
-            height: 22px;
-            background: white;
+            width: 24px;
+            height: 24px;
+            background: var(--primary-color);
             border-radius: 50%;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+            box-shadow: 0 4px 12px rgba(255, 126, 179, 0.4);
             z-index: 10;
             border: none;
         }
@@ -557,7 +520,7 @@
 
         .indicator-analysis {
             text-align: center;
-            margin-top: var(--spacing-md);
+            margin-top: var(--spacing-xl);
             padding: var(--spacing-md);
             background: rgba(255, 255, 255, 0.1);
             border-radius: 12px;
@@ -566,27 +529,27 @@
 
         .indicator-analysis h4 {
             color: var(--primary-color);
-            margin-bottom: var(--spacing-xs);
-            font-size: var(--font-size-lg);
+            margin-bottom: var(--spacing-sm);
+            font-size: var(--font-size-md);
             font-weight: 600;
         }
 
         .indicator-analysis p {
             line-height: 1.5;
             color: #5a5678;
-            font-size: var(--font-size-md);
+            font-size: var(--font-size-sm);
         }
 
-        /* 大数字卡片样式 - 加大 */
-        .big-number-section {
-            margin: var(--spacing-lg) 0;
+        /* 柱状图样式 */
+        .bar-chart-section {
+            margin: var(--spacing-xl) 0;
         }
 
         .section-title {
             text-align: center;
             font-size: var(--font-size-lg);
             color: var(--primary-color);
-            margin-bottom: var(--spacing-md);
+            margin-bottom: var(--spacing-xl);
             position: relative;
             font-weight: 600;
         }
@@ -594,73 +557,52 @@
         .section-title:after {
             content: '';
             display: block;
-            width: 36px;
-            height: 2px;
+            width: 50px;
+            height: 3px;
             background: linear-gradient(90deg, var(--primary-color), var(--accent-color));
-            margin: var(--spacing-xs) auto 0;
+            margin: var(--spacing-sm) auto 0;
             border-radius: 2px;
         }
 
-        .big-number-container {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: var(--spacing-sm);
-            margin-bottom: var(--spacing-md);
+        .bar-chart-container {
+            width: 100%;
+            height: 300px;
+            margin: var(--spacing-lg) 0;
+            position: relative;
         }
 
-        .big-number-card {
-            background: rgba(255, 255, 255, 0.15);
-            border-radius: 12px;
-            padding: var(--spacing-md);
+        .bar-chart-canvas {
+            width: 100%;
+            height: 100%;
+        }
+
+        .bar-chart-analysis {
             text-align: center;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            min-height: 110px;
-        }
-
-        .big-number-card:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
-        }
-
-        .big-number {
-            font-size: var(--font-size-2xl);
-            font-weight: 800;
-            line-height: 1;
-            margin-bottom: var(--spacing-xs);
-            background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-
-        .big-number-label {
-            font-size: var(--font-size-md);
-            font-weight: 600;
-            color: var(--dark-color);
-            margin-bottom: var(--spacing-xs);
-        }
-
-        .big-number-description {
+            margin-top: var(--spacing-md);
+            padding: var(--spacing-md);
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
             font-size: var(--font-size-sm);
             color: #5a5678;
-            line-height: 1.4;
+            line-height: 1.5;
         }
 
         /* 标签卡片样式 - 加大 */
+        .tags-section {
+            margin: var(--spacing-xl) 0;
+        }
+
         .tags-container {
             display: flex;
             flex-wrap: wrap;
             justify-content: center;
-            gap: var(--spacing-xs);
-            margin: var(--spacing-sm) 0 var(--spacing-md);
+            gap: var(--spacing-sm);
+            margin: var(--spacing-md) 0 var(--spacing-xl);
         }
 
         .tag {
             border-radius: 30px;
-            padding: var(--spacing-xs) var(--spacing-sm);
+            padding: var(--spacing-sm) var(--spacing-md);
             font-size: var(--font-size-sm);
             font-weight: 600;
             color: white;
@@ -709,41 +651,45 @@
         }
 
         /* 雷达图样式 - 加大 */
+        .radar-section {
+            margin: var(--spacing-xl) 0;
+        }
+
         .radar-container {
             width: 100%;
             max-width: 100%;
-            margin: var(--spacing-md) auto;
+            margin: var(--spacing-xl) auto;
             position: relative;
         }
 
         .radar-chart {
             width: 100%;
-            height: 240px;
+            height: 280px;
         }
 
-        /* 雷达图文字分析 - 加大 */
+        /* 雷达图文字分析 */
         .radar-analysis {
             text-align: center;
             margin-top: var(--spacing-md);
             padding: var(--spacing-md);
             background: rgba(255, 255, 255, 0.1);
-            border-radius: 12px;
-            font-size: var(--font-size-md);
+            border-radius: 10px;
+            font-size: var(--font-size-sm);
             color: #5a5678;
             line-height: 1.5;
         }
 
-        /* 建议板块 - 加大 */
+        /* 建议板块 */
         .suggestions-section {
             background: rgba(255, 255, 255, 0.15);
             border-radius: 12px;
-            padding: var(--spacing-lg);
-            margin-top: var(--spacing-md);
+            padding: var(--spacing-md);
+            margin: var(--spacing-xl) 0;
         }
 
         .suggestions-section h3 {
             color: var(--primary-color);
-            font-size: var(--font-size-lg);
+            font-size: var(--font-size-md);
             margin-bottom: var(--spacing-md);
             display: flex;
             align-items: center;
@@ -754,13 +700,13 @@
         .suggestions-grid {
             display: grid;
             grid-template-columns: 1fr;
-            gap: var(--spacing-md);
+            gap: var(--spacing-sm);
         }
 
         .suggestion-item {
             background: rgba(255, 255, 255, 0.1);
             border-radius: 10px;
-            padding: var(--spacing-md);
+            padding: var(--spacing-sm);
             transition: transform 0.3s ease;
         }
 
@@ -774,22 +720,22 @@
             gap: var(--spacing-xs);
             color: var(--primary-color);
             margin-bottom: var(--spacing-xs);
-            font-size: var(--font-size-md);
+            font-size: var(--font-size-sm);
             font-weight: 600;
         }
 
         .suggestion-item p {
             color: #5a5678;
             line-height: 1.5;
-            font-size: var(--font-size-md);
+            font-size: var(--font-size-sm);
         }
 
-        /* 给你的悄悄话 - 加大 */
+        /* 给你的悄悄话 */
         .whisper-section {
             background: linear-gradient(135deg, rgba(255, 126, 179, 0.1), rgba(157, 123, 255, 0.1));
             border-radius: 12px;
-            padding: var(--spacing-lg);
-            margin-top: var(--spacing-md);
+            padding: var(--spacing-xl);
+            margin: var(--spacing-xl) 0;
             text-align: center;
             border-left: 3px solid var(--primary-color);
         }
@@ -809,19 +755,19 @@
             font-weight: 500;
         }
 
-        /* 科学理论依据 - 加大 */
+        /* 科学理论依据 */
         .theory-section {
             background: rgba(255, 255, 255, 0.1);
             border-radius: 12px;
             padding: var(--spacing-md);
-            margin-top: var(--spacing-md);
+            margin-top: var(--spacing-xl);
             font-size: var(--font-size-sm);
         }
 
         .theory-section h3 {
             color: var(--primary-color);
             font-size: var(--font-size-md);
-            margin-bottom: var(--spacing-xs);
+            margin-bottom: var(--spacing-sm);
             display: flex;
             align-items: center;
             gap: var(--spacing-xs);
@@ -830,7 +776,7 @@
 
         .theory-section p {
             line-height: 1.5;
-            margin-bottom: var(--spacing-xs);
+            margin-bottom: var(--spacing-sm);
             font-size: var(--font-size-sm);
         }
 
@@ -840,14 +786,14 @@
             flex-direction: row;
             justify-content: center;
             gap: var(--spacing-md);
-            margin-top: var(--spacing-lg);
+            margin-top: var(--spacing-xl);
         }
 
         .action-btn {
             background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
             color: white;
             border: none;
-            padding: var(--spacing-sm) var(--spacing-md);
+            padding: var(--spacing-md) var(--spacing-lg);
             font-size: var(--font-size-md);
             border-radius: 10px;
             cursor: pointer;
@@ -897,7 +843,6 @@
             from {
                 opacity: 0;
             }
-
             to {
                 opacity: 1;
             }
@@ -921,7 +866,6 @@
                 transform: translateY(20px);
                 opacity: 0;
             }
-
             to {
                 transform: translateY(0);
                 opacity: 1;
@@ -1056,13 +1000,10 @@
         }
 
         @keyframes pulseGlow {
-
-            0%,
-            100% {
+            0%, 100% {
                 transform: scale(1);
                 box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
             }
-
             50% {
                 transform: scale(1.05);
                 box-shadow: 0 6px 15px rgba(255, 255, 255, 0.4);
@@ -1078,9 +1019,9 @@
                 --font-size-lg: 18px;
                 --font-size-xl: 20px;
                 --font-size-2xl: 22px;
-                --font-size-3xl: 26px;
-                --font-size-4xl: 30px;
-                --font-size-5xl: 42px;
+                --font-size-3xl: 24px;
+                --font-size-4xl: 28px;
+                --font-size-5xl: 36px;
             }
 
             body {
@@ -1110,24 +1051,33 @@
             }
 
             .score-ring-container {
-                width: 220px;
-                height: 220px;
+                width: 240px;
+                height: 240px;
             }
 
             .score-ring-number {
-                font-size: var(--font-size-5xl);
+                font-size: 72px;
             }
 
-            .big-number-container {
-                grid-template-columns: repeat(5, 1fr);
+            .tags-container {
+                gap: var(--spacing-md);
+            }
+
+            .tag {
+                font-size: var(--font-size-md);
+                padding: var(--spacing-sm) var(--spacing-lg);
             }
 
             .suggestions-grid {
-                grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+                grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
             }
 
             .radar-chart {
-                height: 300px;
+                height: 320px;
+            }
+
+            .bar-chart-container {
+                height: 350px;
             }
 
             .action-btn {
@@ -1152,30 +1102,25 @@
             }
 
             .question-text {
-                font-size: var(--font-size-lg);
-            }
-
-            .option-text {
                 font-size: var(--font-size-md);
             }
 
+            .option-text {
+                font-size: var(--font-size-sm);
+            }
+
             .score-ring-container {
-                width: 160px;
-                height: 160px;
+                width: 180px;
+                height: 180px;
             }
 
             .score-ring-number {
-                font-size: var(--font-size-4xl);
-            }
-
-            .big-number-container {
-                grid-template-columns: 1fr;
-                gap: var(--spacing-xs);
+                font-size: 48px;
             }
 
             .tag {
-                font-size: 11px;
-                padding: 3px 8px;
+                font-size: var(--font-size-xs);
+                padding: 5px 10px;
             }
 
             .actions {
@@ -1195,7 +1140,6 @@
                 opacity: 0;
                 transform: translateY(10px);
             }
-
             to {
                 opacity: 1;
                 transform: translateY(0);
@@ -1211,7 +1155,6 @@
                 transform: scale(0.8);
                 opacity: 0;
             }
-
             to {
                 transform: scale(1);
                 opacity: 1;
@@ -1226,7 +1169,6 @@
             from {
                 left: 0%;
             }
-
             to {
                 left: var(--marker-position);
             }
@@ -1241,7 +1183,6 @@
                 transform: scale(0.8);
                 opacity: 0;
             }
-
             to {
                 transform: scale(1);
                 opacity: 1;
@@ -1254,9 +1195,8 @@
 
         @keyframes ringFill {
             from {
-                stroke-dashoffset: 508;
+                stroke-dashoffset: 565;
             }
-
             to {
                 stroke-dashoffset: var(--ring-offset);
             }
@@ -1366,19 +1306,9 @@
             <div class="result-header">
                 <h1 class="result-title">你的自我关怀报告</h1>
 
-                <!-- 结果页顶部文字 -->
-                <div class="result-top-text">
-                    在这个快节奏的世界里，你有多久没有停下来好好照顾自己了？
-                </div>
-
                 <!-- 鼓励文字 -->
                 <div class="encouragement-text" id="encouragement-text">
                     亲爱的，你已经很久没有好好爱自己了... 是时候停下来，听听内心的声音，给自己一个温暖的拥抱了。
-                </div>
-
-                <!-- 多久没爱自己了文字 -->
-                <div class="time-text" id="time-text">
-                    根据你的测试结果，你可能已经很久没有好好爱自己了...
                 </div>
 
                 <!-- 圆环得分显示 -->
@@ -1396,13 +1326,12 @@
                     </svg>
                     <div class="score-ring-center">
                         <div class="score-ring-number" id="score-ring-number">0</div>
-                        <div class="score-ring-label">自我关怀指数</div>
                     </div>
                 </div>
 
-                <!-- 得分可视化和进度条之间的情感文字 -->
-                <div class="score-emotional-text" id="score-emotional-text">
-                    这个分数不仅是一个数字，它反映了你与自己相处的方式。无论得分高低，都是重新认识自己的开始。
+                <!-- 多久没爱自己了文字 - 移动到圆环和指示条之间 -->
+                <div class="time-text" id="time-text">
+                    你可能有一段时间没有好好爱自己了...
                 </div>
 
                 <!-- 得分指示条 -->
@@ -1419,37 +1348,46 @@
                             <div class="indicator-label">非常爱自己<br>(81-100分)</div>
                         </div>
                     </div>
+                </div>
 
-                    <!-- 进度条下面的文字 -->
-                    <div class="progress-bottom-text" id="progress-bottom-text">
-                        无论你现在的得分如何，爱自己都是一场需要终生学习的温柔革命
-                    </div>
+                <!-- 文字分析 -->
+                <div class="indicator-analysis" id="indicator-analysis">
+                    <!-- 文字分析将通过JavaScript动态生成 -->
+                </div>
 
-                    <!-- 文字分析 -->
-                    <div class="indicator-analysis" id="indicator-analysis">
-                        <!-- 文字分析将通过JavaScript动态生成 -->
-                    </div>
+                <!-- 情感文案 -->
+                <div class="emotional-text" id="emotional-text">
+                    爱自己，是一场需要终生学习的温柔革命。它不是自私，而是对自己的慈悲；不是放纵，而是对自己的负责。真正的爱自己，是允许自己不够完美，允许自己偶尔脆弱，允许自己在疲惫时停下来休息。
                 </div>
             </div>
 
-            <!-- 新增情感文案 -->
-            <div class="emotional-text" id="emotional-text">
-                爱自己，是一场需要终生学习的温柔革命。它不是自私，而是对自己的慈悲；不是放纵，而是对自己的负责。真正的爱自己，是允许自己不够完美，允许自己偶尔脆弱，允许自己在疲惫时停下来休息。
-            </div>
-
-            <!-- 维度得分 - 大数字样式 -->
-            <div class="big-number-section">
+            <!-- 柱状图 -->
+            <div class="bar-chart-section">
                 <h3 class="section-title">你在这些方面的表现</h3>
-                <div class="big-number-container" id="big-number-container">
-                    <!-- 大数字卡片将通过JavaScript动态生成 -->
+                <div class="bar-chart-container">
+                    <canvas id="bar-chart" class="bar-chart-canvas"></canvas>
+                </div>
+                <div class="bar-chart-analysis" id="bar-chart-analysis">
+                    <!-- 柱状图分析将通过JavaScript动态生成 -->
                 </div>
             </div>
 
             <!-- 状态标签 - 不同颜色 -->
-            <div class="big-number-section">
+            <div class="tags-section">
                 <h3 class="section-title">你的自我关怀状态标签</h3>
                 <div class="tags-container" id="tags-container">
                     <!-- 标签将通过JavaScript动态生成 -->
+                </div>
+            </div>
+
+            <!-- 雷达图 -->
+            <div class="radar-section">
+                <h3 class="section-title">你的内在平衡图</h3>
+                <div class="radar-container">
+                    <canvas id="radar-chart" class="radar-chart"></canvas>
+                </div>
+                <div class="radar-analysis" id="radar-analysis">
+                    <!-- 雷达图分析将通过JavaScript动态生成 -->
                 </div>
             </div>
 
@@ -1458,17 +1396,6 @@
                 <h3>给你的悄悄话</h3>
                 <div class="whisper-text" id="whisper-text">
                     亲爱的，无论你现在的状态如何，都请记得：你值得被爱，值得被善待，值得拥有所有美好的一切。那些被压抑的感受和需求都在等待你的关注，从今天起，试着多关注自己一点。
-                </div>
-            </div>
-
-            <!-- 雷达图 -->
-            <div class="big-number-section">
-                <h3 class="section-title">你的内在平衡图</h3>
-                <div class="radar-container">
-                    <canvas id="radar-chart" class="radar-chart"></canvas>
-                </div>
-                <div class="radar-analysis" id="radar-analysis">
-                    <!-- 雷达图分析将通过JavaScript动态生成 -->
                 </div>
             </div>
 
@@ -1591,13 +1518,13 @@
             { id: 50, text: "我认为照顾好自己是对他人负责的前提", category: "界限设立与自我价值", reverse: false }
         ];
 
-        // 答案选项
+        // 答案选项 - 修改为新的表达方式
         const answerOptions = [
-            { text: "几乎从不", value: 1 },
-            { text: "偶尔", value: 2 },
-            { text: "有时", value: 3 },
-            { text: "经常", value: 4 },
-            { text: "几乎总是", value: 5 }
+            { text: "完全不符合我", value: 1 },
+            { text: "不太符合我", value: 2 },
+            { text: "不确定", value: 3 },
+            { text: "比较符合我", value: 4 },
+            { text: "完全符合我", value: 5 }
         ];
 
         // 兑换码相关全局变量
@@ -1628,13 +1555,11 @@
         const emotionalText = document.getElementById('emotional-text');
         const timeText = document.getElementById('time-text');
         const whisperText = document.getElementById('whisper-text');
-        const scoreEmotionalText = document.getElementById('score-emotional-text');
-        const progressBottomText = document.getElementById('progress-bottom-text');
         const indicatorMarker = document.getElementById('indicator-marker');
         const indicatorAnalysis = document.getElementById('indicator-analysis');
-        const bigNumberContainer = document.getElementById('big-number-container');
         const tagsContainer = document.getElementById('tags-container');
         const radarAnalysis = document.getElementById('radar-analysis');
+        const barChartAnalysis = document.getElementById('bar-chart-analysis');
         const suggestionsGrid = document.getElementById('suggestions-grid');
         const retakeBtn = document.getElementById('retake-btn');
         const homeBtn = document.getElementById('home-btn');
@@ -1938,21 +1863,13 @@
             displayTimeText(scorePercentage);
             displayEmotionalText(scorePercentage);
             displayScoreRing(scorePercentage);
-            displayScoreEmotionalText(scorePercentage);
             updateScoreIndicator(scorePercentage);
-            displayBigNumberCards(categoryScores);
+            displayBarChart(categoryScores);
             displayTags(categoryScores, scorePercentage);
             displayWhisperText(scorePercentage);
             displayRadarChart(categoryScores);
             displayRadarAnalysis(categoryScores);
             displaySuggestions(categoryScores, scorePercentage);
-
-            setTimeout(() => {
-                const bigNumbers = document.querySelectorAll('.big-number');
-                bigNumbers.forEach(number => {
-                    number.classList.add('number-animate');
-                });
-            }, 500);
         }
 
         // 显示鼓励文字
@@ -1993,39 +1910,20 @@
             timeText.textContent = timeMessage;
         }
 
-        // 显示得分可视化和进度条之间的情感文字
-        function displayScoreEmotionalText(scorePercentage) {
-            let text = "";
-
-            if (scorePercentage >= 80) {
-                text = "你真的很懂得如何好好爱自己，这种能力是你生命中最宝贵的财富。继续保持这份温柔与关怀吧，它们会成为你面对一切挑战的力量源泉。";
-            } else if (scorePercentage >= 60) {
-                text = "这个分数代表你正在学习如何更好地爱自己。每一次对自己的温柔，每一次对自己的理解，都是在积蓄内心的力量。";
-            } else if (scorePercentage >= 40) {
-                text = "这个分数提醒你，是时候多关注自己的需求了。你不需要完美才值得被爱，从今天起，试着对自己温柔一点。";
-            } else if (scorePercentage >= 20) {
-                text = "这个分数是一个温柔的提醒：你也需要被好好对待。那些被压抑的感受和需求，都在等待你的关注与关怀。";
-            } else {
-                text = "这个分数不代表你不值得被爱，只代表你太久没有好好爱自己了。从今天开始，每天给自己一点小小的温柔吧。";
-            }
-
-            scoreEmotionalText.textContent = text;
-        }
-
         // 显示情感文案
         function displayEmotionalText(scorePercentage) {
             let emotional = "";
 
             if (scorePercentage >= 80) {
-                emotional = "真正的爱自己，是能够在风雨中为自己撑伞，在黑暗中为自己点灯。你已经拥有了这份珍贵的能力，请继续用它照亮自己的生命旅程。爱自己，不是自私，而是对自己最基本的责任。当你学会好好爱自己时，你会发现整个世界都变得更加温柔。";
+                emotional = "真正的爱自己，是能够在风雨中为自己撑伞，在黑暗中为自己点灯。你已经拥有了这份珍贵的能力，请继续用它照亮自己的生命旅程。";
             } else if (scorePercentage >= 60) {
-                emotional = "爱自己的路，不是一条笔直的坦途，而是一条蜿蜒的小径。你已经走在了正确的道路上，每一步都值得庆祝，每一刻都值得珍惜。真正的爱自己，是允许自己不够完美，允许自己偶尔脆弱，允许自己在疲惫时停下来休息。";
+                emotional = "爱自己的路，不是一条笔直的坦途，而是一条蜿蜒的小径。你已经走在了正确的道路上，每一步都值得庆祝，每一刻都值得珍惜。";
             } else if (scorePercentage >= 40) {
-                emotional = "有时候，我们太习惯照顾别人，却忘了自己也需要被照顾。今天的结果是一个温柔的提醒：你同样重要，你同样值得被好好对待。真正的爱自己，是允许自己不够完美，允许自己偶尔脆弱，允许自己在疲惫时停下来休息。";
+                emotional = "有时候，我们太习惯照顾别人，却忘了自己也需要被照顾。今天的结果是一个温柔的提醒：你同样重要，你同样值得被好好对待。";
             } else if (scorePercentage >= 20) {
-                emotional = "爱自己，不是自私，而是对自己最基本的责任。从今天起，试着像对待最好的朋友那样对待自己，给自己同样的耐心和理解。真正的爱自己，是允许自己不够完美，允许自己偶尔脆弱，允许自己在疲惫时停下来休息。";
+                emotional = "爱自己，不是自私，而是对自己最基本的责任。从今天起，试着像对待最好的朋友那样对待自己，给自己同样的耐心和理解。";
             } else {
-                emotional = "亲爱的，我知道你总是把别人放在第一位。但请记住，只有先填满自己的杯子，才能有余力去滋养他人。今天，就从好好爱自己开始吧。真正的爱自己，是允许自己不够完美，允许自己偶尔脆弱，允许自己在疲惫时停下来休息。";
+                emotional = "亲爱的，我知道你总是把别人放在第一位。但请记住，只有先填满自己的杯子，才能有余力去滋养他人。今天，就从好好爱自己开始吧。";
             }
 
             emotionalText.textContent = emotional;
@@ -2036,15 +1934,15 @@
             let whisper = "";
 
             if (scorePercentage >= 80) {
-                whisper = "亲爱的，你已经做得很好了。请继续保持这份对自己的温柔，让它成为你生命中最坚实的力量。记得，你值得所有的美好和幸福。那些被压抑的感受和需求都在等待你的关注，从今天起，试着多关注自己一点。";
+                whisper = "亲爱的，你已经做得很好了。请继续保持这份对自己的温柔，让它成为你生命中最坚实的力量。记得，你值得所有的美好和幸福。";
             } else if (scorePercentage >= 60) {
-                whisper = "亲爱的，你正在学习如何更好地爱自己，这本身就是一件很了不起的事。给自己多一点耐心和宽容，就像对待最好的朋友那样。那些被压抑的感受和需求都在等待你的关注，从今天起，试着多关注自己一点。";
+                whisper = "亲爱的，你正在学习如何更好地爱自己，这本身就是一件很了不起的事。给自己多一点耐心和宽容，就像对待最好的朋友那样。";
             } else if (scorePercentage >= 40) {
-                whisper = "亲爱的，我知道你总是把别人的需求放在前面。但从今天起，试着也把自己的需求放在同等重要的位置，好吗？你同样值得被好好对待。那些被压抑的感受和需求都在等待你的关注，从今天起，试着多关注自己一点。";
+                whisper = "亲爱的，我知道你总是把别人的需求放在前面。但从今天起，试着也把自己的需求放在同等重要的位置，好吗？你同样值得被好好对待。";
             } else if (scorePercentage >= 20) {
-                whisper = "亲爱的，也许你已经习惯了忽略自己，但你的内心一直在呼唤关怀。从今天开始，每天为自己做一件小事，哪怕只是喝杯温水，对自己说声辛苦了。那些被压抑的感受和需求都在等待你的关注，从今天起，试着多关注自己一点。";
+                whisper = "亲爱的，也许你已经习惯了忽略自己，但你的内心一直在呼唤关怀。从今天开始，每天为自己做一件小事，哪怕只是喝杯温水，对自己说声辛苦了。";
             } else {
-                whisper = "亲爱的，我知道你已经很久没有好好爱自己了。那些被压抑的感受和需求都在等待你的关注。从今天起，请试着多关注自己一点，你值得被爱、被珍惜。那些被压抑的感受和需求都在等待你的关注，从今天起，试着多关注自己一点。";
+                whisper = "亲爱的，我知道你已经很久没有好好爱自己了。那些被压抑的感受和需求都在等待你的关注。从今天起，请试着多关注自己一点，你值得被爱、被珍惜。";
             }
 
             whisperText.textContent = whisper;
@@ -2088,15 +1986,15 @@
             markerScore.style.position = 'absolute';
             markerScore.style.top = '-26px';
             markerScore.style.left = '-10px';
-            markerScore.style.width = '20px';
-            markerScore.style.height = '16px';
+            markerScore.style.width = '24px';
+            markerScore.style.height = '18px';
             markerScore.style.background = 'white';
             markerScore.style.color = 'var(--primary-color)';
             markerScore.style.borderRadius = '3px';
             markerScore.style.display = 'flex';
             markerScore.style.alignItems = 'center';
             markerScore.style.justifyContent = 'center';
-            markerScore.style.fontSize = '9px';
+            markerScore.style.fontSize = '10px';
             markerScore.style.fontWeight = 'bold';
             markerScore.style.border = '1px solid var(--primary-color)';
             markerScore.textContent = `${scorePercentage}%`;
@@ -2128,38 +2026,157 @@
             `;
         }
 
-        // 显示大数字卡片
-        function displayBigNumberCards(categoryScores) {
-            bigNumberContainer.innerHTML = "";
-
-            Object.keys(categoryScores).forEach(category => {
+        // 显示柱状图
+        function displayBarChart(categoryScores) {
+            const canvas = document.getElementById('bar-chart');
+            const ctx = canvas.getContext('2d');
+            
+            // 设置Canvas大小
+            const container = canvas.parentElement;
+            canvas.width = container.offsetWidth * 2;
+            canvas.height = container.offsetHeight * 2;
+            canvas.style.width = `${container.offsetWidth}px`;
+            canvas.style.height = `${container.offsetHeight}px`;
+            
+            // 获取数据
+            const categories = Object.keys(categoryScores);
+            const percentages = categories.map(category => {
                 const scoreData = categoryScores[category];
-                const percentage = Math.round((scoreData.score / scoreData.total) * 100);
-
-                let description = "";
-                if (percentage >= 80) {
-                    description = "做得很棒，继续保持哦";
-                } else if (percentage >= 60) {
-                    description = "做得不错，还可以更好";
-                } else if (percentage >= 40) {
-                    description = "有进步空间，慢慢来";
-                } else if (percentage >= 20) {
-                    description = "需要多关注这个方面";
-                } else {
-                    description = "从这里开始爱自己吧";
-                }
-
-                const cardElement = document.createElement('div');
-                cardElement.className = 'big-number-card';
-                cardElement.style.borderTop = `3px solid ${scoreData.color}`;
-                cardElement.innerHTML = `
-                    <div class="big-number">${percentage}%</div>
-                    <div class="big-number-label">${category}</div>
-                    <div class="big-number-description">${description}</div>
-                `;
-
-                bigNumberContainer.appendChild(cardElement);
+                return Math.round((scoreData.score / scoreData.total) * 100);
             });
+            
+            // 定义渐变色（2-3色渐变）
+            const gradients = [
+                // 自我善待与接纳 - 粉色渐变
+                ctx.createLinearGradient(0, 0, 0, canvas.height),
+                // 共同人性与连接 - 紫色渐变
+                ctx.createLinearGradient(0, 0, 0, canvas.height),
+                // 正念觉知与平衡 - 蓝色渐变
+                ctx.createLinearGradient(0, 0, 0, canvas.height),
+                // 自我奖励与日常关怀 - 橙色渐变
+                ctx.createLinearGradient(0, 0, 0, canvas.height),
+                // 界限设立与自我价值 - 绿色渐变
+                ctx.createLinearGradient(0, 0, 0, canvas.height)
+            ];
+            
+            // 设置渐变色
+            gradients[0].addColorStop(0, '#ff7eb3');
+            gradients[0].addColorStop(0.5, '#ff9ec0');
+            gradients[0].addColorStop(1, '#ffbedd');
+            
+            gradients[1].addColorStop(0, '#9d7bff');
+            gradients[1].addColorStop(0.5, '#b49aff');
+            gradients[1].addColorStop(1, '#cbb9ff');
+            
+            gradients[2].addColorStop(0, '#7bdff2');
+            gradients[2].addColorStop(0.5, '#9ae9f5');
+            gradients[2].addColorStop(1, '#b9f3f8');
+            
+            gradients[3].addColorStop(0, '#ffb366');
+            gradients[3].addColorStop(0.5, '#ffc68c');
+            gradients[3].addColorStop(1, '#ffd9b3');
+            
+            gradients[4].addColorStop(0, '#6bcf7f');
+            gradients[4].addColorStop(0.5, '#8ddc9c');
+            gradients[4].addColorStop(1, '#afe9b9');
+            
+            const colors = categories.map((category, index) => gradients[index]);
+            
+            // 绘制柱状图
+            const padding = 40;
+            const chartWidth = canvas.width - padding * 2;
+            const chartHeight = canvas.height - padding * 2;
+            const barWidth = chartWidth / categories.length * 0.6;
+            const gap = chartWidth / categories.length * 0.4;
+            const maxValue = 100;
+            
+            // 清除画布
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            
+            // 绘制背景网格
+            ctx.strokeStyle = 'rgba(255, 255, 255, 0.1)';
+            ctx.lineWidth = 1;
+            
+            // 水平网格线
+            const gridLines = 5;
+            for (let i = 0; i <= gridLines; i++) {
+                const y = padding + (chartHeight / gridLines) * i;
+                ctx.beginPath();
+                ctx.moveTo(padding, y);
+                ctx.lineTo(canvas.width - padding, y);
+                ctx.stroke();
+                
+                // 刻度标签
+                ctx.fillStyle = '#5a5678';
+                ctx.font = '12px Arial';
+                ctx.textAlign = 'right';
+                ctx.textBaseline = 'middle';
+                ctx.fillText(`${100 - i * 20}%`, padding - 5, y);
+            }
+            
+            // 绘制柱状图
+            categories.forEach((category, index) => {
+                const x = padding + index * (barWidth + gap) + gap / 2;
+                const barHeight = (percentages[index] / maxValue) * chartHeight;
+                const y = padding + chartHeight - barHeight;
+                
+                // 绘制柱状（使用渐变色）
+                ctx.fillStyle = colors[index];
+                
+                // 创建圆角矩形路径
+                const radius = 5;
+                ctx.beginPath();
+                ctx.moveTo(x + radius, y);
+                ctx.lineTo(x + barWidth - radius, y);
+                ctx.quadraticCurveTo(x + barWidth, y, x + barWidth, y + radius);
+                ctx.lineTo(x + barWidth, y + barHeight);
+                ctx.lineTo(x, y + barHeight);
+                ctx.lineTo(x, y + radius);
+                ctx.quadraticCurveTo(x, y, x + radius, y);
+                ctx.closePath();
+                ctx.fill();
+                
+                // 添加阴影效果
+                ctx.shadowColor = 'rgba(0, 0, 0, 0.2)';
+                ctx.shadowBlur = 5;
+                ctx.shadowOffsetX = 0;
+                ctx.shadowOffsetY = 2;
+                ctx.fill();
+                ctx.shadowColor = 'transparent';
+                ctx.shadowBlur = 0;
+                ctx.shadowOffsetX = 0;
+                ctx.shadowOffsetY = 0;
+                
+                // 添加数值标签
+                ctx.fillStyle = '#5a5678';
+                ctx.font = 'bold 14px Arial';
+                ctx.textAlign = 'center';
+                ctx.textBaseline = 'bottom';
+                ctx.fillText(`${percentages[index]}%`, x + barWidth / 2, y - 5);
+                
+                // 添加分类标签
+                ctx.fillStyle = '#5a5678';
+                ctx.font = 'bold 12px Arial';
+                ctx.textAlign = 'center';
+                ctx.textBaseline = 'top';
+                
+                // 分类名称分行显示
+                const words = category.split('与');
+                if (words.length > 1) {
+                    ctx.fillText(words[0], x + barWidth / 2, padding + chartHeight + 5);
+                    ctx.fillText(words[1], x + barWidth / 2, padding + chartHeight + 20);
+                } else {
+                    ctx.fillText(category, x + barWidth / 2, padding + chartHeight + 10);
+                }
+            });
+            
+            // 添加柱状图分析
+            const weakestCategory = getWeakestCategory(categoryScores);
+            const strongestCategory = getStrongestCategory(categoryScores);
+            
+            barChartAnalysis.innerHTML = `
+                <p>你在<strong>${strongestCategory.category}</strong>方面表现最好（${Math.round((strongestCategory.score / strongestCategory.total) * 100)}%），而在<strong>${weakestCategory.category}</strong>方面可能需要更多关注（${Math.round((weakestCategory.score / weakestCategory.total) * 100)}%）。平衡发展各个方面的自我关怀能力很重要。</p>
+            `;
         }
 
         // 显示标签
@@ -2169,15 +2186,15 @@
             const tags = [];
 
             if (totalPercentage >= 80) {
-                tags.push("懂得心疼自己", "会照顾自己", "知道自己值得", "内心有力量", "活得自在");
+                tags.push("懂得心疼自己", "会照顾自己", "知道自己值得", "内心有力量", "活得自在", "情绪稳定");
             } else if (totalPercentage >= 60) {
-                tags.push("正在学习爱自己", "偶尔记得休息", "开始说不", "觉察情绪", "寻找方向");
+                tags.push("正在学习爱自己", "偶尔记得休息", "开始说不", "觉察情绪", "寻找方向", "成长中");
             } else if (totalPercentage >= 40) {
-                tags.push("照顾别人多过自己", "开始觉察需求", "学习设立边界", "倾听内心", "探索可能");
+                tags.push("照顾别人多过自己", "开始觉察需求", "学习设立边界", "倾听内心", "探索可能", "觉醒中");
             } else if (totalPercentage >= 20) {
-                tags.push("常常忽略自己", "需要休息", "学习说'不'", "了解自己", "寻找意义");
+                tags.push("常常忽略自己", "需要休息", "学习说'不'", "了解自己", "寻找意义", "转变中");
             } else {
-                tags.push("把别人放第一位", "需要被关心", "学习爱自己", "听见自己", "你是重要的");
+                tags.push("把别人放第一位", "需要被关心", "学习爱自己", "听见自己", "你是重要的", "开始关怀");
             }
 
             const weakestCategory = getWeakestCategory(categoryScores);
@@ -2209,9 +2226,9 @@
             const ctx = canvas.getContext('2d');
 
             canvas.width = canvas.offsetWidth * 2;
-            canvas.height = 240 * 2;
+            canvas.height = 280 * 2;
             canvas.style.width = `${canvas.offsetWidth}px`;
-            canvas.style.height = '240px';
+            canvas.style.height = '280px';
 
             const categories = Object.keys(categoryScores);
             const percentages = categories.map(category => {
@@ -2221,14 +2238,16 @@
 
             const centerX = canvas.width / 2;
             const centerY = canvas.height / 2;
-            const radius = Math.min(centerX, centerY) - 60;
+            const radius = Math.min(centerX, centerY) - 80;
             const angleStep = (Math.PI * 2) / categories.length;
 
             ctx.clearRect(0, 0, canvas.width, canvas.height);
 
-            ctx.strokeStyle = 'rgba(255, 255, 255, 0.3)';
+            // 绘制背景网格
+            ctx.strokeStyle = 'rgba(255, 255, 255, 0.2)';
             ctx.lineWidth = 1;
 
+            // 绘制多边形网格
             for (let i = 1; i <= 5; i++) {
                 const r = (radius / 5) * i;
                 ctx.beginPath();
@@ -2247,7 +2266,8 @@
                 ctx.stroke();
             }
 
-            ctx.strokeStyle = 'rgba(255, 255, 255, 0.5)';
+            // 绘制轴线
+            ctx.strokeStyle = 'rgba(255, 255, 255, 0.3)';
             ctx.lineWidth = 1;
 
             for (let i = 0; i < categories.length; i++) {
@@ -2259,18 +2279,15 @@
                 ctx.moveTo(centerX, centerY);
                 ctx.lineTo(x, y);
                 ctx.stroke();
-
-                const labelX = centerX + Math.cos(angle) * (radius + 30);
-                const labelY = centerY + Math.sin(angle) * (radius + 30);
-
-                ctx.fillStyle = '#5a5678';
-                ctx.font = 'bold 18px Arial';
-                ctx.textAlign = 'center';
-                ctx.textBaseline = 'middle';
-                ctx.fillText(categories[i], labelX, labelY);
             }
 
-            ctx.fillStyle = 'rgba(255, 126, 179, 0.3)';
+            // 绘制数据区域（使用渐变色）
+            const gradient = ctx.createLinearGradient(0, 0, canvas.width, canvas.height);
+            gradient.addColorStop(0, 'rgba(255, 126, 179, 0.3)');
+            gradient.addColorStop(0.5, 'rgba(157, 123, 255, 0.3)');
+            gradient.addColorStop(1, 'rgba(123, 223, 242, 0.3)');
+            
+            ctx.fillStyle = gradient;
             ctx.strokeStyle = 'rgba(255, 126, 179, 0.8)';
             ctx.lineWidth = 3;
 
@@ -2292,6 +2309,7 @@
             ctx.fill();
             ctx.stroke();
 
+            // 绘制数据点
             ctx.fillStyle = '#ff7eb3';
             for (let i = 0; i < categories.length; i++) {
                 const percentage = percentages[i];
@@ -2301,15 +2319,36 @@
                 const y = centerY + Math.sin(angle) * r;
 
                 ctx.beginPath();
-                ctx.arc(x, y, 5, 0, Math.PI * 2);
+                ctx.arc(x, y, 6, 0, Math.PI * 2);
                 ctx.fill();
 
+                // 添加数据标签
                 ctx.fillStyle = '#5a5678';
                 ctx.font = 'bold 16px Arial';
                 ctx.textAlign = 'center';
                 ctx.textBaseline = 'bottom';
                 ctx.fillText(`${percentage}%`, x, y - 10);
                 ctx.fillStyle = '#ff7eb3';
+            }
+
+            // 添加分类标签
+            ctx.fillStyle = '#5a5678';
+            ctx.font = 'bold 14px Arial';
+            ctx.textAlign = 'center';
+            ctx.textBaseline = 'middle';
+            
+            for (let i = 0; i < categories.length; i++) {
+                const angle = i * angleStep - Math.PI / 2;
+                const labelX = centerX + Math.cos(angle) * (radius + 40);
+                const labelY = centerY + Math.sin(angle) * (radius + 40);
+                
+                const words = categories[i].split('与');
+                if (words.length > 1) {
+                    ctx.fillText(words[0], labelX, labelY - 8);
+                    ctx.fillText(words[1], labelX, labelY + 8);
+                } else {
+                    ctx.fillText(categories[i], labelX, labelY);
+                }
             }
         }
 
@@ -2344,7 +2383,7 @@
             }
 
             radarAnalysis.innerHTML = `
-                <p>你最擅长<strong>${strongestCategory}</strong>，而在<strong>${weakestCategory}</strong>方面可能需要多给自己一些关爱。${balanceText}</p>
+                <p>你的内在平衡图显示，你最擅长<strong>${strongestCategory}</strong>，而在<strong>${weakestCategory}</strong>方面可能需要多给自己一些关爱。${balanceText}</p>
             `;
         }
 
@@ -2505,6 +2544,8 @@
 
             return {
                 category: weakestCategory,
+                score: categoryScores[weakestCategory].score,
+                total: categoryScores[weakestCategory].total,
                 suggestion: suggestion
             };
         }
@@ -2544,6 +2585,8 @@
 
             return {
                 category: strongestCategory,
+                score: categoryScores[strongestCategory].score,
+                total: categoryScores[strongestCategory].total,
                 suggestion: suggestion
             };
         }
@@ -2581,6 +2624,7 @@
             if (resultPage.classList.contains('active')) {
                 const categoryScores = calculateCategoryScoresFromAnswers();
                 if (categoryScores) {
+                    displayBarChart(categoryScores);
                     displayRadarChart(categoryScores);
                 }
             }
