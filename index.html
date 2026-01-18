@@ -36,15 +36,15 @@
             --red-btn: #ff4d4f;
 
             /* 移动端字体大小 */
-            --font-size-xs: 10px;
-            --font-size-sm: 12px;
-            --font-size-md: 14px;
-            --font-size-lg: 16px;
-            --font-size-xl: 18px;
-            --font-size-2xl: 20px;
-            --font-size-3xl: 22px;
-            --font-size-4xl: 24px;
-            --font-size-5xl: 32px;
+            --font-size-xs: 12px;
+            --font-size-sm: 14px;
+            --font-size-md: 16px;
+            --font-size-lg: 18px;
+            --font-size-xl: 20px;
+            --font-size-2xl: 24px;
+            --font-size-3xl: 28px;
+            --font-size-4xl: 32px;
+            --font-size-5xl: 40px;
 
             /* 移动端间距 */
             --spacing-xs: 4px;
@@ -372,7 +372,7 @@
 
         /* 鼓励文字 */
         .encouragement-text {
-            font-size: var(--font-size-md);
+            font-size: var(--font-size-lg);
             color: var(--primary-color);
             margin: var(--spacing-md) 0;
             line-height: 1.5;
@@ -387,10 +387,10 @@
 
         /* 情感文案样式 */
         .emotional-text {
-            font-size: var(--font-size-sm);
+            font-size: var(--font-size-md);
             color: #5a5678;
             margin: var(--spacing-md) 0;
-            line-height: 1.5;
+            line-height: 1.6;
             text-align: center;
             padding: var(--spacing-md);
             background: rgba(255, 255, 255, 0.05);
@@ -398,11 +398,11 @@
             animation: fadeIn 1s ease 0.5s both;
         }
 
-        /* 多久没爱自己了文字 - 移动到圆环和指示条之间 */
+        /* 多久没爱自己了文字 */
         .time-text {
-            font-size: var(--font-size-sm);
+            font-size: var(--font-size-lg);
             color: var(--primary-color);
-            margin: var(--spacing-md) 0;
+            margin: var(--spacing-lg) 0;
             line-height: 1.5;
             text-align: center;
             padding: var(--spacing-md);
@@ -416,9 +416,9 @@
         /* 圆环得分显示样式 */
         .score-ring-container {
             position: relative;
-            width: 200px;
-            height: 200px;
-            margin: var(--spacing-lg) auto;
+            width: 240px;
+            height: 240px;
+            margin: var(--spacing-xl) auto;
         }
 
         .score-ring {
@@ -428,7 +428,7 @@
 
         .score-ring-circle {
             fill: none;
-            stroke-width: 12;
+            stroke-width: 14;
             stroke-linecap: round;
             transform: rotate(-90deg);
             transform-origin: 50% 50%;
@@ -454,7 +454,7 @@
         }
 
         .score-ring-number {
-            font-size: 60px;
+            font-size: 72px;
             font-weight: 900;
             background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
             -webkit-background-clip: text;
@@ -463,8 +463,8 @@
         }
 
         .result-title {
-            font-size: var(--font-size-xl);
-            margin-bottom: var(--spacing-md);
+            font-size: var(--font-size-2xl);
+            margin-bottom: var(--spacing-lg);
             font-weight: 700;
             color: var(--result-title-color);
         }
@@ -507,7 +507,7 @@
             display: flex;
             justify-content: space-between;
             margin-top: var(--spacing-xs);
-            font-size: var(--font-size-xs);
+            font-size: var(--font-size-sm);
             color: #5a5678;
             line-height: 1.3;
         }
@@ -521,7 +521,7 @@
         .indicator-analysis {
             text-align: center;
             margin-top: var(--spacing-xl);
-            padding: var(--spacing-md);
+            padding: var(--spacing-lg);
             background: rgba(255, 255, 255, 0.1);
             border-radius: 12px;
             border-left: 3px solid var(--primary-color);
@@ -529,25 +529,25 @@
 
         .indicator-analysis h4 {
             color: var(--primary-color);
-            margin-bottom: var(--spacing-sm);
-            font-size: var(--font-size-md);
+            margin-bottom: var(--spacing-md);
+            font-size: var(--font-size-lg);
             font-weight: 600;
         }
 
         .indicator-analysis p {
-            line-height: 1.5;
+            line-height: 1.6;
             color: #5a5678;
-            font-size: var(--font-size-sm);
+            font-size: var(--font-size-md);
         }
 
-        /* 柱状图样式 */
-        .bar-chart-section {
+        /* 大数字卡片样式 */
+        .big-number-section {
             margin: var(--spacing-xl) 0;
         }
 
         .section-title {
             text-align: center;
-            font-size: var(--font-size-lg);
+            font-size: var(--font-size-xl);
             color: var(--primary-color);
             margin-bottom: var(--spacing-xl);
             position: relative;
@@ -564,46 +564,67 @@
             border-radius: 2px;
         }
 
-        .bar-chart-container {
-            width: 100%;
-            height: 300px;
-            margin: var(--spacing-lg) 0;
-            position: relative;
+        .big-number-container {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: var(--spacing-md);
+            margin-bottom: var(--spacing-md);
         }
 
-        .bar-chart-canvas {
-            width: 100%;
-            height: 100%;
-        }
-
-        .bar-chart-analysis {
+        .big-number-card {
+            background: rgba(255, 255, 255, 0.15);
+            border-radius: 12px;
+            padding: var(--spacing-lg);
             text-align: center;
-            margin-top: var(--spacing-md);
-            padding: var(--spacing-md);
-            background: rgba(255, 255, 255, 0.1);
-            border-radius: 10px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            min-height: 120px;
+        }
+
+        .big-number-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+        }
+
+        .big-number {
+            font-size: var(--font-size-3xl);
+            font-weight: 800;
+            line-height: 1;
+            margin-bottom: var(--spacing-xs);
+            background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .big-number-label {
+            font-size: var(--font-size-md);
+            font-weight: 600;
+            color: var(--dark-color);
+            margin-bottom: var(--spacing-xs);
+        }
+
+        .big-number-description {
             font-size: var(--font-size-sm);
             color: #5a5678;
-            line-height: 1.5;
+            line-height: 1.4;
         }
 
         /* 标签卡片样式 - 加大 */
-        .tags-section {
-            margin: var(--spacing-xl) 0;
-        }
-
         .tags-container {
             display: flex;
             flex-wrap: wrap;
             justify-content: center;
-            gap: var(--spacing-sm);
-            margin: var(--spacing-md) 0 var(--spacing-xl);
+            gap: var(--spacing-md);
+            margin: var(--spacing-lg) 0 var(--spacing-xl);
         }
 
         .tag {
             border-radius: 30px;
-            padding: var(--spacing-sm) var(--spacing-md);
-            font-size: var(--font-size-sm);
+            padding: var(--spacing-sm) var(--spacing-lg);
+            font-size: var(--font-size-md);
             font-weight: 600;
             color: white;
             border: 1px solid rgba(255, 255, 255, 0.3);
@@ -650,11 +671,7 @@
             background: linear-gradient(135deg, #a882ff, #8a5cf2);
         }
 
-        /* 雷达图样式 - 加大 */
-        .radar-section {
-            margin: var(--spacing-xl) 0;
-        }
-
+        /* 雷达图样式 - 优化 */
         .radar-container {
             width: 100%;
             max-width: 100%;
@@ -664,49 +681,49 @@
 
         .radar-chart {
             width: 100%;
-            height: 280px;
+            height: 320px;
         }
 
         /* 雷达图文字分析 */
         .radar-analysis {
             text-align: center;
-            margin-top: var(--spacing-md);
-            padding: var(--spacing-md);
+            margin-top: var(--spacing-lg);
+            padding: var(--spacing-lg);
             background: rgba(255, 255, 255, 0.1);
-            border-radius: 10px;
-            font-size: var(--font-size-sm);
+            border-radius: 12px;
+            font-size: var(--font-size-md);
             color: #5a5678;
-            line-height: 1.5;
+            line-height: 1.6;
         }
 
         /* 建议板块 */
         .suggestions-section {
             background: rgba(255, 255, 255, 0.15);
             border-radius: 12px;
-            padding: var(--spacing-md);
+            padding: var(--spacing-xl);
             margin: var(--spacing-xl) 0;
         }
 
         .suggestions-section h3 {
             color: var(--primary-color);
-            font-size: var(--font-size-md);
-            margin-bottom: var(--spacing-md);
+            font-size: var(--font-size-xl);
+            margin-bottom: var(--spacing-lg);
             display: flex;
             align-items: center;
-            gap: var(--spacing-xs);
+            gap: var(--spacing-sm);
             font-weight: 600;
         }
 
         .suggestions-grid {
             display: grid;
             grid-template-columns: 1fr;
-            gap: var(--spacing-sm);
+            gap: var(--spacing-lg);
         }
 
         .suggestion-item {
             background: rgba(255, 255, 255, 0.1);
-            border-radius: 10px;
-            padding: var(--spacing-sm);
+            border-radius: 12px;
+            padding: var(--spacing-lg);
             transition: transform 0.3s ease;
         }
 
@@ -717,17 +734,17 @@
         .suggestion-item h4 {
             display: flex;
             align-items: center;
-            gap: var(--spacing-xs);
+            gap: var(--spacing-sm);
             color: var(--primary-color);
-            margin-bottom: var(--spacing-xs);
-            font-size: var(--font-size-sm);
+            margin-bottom: var(--spacing-md);
+            font-size: var(--font-size-lg);
             font-weight: 600;
         }
 
         .suggestion-item p {
             color: #5a5678;
-            line-height: 1.5;
-            font-size: var(--font-size-sm);
+            line-height: 1.6;
+            font-size: var(--font-size-md);
         }
 
         /* 给你的悄悄话 */
@@ -742,15 +759,15 @@
 
         .whisper-section h3 {
             color: var(--primary-color);
-            font-size: var(--font-size-lg);
-            margin-bottom: var(--spacing-md);
+            font-size: var(--font-size-xl);
+            margin-bottom: var(--spacing-lg);
             font-weight: 600;
         }
 
         .whisper-text {
-            font-size: var(--font-size-md);
+            font-size: var(--font-size-lg);
             color: var(--dark-color);
-            line-height: 1.5;
+            line-height: 1.6;
             margin-bottom: var(--spacing-sm);
             font-weight: 500;
         }
@@ -759,25 +776,25 @@
         .theory-section {
             background: rgba(255, 255, 255, 0.1);
             border-radius: 12px;
-            padding: var(--spacing-md);
+            padding: var(--spacing-xl);
             margin-top: var(--spacing-xl);
-            font-size: var(--font-size-sm);
+            font-size: var(--font-size-md);
         }
 
         .theory-section h3 {
             color: var(--primary-color);
-            font-size: var(--font-size-md);
-            margin-bottom: var(--spacing-sm);
+            font-size: var(--font-size-xl);
+            margin-bottom: var(--spacing-lg);
             display: flex;
             align-items: center;
-            gap: var(--spacing-xs);
+            gap: var(--spacing-sm);
             font-weight: 600;
         }
 
         .theory-section p {
-            line-height: 1.5;
-            margin-bottom: var(--spacing-sm);
-            font-size: var(--font-size-sm);
+            line-height: 1.6;
+            margin-bottom: var(--spacing-lg);
+            font-size: var(--font-size-md);
         }
 
         /* 底部按钮 */
@@ -785,7 +802,7 @@
             display: flex;
             flex-direction: row;
             justify-content: center;
-            gap: var(--spacing-md);
+            gap: var(--spacing-lg);
             margin-top: var(--spacing-xl);
         }
 
@@ -793,20 +810,20 @@
             background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
             color: white;
             border: none;
-            padding: var(--spacing-md) var(--spacing-lg);
+            padding: var(--spacing-lg) var(--spacing-xl);
             font-size: var(--font-size-md);
-            border-radius: 10px;
+            border-radius: 12px;
             cursor: pointer;
             transition: all 0.3s ease;
             box-shadow: 0 4px 12px rgba(255, 126, 179, 0.3);
             display: flex;
             align-items: center;
             justify-content: center;
-            gap: var(--spacing-xs);
+            gap: var(--spacing-sm);
             font-weight: 600;
             flex: 1;
-            max-width: 140px;
-            height: 44px;
+            max-width: 160px;
+            height: 48px;
         }
 
         .action-btn:hover {
@@ -843,6 +860,7 @@
             from {
                 opacity: 0;
             }
+
             to {
                 opacity: 1;
             }
@@ -866,6 +884,7 @@
                 transform: translateY(20px);
                 opacity: 0;
             }
+
             to {
                 transform: translateY(0);
                 opacity: 1;
@@ -1000,10 +1019,13 @@
         }
 
         @keyframes pulseGlow {
-            0%, 100% {
+
+            0%,
+            100% {
                 transform: scale(1);
                 box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
             }
+
             50% {
                 transform: scale(1.05);
                 box-shadow: 0 6px 15px rgba(255, 255, 255, 0.4);
@@ -1013,15 +1035,15 @@
         /* 平板和桌面端样式 */
         @media (min-width: 768px) {
             :root {
-                --font-size-xs: 12px;
-                --font-size-sm: 14px;
-                --font-size-md: 16px;
-                --font-size-lg: 18px;
-                --font-size-xl: 20px;
-                --font-size-2xl: 22px;
-                --font-size-3xl: 24px;
-                --font-size-4xl: 28px;
-                --font-size-5xl: 36px;
+                --font-size-xs: 14px;
+                --font-size-sm: 16px;
+                --font-size-md: 18px;
+                --font-size-lg: 20px;
+                --font-size-xl: 22px;
+                --font-size-2xl: 26px;
+                --font-size-3xl: 30px;
+                --font-size-4xl: 36px;
+                --font-size-5xl: 48px;
             }
 
             body {
@@ -1051,38 +1073,38 @@
             }
 
             .score-ring-container {
-                width: 240px;
-                height: 240px;
+                width: 280px;
+                height: 280px;
             }
 
             .score-ring-number {
-                font-size: 72px;
+                font-size: 84px;
+            }
+
+            .big-number-container {
+                grid-template-columns: repeat(5, 1fr);
             }
 
             .tags-container {
-                gap: var(--spacing-md);
+                gap: var(--spacing-lg);
             }
 
             .tag {
                 font-size: var(--font-size-md);
-                padding: var(--spacing-sm) var(--spacing-lg);
+                padding: var(--spacing-sm) var(--spacing-xl);
             }
 
             .suggestions-grid {
-                grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+                grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
             }
 
             .radar-chart {
-                height: 320px;
-            }
-
-            .bar-chart-container {
-                height: 350px;
+                height: 360px;
             }
 
             .action-btn {
-                max-width: 160px;
-                height: 48px;
+                max-width: 180px;
+                height: 52px;
             }
         }
 
@@ -1110,17 +1132,22 @@
             }
 
             .score-ring-container {
-                width: 180px;
-                height: 180px;
+                width: 200px;
+                height: 200px;
             }
 
             .score-ring-number {
-                font-size: 48px;
+                font-size: 60px;
+            }
+
+            .big-number-container {
+                grid-template-columns: 1fr;
+                gap: var(--spacing-xs);
             }
 
             .tag {
-                font-size: var(--font-size-xs);
-                padding: 5px 10px;
+                font-size: var(--font-size-sm);
+                padding: 8px 16px;
             }
 
             .actions {
@@ -1140,6 +1167,7 @@
                 opacity: 0;
                 transform: translateY(10px);
             }
+
             to {
                 opacity: 1;
                 transform: translateY(0);
@@ -1155,6 +1183,7 @@
                 transform: scale(0.8);
                 opacity: 0;
             }
+
             to {
                 transform: scale(1);
                 opacity: 1;
@@ -1169,6 +1198,7 @@
             from {
                 left: 0%;
             }
+
             to {
                 left: var(--marker-position);
             }
@@ -1183,6 +1213,7 @@
                 transform: scale(0.8);
                 opacity: 0;
             }
+
             to {
                 transform: scale(1);
                 opacity: 1;
@@ -1197,6 +1228,7 @@
             from {
                 stroke-dashoffset: 565;
             }
+
             to {
                 stroke-dashoffset: var(--ring-offset);
             }
@@ -1329,7 +1361,7 @@
                     </div>
                 </div>
 
-                <!-- 多久没爱自己了文字 - 移动到圆环和指示条之间 -->
+                <!-- 多久没爱自己了文字 -->
                 <div class="time-text" id="time-text">
                     你可能有一段时间没有好好爱自己了...
                 </div>
@@ -1348,11 +1380,11 @@
                             <div class="indicator-label">非常爱自己<br>(81-100分)</div>
                         </div>
                     </div>
-                </div>
 
-                <!-- 文字分析 -->
-                <div class="indicator-analysis" id="indicator-analysis">
-                    <!-- 文字分析将通过JavaScript动态生成 -->
+                    <!-- 文字分析 -->
+                    <div class="indicator-analysis" id="indicator-analysis">
+                        <!-- 文字分析将通过JavaScript动态生成 -->
+                    </div>
                 </div>
 
                 <!-- 情感文案 -->
@@ -1361,27 +1393,21 @@
                 </div>
             </div>
 
-            <!-- 柱状图 -->
-            <div class="bar-chart-section">
-                <h3 class="section-title">你在这些方面的表现</h3>
-                <div class="bar-chart-container">
-                    <canvas id="bar-chart" class="bar-chart-canvas"></canvas>
-                </div>
-                <div class="bar-chart-analysis" id="bar-chart-analysis">
-                    <!-- 柱状图分析将通过JavaScript动态生成 -->
+            <!-- 维度得分 - 大数字样式 -->
+            <div class="big-number-section">
+                <h3 class="section-title">你的自我关怀维度得分</h3>
+                <div class="big-number-container" id="big-number-container">
+                    <!-- 大数字卡片将通过JavaScript动态生成 -->
                 </div>
             </div>
 
             <!-- 状态标签 - 不同颜色 -->
-            <div class="tags-section">
-                <h3 class="section-title">你的自我关怀状态标签</h3>
-                <div class="tags-container" id="tags-container">
-                    <!-- 标签将通过JavaScript动态生成 -->
-                </div>
+            <div class="tags-container" id="tags-container">
+                <!-- 标签将通过JavaScript动态生成 -->
             </div>
 
             <!-- 雷达图 -->
-            <div class="radar-section">
+            <div class="big-number-section">
                 <h3 class="section-title">你的内在平衡图</h3>
                 <div class="radar-container">
                     <canvas id="radar-chart" class="radar-chart"></canvas>
@@ -1410,8 +1436,7 @@
             <!-- 科学理论依据 -->
             <div class="theory-section">
                 <h3><i class="fas fa-book-open"></i> 关于爱自己</h3>
-                <p>爱自己不是自私，而是对自己最基本的责任。当你学会好好爱自己时，你会发现整个世界都变得更加温柔。</p>
-                <p>真正的爱自己，是允许自己不够完美，允许自己偶尔脆弱，允许自己在疲惫时停下来休息。就像照顾一株植物，需要阳光、水分和耐心，爱自己也需要时间、关注和温柔。</p>
+                <p>爱自己不是自私，而是对自己最基本的责任。当你学会好好爱自己时，你会发现整个世界都变得更加温柔。真正的爱自己，是允许自己不够完美，允许自己偶尔脆弱，允许自己在疲惫时停下来休息。</p>
                 <p>你不需要等到完美才开始爱自己，就从现在开始，从此刻开始，给自己一个温柔的拥抱，对自己说一声：辛苦了，我值得被好好对待。</p>
             </div>
 
@@ -1557,9 +1582,9 @@
         const whisperText = document.getElementById('whisper-text');
         const indicatorMarker = document.getElementById('indicator-marker');
         const indicatorAnalysis = document.getElementById('indicator-analysis');
+        const bigNumberContainer = document.getElementById('big-number-container');
         const tagsContainer = document.getElementById('tags-container');
         const radarAnalysis = document.getElementById('radar-analysis');
-        const barChartAnalysis = document.getElementById('bar-chart-analysis');
         const suggestionsGrid = document.getElementById('suggestions-grid');
         const retakeBtn = document.getElementById('retake-btn');
         const homeBtn = document.getElementById('home-btn');
@@ -1860,16 +1885,23 @@
             window.scrollTo(0, 0);
 
             displayEncouragementText(scorePercentage);
-            displayTimeText(scorePercentage);
-            displayEmotionalText(scorePercentage);
             displayScoreRing(scorePercentage);
+            displayTimeText(scorePercentage);
             updateScoreIndicator(scorePercentage);
-            displayBarChart(categoryScores);
+            displayEmotionalText(scorePercentage);
+            displayBigNumberCards(categoryScores);
             displayTags(categoryScores, scorePercentage);
-            displayWhisperText(scorePercentage);
             displayRadarChart(categoryScores);
             displayRadarAnalysis(categoryScores);
+            displayWhisperText(scorePercentage);
             displaySuggestions(categoryScores, scorePercentage);
+
+            setTimeout(() => {
+                const bigNumbers = document.querySelectorAll('.big-number');
+                bigNumbers.forEach(number => {
+                    number.classList.add('number-animate');
+                });
+            }, 500);
         }
 
         // 显示鼓励文字
@@ -2026,157 +2058,38 @@
             `;
         }
 
-        // 显示柱状图
-        function displayBarChart(categoryScores) {
-            const canvas = document.getElementById('bar-chart');
-            const ctx = canvas.getContext('2d');
-            
-            // 设置Canvas大小
-            const container = canvas.parentElement;
-            canvas.width = container.offsetWidth * 2;
-            canvas.height = container.offsetHeight * 2;
-            canvas.style.width = `${container.offsetWidth}px`;
-            canvas.style.height = `${container.offsetHeight}px`;
-            
-            // 获取数据
-            const categories = Object.keys(categoryScores);
-            const percentages = categories.map(category => {
+        // 显示大数字卡片
+        function displayBigNumberCards(categoryScores) {
+            bigNumberContainer.innerHTML = "";
+
+            Object.keys(categoryScores).forEach(category => {
                 const scoreData = categoryScores[category];
-                return Math.round((scoreData.score / scoreData.total) * 100);
-            });
-            
-            // 定义渐变色（2-3色渐变）
-            const gradients = [
-                // 自我善待与接纳 - 粉色渐变
-                ctx.createLinearGradient(0, 0, 0, canvas.height),
-                // 共同人性与连接 - 紫色渐变
-                ctx.createLinearGradient(0, 0, 0, canvas.height),
-                // 正念觉知与平衡 - 蓝色渐变
-                ctx.createLinearGradient(0, 0, 0, canvas.height),
-                // 自我奖励与日常关怀 - 橙色渐变
-                ctx.createLinearGradient(0, 0, 0, canvas.height),
-                // 界限设立与自我价值 - 绿色渐变
-                ctx.createLinearGradient(0, 0, 0, canvas.height)
-            ];
-            
-            // 设置渐变色
-            gradients[0].addColorStop(0, '#ff7eb3');
-            gradients[0].addColorStop(0.5, '#ff9ec0');
-            gradients[0].addColorStop(1, '#ffbedd');
-            
-            gradients[1].addColorStop(0, '#9d7bff');
-            gradients[1].addColorStop(0.5, '#b49aff');
-            gradients[1].addColorStop(1, '#cbb9ff');
-            
-            gradients[2].addColorStop(0, '#7bdff2');
-            gradients[2].addColorStop(0.5, '#9ae9f5');
-            gradients[2].addColorStop(1, '#b9f3f8');
-            
-            gradients[3].addColorStop(0, '#ffb366');
-            gradients[3].addColorStop(0.5, '#ffc68c');
-            gradients[3].addColorStop(1, '#ffd9b3');
-            
-            gradients[4].addColorStop(0, '#6bcf7f');
-            gradients[4].addColorStop(0.5, '#8ddc9c');
-            gradients[4].addColorStop(1, '#afe9b9');
-            
-            const colors = categories.map((category, index) => gradients[index]);
-            
-            // 绘制柱状图
-            const padding = 40;
-            const chartWidth = canvas.width - padding * 2;
-            const chartHeight = canvas.height - padding * 2;
-            const barWidth = chartWidth / categories.length * 0.6;
-            const gap = chartWidth / categories.length * 0.4;
-            const maxValue = 100;
-            
-            // 清除画布
-            ctx.clearRect(0, 0, canvas.width, canvas.height);
-            
-            // 绘制背景网格
-            ctx.strokeStyle = 'rgba(255, 255, 255, 0.1)';
-            ctx.lineWidth = 1;
-            
-            // 水平网格线
-            const gridLines = 5;
-            for (let i = 0; i <= gridLines; i++) {
-                const y = padding + (chartHeight / gridLines) * i;
-                ctx.beginPath();
-                ctx.moveTo(padding, y);
-                ctx.lineTo(canvas.width - padding, y);
-                ctx.stroke();
-                
-                // 刻度标签
-                ctx.fillStyle = '#5a5678';
-                ctx.font = '12px Arial';
-                ctx.textAlign = 'right';
-                ctx.textBaseline = 'middle';
-                ctx.fillText(`${100 - i * 20}%`, padding - 5, y);
-            }
-            
-            // 绘制柱状图
-            categories.forEach((category, index) => {
-                const x = padding + index * (barWidth + gap) + gap / 2;
-                const barHeight = (percentages[index] / maxValue) * chartHeight;
-                const y = padding + chartHeight - barHeight;
-                
-                // 绘制柱状（使用渐变色）
-                ctx.fillStyle = colors[index];
-                
-                // 创建圆角矩形路径
-                const radius = 5;
-                ctx.beginPath();
-                ctx.moveTo(x + radius, y);
-                ctx.lineTo(x + barWidth - radius, y);
-                ctx.quadraticCurveTo(x + barWidth, y, x + barWidth, y + radius);
-                ctx.lineTo(x + barWidth, y + barHeight);
-                ctx.lineTo(x, y + barHeight);
-                ctx.lineTo(x, y + radius);
-                ctx.quadraticCurveTo(x, y, x + radius, y);
-                ctx.closePath();
-                ctx.fill();
-                
-                // 添加阴影效果
-                ctx.shadowColor = 'rgba(0, 0, 0, 0.2)';
-                ctx.shadowBlur = 5;
-                ctx.shadowOffsetX = 0;
-                ctx.shadowOffsetY = 2;
-                ctx.fill();
-                ctx.shadowColor = 'transparent';
-                ctx.shadowBlur = 0;
-                ctx.shadowOffsetX = 0;
-                ctx.shadowOffsetY = 0;
-                
-                // 添加数值标签
-                ctx.fillStyle = '#5a5678';
-                ctx.font = 'bold 14px Arial';
-                ctx.textAlign = 'center';
-                ctx.textBaseline = 'bottom';
-                ctx.fillText(`${percentages[index]}%`, x + barWidth / 2, y - 5);
-                
-                // 添加分类标签
-                ctx.fillStyle = '#5a5678';
-                ctx.font = 'bold 12px Arial';
-                ctx.textAlign = 'center';
-                ctx.textBaseline = 'top';
-                
-                // 分类名称分行显示
-                const words = category.split('与');
-                if (words.length > 1) {
-                    ctx.fillText(words[0], x + barWidth / 2, padding + chartHeight + 5);
-                    ctx.fillText(words[1], x + barWidth / 2, padding + chartHeight + 20);
+                const percentage = Math.round((scoreData.score / scoreData.total) * 100);
+
+                let description = "";
+                if (percentage >= 80) {
+                    description = "做得很棒，继续保持哦";
+                } else if (percentage >= 60) {
+                    description = "做得不错，还可以更好";
+                } else if (percentage >= 40) {
+                    description = "有进步空间，慢慢来";
+                } else if (percentage >= 20) {
+                    description = "需要多关注这个方面";
                 } else {
-                    ctx.fillText(category, x + barWidth / 2, padding + chartHeight + 10);
+                    description = "从这里开始爱自己吧";
                 }
+
+                const cardElement = document.createElement('div');
+                cardElement.className = 'big-number-card';
+                cardElement.style.borderTop = `3px solid ${scoreData.color}`;
+                cardElement.innerHTML = `
+                    <div class="big-number">${percentage}%</div>
+                    <div class="big-number-label">${category}</div>
+                    <div class="big-number-description">${description}</div>
+                `;
+
+                bigNumberContainer.appendChild(cardElement);
             });
-            
-            // 添加柱状图分析
-            const weakestCategory = getWeakestCategory(categoryScores);
-            const strongestCategory = getStrongestCategory(categoryScores);
-            
-            barChartAnalysis.innerHTML = `
-                <p>你在<strong>${strongestCategory.category}</strong>方面表现最好（${Math.round((strongestCategory.score / strongestCategory.total) * 100)}%），而在<strong>${weakestCategory.category}</strong>方面可能需要更多关注（${Math.round((weakestCategory.score / weakestCategory.total) * 100)}%）。平衡发展各个方面的自我关怀能力很重要。</p>
-            `;
         }
 
         // 显示标签
@@ -2226,9 +2139,9 @@
             const ctx = canvas.getContext('2d');
 
             canvas.width = canvas.offsetWidth * 2;
-            canvas.height = 280 * 2;
+            canvas.height = 320 * 2;
             canvas.style.width = `${canvas.offsetWidth}px`;
-            canvas.style.height = '280px';
+            canvas.style.height = '320px';
 
             const categories = Object.keys(categoryScores);
             const percentages = categories.map(category => {
@@ -2243,9 +2156,9 @@
 
             ctx.clearRect(0, 0, canvas.width, canvas.height);
 
-            // 绘制背景网格
-            ctx.strokeStyle = 'rgba(255, 255, 255, 0.2)';
-            ctx.lineWidth = 1;
+            // 绘制背景网格 - 增强视觉冲击力
+            ctx.strokeStyle = 'rgba(255, 255, 255, 0.3)';
+            ctx.lineWidth = 2;
 
             // 绘制多边形网格
             for (let i = 1; i <= 5; i++) {
@@ -2264,11 +2177,17 @@
                 }
                 ctx.closePath();
                 ctx.stroke();
+                
+                // 填充网格区域，增强视觉效果
+                if (i % 2 === 0) {
+                    ctx.fillStyle = 'rgba(255, 255, 255, 0.05)';
+                    ctx.fill();
+                }
             }
 
             // 绘制轴线
-            ctx.strokeStyle = 'rgba(255, 255, 255, 0.3)';
-            ctx.lineWidth = 1;
+            ctx.strokeStyle = 'rgba(255, 255, 255, 0.4)';
+            ctx.lineWidth = 1.5;
 
             for (let i = 0; i < categories.length; i++) {
                 const angle = i * angleStep - Math.PI / 2;
@@ -2281,15 +2200,10 @@
                 ctx.stroke();
             }
 
-            // 绘制数据区域（使用渐变色）
-            const gradient = ctx.createLinearGradient(0, 0, canvas.width, canvas.height);
-            gradient.addColorStop(0, 'rgba(255, 126, 179, 0.3)');
-            gradient.addColorStop(0.5, 'rgba(157, 123, 255, 0.3)');
-            gradient.addColorStop(1, 'rgba(123, 223, 242, 0.3)');
-            
-            ctx.fillStyle = gradient;
-            ctx.strokeStyle = 'rgba(255, 126, 179, 0.8)';
-            ctx.lineWidth = 3;
+            // 绘制数据区域
+            ctx.fillStyle = 'rgba(255, 126, 179, 0.25)';
+            ctx.strokeStyle = 'rgba(255, 126, 179, 0.9)';
+            ctx.lineWidth = 4;
 
             ctx.beginPath();
             for (let i = 0; i < categories.length; i++) {
@@ -2319,33 +2233,33 @@
                 const y = centerY + Math.sin(angle) * r;
 
                 ctx.beginPath();
-                ctx.arc(x, y, 6, 0, Math.PI * 2);
+                ctx.arc(x, y, 8, 0, Math.PI * 2);
                 ctx.fill();
 
                 // 添加数据标签
                 ctx.fillStyle = '#5a5678';
-                ctx.font = 'bold 16px Arial';
+                ctx.font = '20px Arial'; // 加大字体，去掉加粗
                 ctx.textAlign = 'center';
                 ctx.textBaseline = 'bottom';
-                ctx.fillText(`${percentage}%`, x, y - 10);
+                ctx.fillText(`${percentage}%`, x, y - 12);
                 ctx.fillStyle = '#ff7eb3';
             }
 
-            // 添加分类标签
+            // 添加分类标签 - 加大字体，去掉加粗
             ctx.fillStyle = '#5a5678';
-            ctx.font = 'bold 14px Arial';
+            ctx.font = '18px Arial'; // 加大字体
             ctx.textAlign = 'center';
             ctx.textBaseline = 'middle';
             
             for (let i = 0; i < categories.length; i++) {
                 const angle = i * angleStep - Math.PI / 2;
-                const labelX = centerX + Math.cos(angle) * (radius + 40);
-                const labelY = centerY + Math.sin(angle) * (radius + 40);
+                const labelX = centerX + Math.cos(angle) * (radius + 50);
+                const labelY = centerY + Math.sin(angle) * (radius + 50);
                 
                 const words = categories[i].split('与');
                 if (words.length > 1) {
-                    ctx.fillText(words[0], labelX, labelY - 8);
-                    ctx.fillText(words[1], labelX, labelY + 8);
+                    ctx.fillText(words[0], labelX, labelY - 10);
+                    ctx.fillText(words[1], labelX, labelY + 10);
                 } else {
                     ctx.fillText(categories[i], labelX, labelY);
                 }
@@ -2387,7 +2301,7 @@
             `;
         }
 
-        // 显示个性化建议
+        // 显示个性化建议 - 精简内容
         function displaySuggestions(categoryScores, totalPercentage) {
             suggestionsGrid.innerHTML = "";
 
@@ -2404,16 +2318,6 @@
                     icon: "fas fa-hands-helping",
                     description: "当你难过时，想想如果是好朋友遇到同样的事，你会怎么安慰ta？然后对自己说同样温柔的话。练习自我友善。"
                 });
-                suggestions.push({
-                    title: "给自己一个小奖励",
-                    icon: "fas fa-gift",
-                    description: "完成一件小事后，给自己一个小奖励，比如一杯喜欢的饮料，或者看一集喜欢的剧。建立自我奖励的习惯。"
-                });
-                suggestions.push({
-                    title: "建立自我关怀仪式",
-                    icon: "fas fa-spa",
-                    description: "每周安排一个固定的'自我关怀时间'，做让自己放松和开心的事情。可以是泡澡、读书、散步或冥想。"
-                });
             } else if (totalPercentage < 60) {
                 suggestions.push({
                     title: "给自己一个小仪式",
@@ -2424,16 +2328,6 @@
                     title: "练习说'不'",
                     icon: "fas fa-comment-slash",
                     description: "当你感到疲惫时，试着温和但坚定地说'不'。你的感受和需求同样重要。设立健康的界限。"
-                });
-                suggestions.push({
-                    title: "设定工作界限",
-                    icon: "fas fa-clock",
-                    description: "设定明确的工作时间，下班后就真正休息，不把工作带回家。保护自己的休息时间。"
-                });
-                suggestions.push({
-                    title: "建立感恩日记",
-                    icon: "fas fa-book",
-                    description: "每天写下三件感恩自己的事，无论多小都可以，培养对自己的感激之情。关注自己的优点和进步。"
                 });
             } else if (totalPercentage < 80) {
                 suggestions.push({
@@ -2446,16 +2340,6 @@
                     icon: "fas fa-microphone",
                     description: "允许自己犯错，允许自己不够完美。你不需要做到100分才值得被爱。拥抱自己的不完美。"
                 });
-                suggestions.push({
-                    title: "定期自我奖励",
-                    icon: "fas fa-star",
-                    description: "每周为自己安排一个小奖励，庆祝自己又度过了一周的努力。肯定自己的付出和成长。"
-                });
-                suggestions.push({
-                    title: "探索新的爱好",
-                    icon: "fas fa-compass",
-                    description: "尝试一些新的、纯粹为了让自己开心而做的事情，不为其他目的。发现生活中的乐趣和可能性。"
-                });
             } else {
                 suggestions.push({
                     title: "分享你的经验",
@@ -2467,20 +2351,10 @@
                     icon: "fas fa-rocket",
                     description: "你已经做得很好了，继续保持这份对自己的温柔，它会成为你生命中最坚实的力量。持续投资自己。"
                 });
-                suggestions.push({
-                    title: "帮助他人爱自己",
-                    icon: "fas fa-hands-helping",
-                    description: "用你的经验帮助身边的人也开始学习爱自己，让爱流动起来。创造更友善的环境。"
-                });
-                suggestions.push({
-                    title: "设立成长目标",
-                    icon: "fas fa-bullseye",
-                    description: "为自己设立一些关于自我成长的长期目标，持续投资自己。不断探索和拓展自己的可能性。"
-                });
             }
 
             const weakestCategory = getWeakestCategory(categoryScores);
-            if (weakestCategory) {
+            if (weakestCategory && suggestions.length < 4) {
                 suggestions.push({
                     title: `在${weakestCategory.category}方面多爱自己一点`,
                     icon: "fas fa-arrow-up",
@@ -2489,7 +2363,7 @@
             }
 
             const strongestCategory = getStrongestCategory(categoryScores);
-            if (strongestCategory) {
+            if (strongestCategory && suggestions.length < 4) {
                 suggestions.push({
                     title: `继续发挥你在${strongestCategory.category}方面的优势`,
                     icon: "fas fa-shield-alt",
@@ -2544,8 +2418,6 @@
 
             return {
                 category: weakestCategory,
-                score: categoryScores[weakestCategory].score,
-                total: categoryScores[weakestCategory].total,
                 suggestion: suggestion
             };
         }
@@ -2585,8 +2457,6 @@
 
             return {
                 category: strongestCategory,
-                score: categoryScores[strongestCategory].score,
-                total: categoryScores[strongestCategory].total,
                 suggestion: suggestion
             };
         }
@@ -2624,7 +2494,6 @@
             if (resultPage.classList.contains('active')) {
                 const categoryScores = calculateCategoryScoresFromAnswers();
                 if (categoryScores) {
-                    displayBarChart(categoryScores);
                     displayRadarChart(categoryScores);
                 }
             }
