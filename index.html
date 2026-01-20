@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>你有多久没好好爱自己了 | 自我关怀测试</title>
+    <title>你爱自己的程度 | 自我关怀测试</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         * {
@@ -16,24 +16,39 @@
         }
 
         :root {
-            --primary-color: #ff7eb3;
-            --secondary-color: #ff6b9d;
+            --primary-color: #ff3b6d;
+            --primary-light: #ff6b9d;
+            --secondary-color: #4a6fff;
             --accent-color: #9d7bff;
             --accent-color2: #7bdff2;
             --accent-color3: #b8f2e6;
             --accent-color4: #ffb366;
             --accent-color5: #6bcf7f;
+            --success-color: #4CAF50;
+            --warning-color: #FF9800;
+            --danger-color: #F44336;
+            --energy-low: #FF6B6B;
+            --energy-medium: #FFD93D;
+            --energy-high: #6BCF7F;
             --light-color: #f8f7ff;
-            --dark-color: #2a2640;
-            --glass-bg: rgba(255, 255, 255, 0.15);
+            --dark-color: #1a1a2e;
+            --glass-bg: rgba(255, 255, 255, 0.95);
             --glass-border: rgba(255, 255, 255, 0.2);
-            --shadow: 0 8px 32px rgba(31, 38, 135, 0.15);
+            --shadow: 0 8px 32px rgba(31, 38, 135, 0.08);
             --white: #ffffff;
             --light-pink: #ffd6e7;
             --dark-pink: #ff5e8e;
             --danger: #ff6b6b;
-            --result-title-color: #ff6b9d;
+            --result-title-color: #ff3b6d;
             --red-btn: #ff4d4f;
+            --text-primary: #333333;
+            --text-secondary: #666666;
+            --text-muted: #888888;
+            --border-color: #eeeeee;
+            --bg-color: #ffffff;
+            --card-bg: #ffffff;
+            --energy-gauge-bg: #f0f2f5;
+            --energy-gauge-fill: linear-gradient(90deg, #FF6B6B, #FFD93D, #6BCF7F);
 
             /* 移动端字体大小 */
             --font-size-xs: 12px;
@@ -58,13 +73,13 @@
         }
 
         body {
-            background: linear-gradient(135deg, #ffd6e7 0%, #c1f0ff 100%);
+            background: var(--bg-color);
             min-height: 100vh;
             display: flex;
             justify-content: center;
             align-items: flex-start;
             padding: 16px;
-            color: var(--dark-color);
+            color: var(--text-primary);
             line-height: 1.5;
             -webkit-font-smoothing: antialiased;
             -moz-osx-font-smoothing: grayscale;
@@ -78,11 +93,11 @@
 
         /* 毛玻璃效果卡片 */
         .glass-card {
-            background: var(--glass-bg);
+            background: var(--card-bg);
             backdrop-filter: blur(12px);
             -webkit-backdrop-filter: blur(12px);
             border-radius: 16px;
-            border: 1px solid var(--glass-border);
+            border: 1px solid var(--border-color);
             box-shadow: var(--shadow);
             overflow: hidden;
             padding: 20px;
@@ -104,7 +119,7 @@
 
         h1 {
             font-size: var(--font-size-2xl);
-            color: var(--dark-color);
+            color: var(--text-primary);
             margin-bottom: var(--spacing-md);
             line-height: 1.3;
             font-weight: 700;
@@ -113,7 +128,7 @@
 
         .subtitle {
             font-size: var(--font-size-md);
-            color: #5a5678;
+            color: var(--text-secondary);
             margin-bottom: var(--spacing-xl);
             line-height: 1.6;
             font-weight: 400;
@@ -128,13 +143,14 @@
         }
 
         .feature {
-            background: rgba(255, 255, 255, 0.25);
+            background: rgba(255, 59, 109, 0.05);
             border-radius: 12px;
             padding: var(--spacing-md);
             width: 100%;
             max-width: 100%;
             transition: transform 0.3s ease;
             margin-bottom: var(--spacing-sm);
+            border: 1px solid rgba(255, 59, 109, 0.1);
         }
 
         .feature:hover {
@@ -151,11 +167,12 @@
             font-size: var(--font-size-md);
             margin-bottom: var(--spacing-xs);
             font-weight: 600;
+            color: var(--text-primary);
         }
 
         .feature p {
             font-size: var(--font-size-sm);
-            color: #5a5678;
+            color: var(--text-secondary);
             line-height: 1.4;
         }
 
@@ -169,7 +186,7 @@
         }
 
         .btn {
-            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            background: linear-gradient(135deg, var(--primary-color), var(--primary-light));
             color: white;
             border: none;
             padding: var(--spacing-lg) var(--spacing-xl);
@@ -177,7 +194,7 @@
             border-radius: 12px;
             cursor: pointer;
             transition: all 0.3s ease;
-            box-shadow: 0 6px 20px rgba(255, 126, 179, 0.3);
+            box-shadow: 0 6px 20px rgba(255, 59, 109, 0.3);
             display: inline-flex;
             align-items: center;
             justify-content: center;
@@ -189,7 +206,7 @@
 
         .btn:hover {
             transform: translateY(-3px);
-            box-shadow: 0 10px 25px rgba(255, 126, 179, 0.4);
+            box-shadow: 0 10px 25px rgba(255, 59, 109, 0.4);
         }
 
         .btn:active {
@@ -241,7 +258,7 @@
 
         .progress-bar {
             height: 4px;
-            background: rgba(255, 255, 255, 0.3);
+            background: rgba(0, 0, 0, 0.05);
             border-radius: 10px;
             overflow: hidden;
             position: relative;
@@ -266,6 +283,7 @@
             margin-bottom: var(--spacing-md);
             font-weight: 600;
             letter-spacing: -0.1px;
+            color: var(--text-primary);
         }
 
         .options-container {
@@ -274,8 +292,8 @@
         }
 
         .option {
-            background: rgba(255, 255, 255, 0.3);
-            border: 2px solid transparent;
+            background: rgba(255, 255, 255, 0.5);
+            border: 2px solid var(--border-color);
             border-radius: 12px;
             padding: var(--spacing-md);
             cursor: pointer;
@@ -287,11 +305,12 @@
         }
 
         .option:hover {
-            background: rgba(255, 255, 255, 0.5);
+            background: rgba(255, 59, 109, 0.05);
+            border-color: rgba(255, 59, 109, 0.3);
         }
 
         .option.selected {
-            background: rgba(255, 126, 179, 0.15);
+            background: rgba(255, 59, 109, 0.08);
             border-color: var(--primary-color);
         }
 
@@ -321,6 +340,7 @@
             font-size: var(--font-size-md);
             flex-grow: 1;
             line-height: 1.4;
+            color: var(--text-primary);
         }
 
         .nav-buttons {
@@ -331,7 +351,7 @@
         }
 
         .nav-btn {
-            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            background: linear-gradient(135deg, var(--primary-color), var(--primary-light));
             color: white;
             border: none;
             padding: var(--spacing-md) var(--spacing-lg);
@@ -339,7 +359,7 @@
             border-radius: 12px;
             cursor: pointer;
             transition: all 0.3s ease;
-            box-shadow: 0 4px 12px rgba(255, 126, 179, 0.3);
+            box-shadow: 0 4px 12px rgba(255, 59, 109, 0.3);
             display: flex;
             align-items: center;
             justify-content: center;
@@ -351,7 +371,7 @@
 
         .nav-btn:hover {
             transform: translateY(-2px);
-            box-shadow: 0 6px 16px rgba(255, 126, 179, 0.4);
+            box-shadow: 0 6px 16px rgba(255, 59, 109, 0.4);
         }
 
         .nav-btn:active {
@@ -379,7 +399,7 @@
             font-weight: 600;
             text-align: center;
             padding: var(--spacing-md);
-            background: rgba(255, 255, 255, 0.1);
+            background: rgba(255, 59, 109, 0.05);
             border-radius: 12px;
             border-left: 3px solid var(--accent-color);
             animation: fadeIn 1s ease;
@@ -388,12 +408,12 @@
         /* 情感文案样式 */
         .emotional-text {
             font-size: var(--font-size-md);
-            color: #5a5678;
+            color: var(--text-secondary);
             margin: var(--spacing-md) 0;
             line-height: 1.6;
             text-align: center;
             padding: var(--spacing-md);
-            background: rgba(255, 255, 255, 0.05);
+            background: rgba(255, 255, 255, 0.5);
             border-radius: 12px;
             animation: fadeIn 1s ease 0.5s both;
         }
@@ -406,7 +426,7 @@
             line-height: 1.5;
             text-align: center;
             padding: var(--spacing-md);
-            background: rgba(255, 255, 255, 0.05);
+            background: rgba(255, 59, 109, 0.05);
             border-radius: 10px;
             border-right: 2px solid var(--accent-color);
             font-weight: 600;
@@ -435,7 +455,7 @@
         }
 
         .score-ring-bg {
-            stroke: rgba(255, 255, 255, 0.2);
+            stroke: rgba(0, 0, 0, 0.05);
         }
 
         .score-ring-fill {
@@ -466,7 +486,12 @@
             font-size: var(--font-size-2xl);
             margin-bottom: var(--spacing-lg);
             font-weight: 700;
-            color: var(--result-title-color);
+            color: #000;
+            text-align: center;
+        }
+
+        .self-word {
+            color: var(--primary-color);
         }
 
         /* 得分指示条样式 */
@@ -489,7 +514,7 @@
             overflow: hidden;
         }
 
-        /* 指示器标记 - 修改为粉色，去掉描边 */
+        /* 指示器标记 - 修改为红色，去掉描边 */
         .indicator-marker {
             position: absolute;
             top: 50%;
@@ -498,7 +523,7 @@
             height: 24px;
             background: var(--primary-color);
             border-radius: 50%;
-            box-shadow: 0 4px 12px rgba(255, 126, 179, 0.4);
+            box-shadow: 0 4px 12px rgba(255, 59, 109, 0.4);
             z-index: 10;
             border: none;
         }
@@ -508,7 +533,7 @@
             justify-content: space-between;
             margin-top: var(--spacing-xs);
             font-size: var(--font-size-sm);
-            color: #5a5678;
+            color: var(--text-secondary);
             line-height: 1.3;
         }
 
@@ -522,7 +547,7 @@
             text-align: center;
             margin-top: var(--spacing-xl);
             padding: var(--spacing-lg);
-            background: rgba(255, 255, 255, 0.1);
+            background: rgba(255, 255, 255, 0.5);
             border-radius: 12px;
             border-left: 3px solid var(--primary-color);
         }
@@ -536,83 +561,136 @@
 
         .indicator-analysis p {
             line-height: 1.6;
-            color: #5a5678;
+            color: var(--text-primary);
             font-size: var(--font-size-md);
         }
 
-        /* 大数字卡片样式 */
-        .big-number-section {
+        /* 能量与生命力板块 - 优化版 */
+        .energy-section {
             margin: var(--spacing-xl) 0;
+            padding: var(--spacing-xl);
+            background: linear-gradient(135deg, rgba(255, 107, 107, 0.03), rgba(109, 207, 127, 0.03));
+            border-radius: 16px;
+            border: 1px solid rgba(255, 59, 109, 0.1);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
         }
 
-        .section-title {
+        .energy-title {
             text-align: center;
             font-size: var(--font-size-xl);
-            color: var(--primary-color);
+            color: var(--dark-color);
             margin-bottom: var(--spacing-xl);
+            font-weight: 700;
             position: relative;
-            font-weight: 600;
         }
 
-        .section-title:after {
+        .energy-title:after {
             content: '';
             display: block;
-            width: 50px;
+            width: 60px;
             height: 3px;
-            background: linear-gradient(90deg, var(--primary-color), var(--accent-color));
+            background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
             margin: var(--spacing-sm) auto 0;
             border-radius: 2px;
         }
 
-        .big-number-container {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: var(--spacing-md);
-            margin-bottom: var(--spacing-md);
+        .energy-gauge-container {
+            width: 100%;
+            max-width: 600px;
+            margin: 0 auto;
         }
 
-        .big-number-card {
-            background: rgba(255, 255, 255, 0.15);
-            border-radius: 12px;
-            padding: var(--spacing-lg);
+        .energy-gauge {
+            height: 40px;
+            background: rgba(0, 0, 0, 0.05);
+            border-radius: 20px;
+            position: relative;
+            overflow: hidden;
+            margin-bottom: var(--spacing-lg);
+            box-shadow: inset 0 2px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .energy-fill {
+            height: 100%;
+            background: linear-gradient(90deg, #FF6B6B, #FFD93D, #6BCF7F);
+            border-radius: 20px;
+            width: 0%;
+            transition: width 2s ease;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        .energy-marker {
+            position: absolute;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            width: 48px;
+            height: 48px;
+            background: white;
+            border-radius: 50%;
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+            z-index: 10;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            color: var(--primary-color);
+            font-size: var(--font-size-lg);
+            transition: left 2s ease, background-color 2s ease;
+        }
+
+        .energy-labels {
+            display: flex;
+            justify-content: space-between;
+            margin-top: var(--spacing-lg);
+            font-size: var(--font-size-md);
+            color: var(--text-primary);
+            font-weight: 600;
+        }
+
+        .energy-label {
             text-align: center;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-            border: 1px solid rgba(255, 255, 255, 0.1);
+            flex: 1;
+            padding: var(--spacing-sm);
             display: flex;
             flex-direction: column;
-            justify-content: center;
-            min-height: 120px;
+            align-items: center;
+            gap: var(--spacing-xs);
         }
 
-        .big-number-card:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+        .energy-label i {
+            font-size: var(--font-size-2xl);
+            margin-bottom: 4px;
         }
 
-        .big-number {
-            font-size: var(--font-size-3xl);
-            font-weight: 800;
-            line-height: 1;
-            margin-bottom: var(--spacing-xs);
-            background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-
-        .big-number-label {
-            font-size: var(--font-size-md);
-            font-weight: 600;
-            color: var(--dark-color);
-            margin-bottom: var(--spacing-xs);
-        }
-
-        .big-number-description {
+        .energy-label-text {
             font-size: var(--font-size-sm);
-            color: #5a5678;
-            line-height: 1.4;
+            font-weight: 600;
         }
 
-        /* 标签卡片样式 - 加大 */
+        .energy-analysis {
+            text-align: center;
+            margin-top: var(--spacing-xl);
+            padding: var(--spacing-lg);
+            background: white;
+            border-radius: 12px;
+            border-left: 4px solid var(--secondary-color);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+        }
+
+        .energy-analysis h4 {
+            color: var(--secondary-color);
+            margin-bottom: var(--spacing-md);
+            font-size: var(--font-size-lg);
+            font-weight: 700;
+        }
+
+        .energy-analysis p {
+            line-height: 1.6;
+            color: var(--text-primary);
+            font-size: var(--font-size-md);
+        }
+
+        /* 状态标签 - 不同颜色 */
         .tags-container {
             display: flex;
             flex-wrap: wrap;
@@ -640,7 +718,7 @@
 
         /* 标签颜色类 */
         .tag-color-1 {
-            background: linear-gradient(135deg, #ff7eb3, #ff6b9d);
+            background: linear-gradient(135deg, #ff3b6d, #ff6b9d);
         }
 
         .tag-color-2 {
@@ -689,96 +767,115 @@
             text-align: center;
             margin-top: var(--spacing-lg);
             padding: var(--spacing-lg);
-            background: rgba(255, 255, 255, 0.1);
+            background: rgba(255, 255, 255, 0.7);
             border-radius: 12px;
             font-size: var(--font-size-md);
-            color: #5a5678;
+            color: var(--text-primary);
             line-height: 1.6;
         }
 
-        /* 建议板块 */
-        .suggestions-section {
-            background: rgba(255, 255, 255, 0.15);
-            border-radius: 12px;
+        /* 悄悄话与建议板块 */
+        .whisper-suggestions-section {
+            background: linear-gradient(135deg, rgba(255, 59, 109, 0.05), rgba(157, 123, 255, 0.05));
+            border-radius: 16px;
             padding: var(--spacing-xl);
             margin: var(--spacing-xl) 0;
+            border: 1px solid rgba(255, 59, 109, 0.1);
+            box-shadow: 0 8px 32px rgba(31, 38, 135, 0.05);
         }
 
-        .suggestions-section h3 {
+        .whisper-suggestions-section h3 {
             color: var(--primary-color);
             font-size: var(--font-size-xl);
             margin-bottom: var(--spacing-lg);
-            display: flex;
-            align-items: center;
-            gap: var(--spacing-sm);
-            font-weight: 600;
-        }
-
-        .suggestions-grid {
-            display: grid;
-            grid-template-columns: 1fr;
-            gap: var(--spacing-lg);
-        }
-
-        .suggestion-item {
-            background: rgba(255, 255, 255, 0.1);
-            border-radius: 12px;
-            padding: var(--spacing-lg);
-            transition: transform 0.3s ease;
-        }
-
-        .suggestion-item:hover {
-            transform: translateY(-3px);
-        }
-
-        .suggestion-item h4 {
-            display: flex;
-            align-items: center;
-            gap: var(--spacing-sm);
-            color: var(--primary-color);
-            margin-bottom: var(--spacing-md);
-            font-size: var(--font-size-lg);
-            font-weight: 600;
-        }
-
-        .suggestion-item p {
-            color: #5a5678;
-            line-height: 1.6;
-            font-size: var(--font-size-md);
-        }
-
-        /* 给你的悄悄话 */
-        .whisper-section {
-            background: linear-gradient(135deg, rgba(255, 126, 179, 0.1), rgba(157, 123, 255, 0.1));
-            border-radius: 12px;
-            padding: var(--spacing-xl);
-            margin: var(--spacing-xl) 0;
             text-align: center;
-            border-left: 3px solid var(--primary-color);
+            font-weight: 700;
+            position: relative;
+            padding-bottom: var(--spacing-md);
         }
 
-        .whisper-section h3 {
-            color: var(--primary-color);
-            font-size: var(--font-size-xl);
-            margin-bottom: var(--spacing-lg);
-            font-weight: 600;
+        .whisper-suggestions-section h3:after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 3px;
+            background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
+            border-radius: 2px;
         }
 
         .whisper-text {
             font-size: var(--font-size-lg);
-            color: var(--dark-color);
+            color: var(--text-primary);
             line-height: 1.6;
-            margin-bottom: var(--spacing-sm);
+            margin-bottom: var(--spacing-xl);
             font-weight: 500;
+            text-align: center;
+        }
+
+        .suggestions-list {
+            display: flex;
+            flex-direction: column;
+            gap: var(--spacing-lg);
+        }
+
+        .suggestion-item {
+            padding: var(--spacing-lg);
+            background: white;
+            border-radius: 12px;
+            border-left: 4px solid var(--primary-color);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s ease;
+        }
+
+        .suggestion-item:hover {
+            transform: translateX(5px);
+        }
+
+        .suggestion-title {
+            display: flex;
+            align-items: center;
+            gap: var(--spacing-md);
+            margin-bottom: var(--spacing-md);
+        }
+
+        .suggestion-icon {
+            font-size: 24px;
+            color: var(--primary-color);
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: rgba(255, 59, 109, 0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .suggestion-title h4 {
+            color: var(--dark-color);
+            font-size: var(--font-size-lg);
+            font-weight: 700;
+            line-height: 1.3;
+        }
+
+        .suggestion-content {
+            color: var(--text-secondary);
+            line-height: 1.6;
+            font-size: var(--font-size-md);
+            padding-left: calc(40px + var(--spacing-md));
         }
 
         /* 科学理论依据 */
         .theory-section {
-            background: rgba(255, 255, 255, 0.1);
-            border-radius: 12px;
+            background: rgba(255, 255, 255, 0.7);
+            border-radius: 16px;
             padding: var(--spacing-xl);
             margin-top: var(--spacing-xl);
             font-size: var(--font-size-md);
+            border: 1px solid var(--border-color);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
         }
 
         .theory-section h3 {
@@ -788,13 +885,14 @@
             display: flex;
             align-items: center;
             gap: var(--spacing-sm);
-            font-weight: 600;
+            font-weight: 700;
         }
 
         .theory-section p {
             line-height: 1.6;
             margin-bottom: var(--spacing-lg);
             font-size: var(--font-size-md);
+            color: var(--text-primary);
         }
 
         /* 底部按钮 */
@@ -807,7 +905,7 @@
         }
 
         .action-btn {
-            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            background: linear-gradient(135deg, var(--primary-color), var(--primary-light));
             color: white;
             border: none;
             padding: var(--spacing-lg) var(--spacing-xl);
@@ -815,7 +913,7 @@
             border-radius: 12px;
             cursor: pointer;
             transition: all 0.3s ease;
-            box-shadow: 0 4px 12px rgba(255, 126, 179, 0.3);
+            box-shadow: 0 4px 12px rgba(255, 59, 109, 0.3);
             display: flex;
             align-items: center;
             justify-content: center;
@@ -828,7 +926,7 @@
 
         .action-btn:hover {
             transform: translateY(-2px);
-            box-shadow: 0 6px 16px rgba(255, 126, 179, 0.4);
+            box-shadow: 0 6px 16px rgba(255, 59, 109, 0.4);
         }
 
         .action-btn:active {
@@ -1081,8 +1179,23 @@
                 font-size: 84px;
             }
 
-            .big-number-container {
-                grid-template-columns: repeat(5, 1fr);
+            .energy-gauge {
+                height: 50px;
+                border-radius: 25px;
+            }
+
+            .energy-marker {
+                width: 56px;
+                height: 56px;
+                font-size: var(--font-size-xl);
+            }
+
+            .energy-labels {
+                font-size: var(--font-size-lg);
+            }
+
+            .energy-label i {
+                font-size: var(--font-size-3xl);
             }
 
             .tags-container {
@@ -1094,12 +1207,12 @@
                 padding: var(--spacing-sm) var(--spacing-xl);
             }
 
-            .suggestions-grid {
-                grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            }
-
             .radar-chart {
                 height: 360px;
+            }
+
+            .suggestions-list {
+                gap: var(--spacing-xl);
             }
 
             .action-btn {
@@ -1138,11 +1251,6 @@
 
             .score-ring-number {
                 font-size: 60px;
-            }
-
-            .big-number-container {
-                grid-template-columns: 1fr;
-                gap: var(--spacing-xs);
             }
 
             .tag {
@@ -1238,6 +1346,33 @@
             animation: ringFill 2s ease-out forwards;
         }
 
+        @keyframes energyGaugeFill {
+            from {
+                width: 0%;
+            }
+
+            to {
+                width: var(--energy-percentage);
+            }
+        }
+
+        .energy-gauge-animate {
+            animation: energyGaugeFill 2s ease-out forwards;
+        }
+
+        @keyframes markerPulse {
+            0%, 100% {
+                transform: translate(-50%, -50%) scale(1);
+            }
+            50% {
+                transform: translate(-50%, -50%) scale(1.05);
+            }
+        }
+
+        .marker-pulse {
+            animation: markerPulse 2s ease-in-out infinite;
+        }
+
         /* 改善按钮交互反馈 */
         .btn:active,
         .nav-btn:active,
@@ -1246,7 +1381,7 @@
         }
 
         .option:active {
-            background: rgba(255, 255, 255, 0.5);
+            background: rgba(255, 59, 109, 0.1);
         }
 
         /* 改善滚动体验 */
@@ -1263,16 +1398,15 @@
             <div class="logo">
                 <i class="fas fa-heart-broken"></i>
             </div>
-            <h1>你有多久没好好爱自己了？</h1>
-            <p class="subtitle">本测试基于Kristin
-                Neff的自我关怀理论设计，包含50道贴近生活的题目，从五个维度评估你的自我关怀水平。研究发现，高自我关怀水平的个体拥有更好的心理健康、更强的情感调节能力和更满意的人际关系。</p>
+            <h1>你爱自己的程度有多深？</h1>
+            <p class="subtitle">本测试基于Kristin Neff的自我关怀理论设计，包含50道贴近生活的题目，从五个维度评估你的爱自己水平。研究发现，高爱自己水平的个体拥有更好的心理健康、更强的情感调节能力和更满意的人际关系。</p>
 
             <div class="features">
                 <div class="feature">
                     <div class="feature-icon">
                         <i class="fas fa-heart"></i>
                     </div>
-                    <h3>50道生活化题目</h3>
+                    <h3>50道精心设计题目</h3>
                     <p>基于心理学理论，涵盖日常生活的真实场景</p>
                 </div>
                 <div class="feature">
@@ -1280,14 +1414,14 @@
                         <i class="fas fa-chart-bar"></i>
                     </div>
                     <h3>专业分析报告</h3>
-                    <p>基于自我关怀理论，提供科学且温暖的评估结果</p>
+                    <p>基于爱自己理论，提供科学且温暖的评估结果</p>
                 </div>
                 <div class="feature">
                     <div class="feature-icon">
                         <i class="fas fa-hand-holding-heart"></i>
                     </div>
                     <h3>个性化建议</h3>
-                    <p>根据你的得分提供可立即实践的自我关怀方法</p>
+                    <p>根据你的得分提供可立即实践的爱自己方法</p>
                 </div>
             </div>
 
@@ -1336,7 +1470,7 @@
         <!-- 结果页面 -->
         <div id="result-page" class="glass-card page">
             <div class="result-header">
-                <h1 class="result-title">你的自我关怀报告</h1>
+                <h1 class="result-title">你爱<span class="self-word">自己</span>的程度</h1>
 
                 <!-- 鼓励文字 -->
                 <div class="encouragement-text" id="encouragement-text">
@@ -1348,7 +1482,7 @@
                     <svg class="score-ring" viewBox="0 0 200 200">
                         <defs>
                             <linearGradient id="ring-gradient" x1="0%" y1="0%" x2="100%" y2="0%">
-                                <stop offset="0%" style="stop-color:#ff7eb3;stop-opacity:1" />
+                                <stop offset="0%" style="stop-color:#ff3b6d;stop-opacity:1" />
                                 <stop offset="100%" style="stop-color:#9d7bff;stop-opacity:1" />
                             </linearGradient>
                         </defs>
@@ -1393,11 +1527,31 @@
                 </div>
             </div>
 
-            <!-- 维度得分 - 大数字样式 -->
-            <div class="big-number-section">
-                <h3 class="section-title">你的自我关怀维度得分</h3>
-                <div class="big-number-container" id="big-number-container">
-                    <!-- 大数字卡片将通过JavaScript动态生成 -->
+            <!-- 能量与生命力板块 -->
+            <div class="energy-section">
+                <h3 class="energy-title">你的能量与生命力</h3>
+                <div class="energy-gauge-container">
+                    <div class="energy-gauge">
+                        <div class="energy-fill" id="energy-fill"></div>
+                        <div class="energy-marker" id="energy-marker">0</div>
+                    </div>
+                    <div class="energy-labels">
+                        <div class="energy-label" style="color: var(--energy-low);">
+                            <i class="fas fa-battery-empty"></i>
+                            <span class="energy-label-text">能量枯竭</span>
+                        </div>
+                        <div class="energy-label" style="color: var(--energy-medium);">
+                            <i class="fas fa-battery-half"></i>
+                            <span class="energy-label-text">能量中等</span>
+                        </div>
+                        <div class="energy-label" style="color: var(--energy-high);">
+                            <i class="fas fa-battery-full"></i>
+                            <span class="energy-label-text">能量充沛</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="energy-analysis" id="energy-analysis">
+                    <!-- 能量分析将通过JavaScript动态生成 -->
                 </div>
             </div>
 
@@ -1407,28 +1561,21 @@
             </div>
 
             <!-- 雷达图 -->
-            <div class="big-number-section">
-                <h3 class="section-title">你的内在平衡图</h3>
-                <div class="radar-container">
-                    <canvas id="radar-chart" class="radar-chart"></canvas>
-                </div>
+            <div class="radar-container">
+                <h3 class="energy-title">你的内在平衡图</h3>
+                <canvas id="radar-chart" class="radar-chart"></canvas>
                 <div class="radar-analysis" id="radar-analysis">
                     <!-- 雷达图分析将通过JavaScript动态生成 -->
                 </div>
             </div>
 
-            <!-- 给你的悄悄话 -->
-            <div class="whisper-section">
-                <h3>给你的悄悄话</h3>
+            <!-- 悄悄话与建议板块 -->
+            <div class="whisper-suggestions-section">
+                <h3>给你的悄悄话与建议</h3>
                 <div class="whisper-text" id="whisper-text">
                     亲爱的，无论你现在的状态如何，都请记得：你值得被爱，值得被善待，值得拥有所有美好的一切。那些被压抑的感受和需求都在等待你的关注，从今天起，试着多关注自己一点。
                 </div>
-            </div>
-
-            <!-- 建议板块 -->
-            <div class="suggestions-section">
-                <h3><i class="fas fa-lightbulb"></i> 给亲爱的你的小建议</h3>
-                <div class="suggestions-grid" id="suggestions-grid">
+                <div class="suggestions-list" id="suggestions-list">
                     <!-- 建议将通过JavaScript动态生成 -->
                 </div>
             </div>
@@ -1461,7 +1608,7 @@
                 <i class="fas fa-key"></i>
             </div>
             <h2 class="modal-title">请输入兑换码</h2>
-            <p class="modal-description">请输入您在小红书购买的兑换码，验证通过后即可开始自我关怀测试</p>
+            <p class="modal-description">请输入您在小红书购买的兑换码，验证通过后即可开始爱自己测试</p>
 
             <input type="text" id="code-input" class="code-input" placeholder="输入兑换码（如：PSYCH001）">
             <div id="code-error" class="code-error"></div>
@@ -1480,70 +1627,70 @@
     </div>
 
     <script>
-        // 测试数据 - 50道贴近生活的题目，基于自我关怀理论但更生活化
+        // 测试数据 - 50道高质量题目，基于爱自己理论
         const testQuestions = [
             // 维度一：自我善待与接纳 (1-10题)
-            { id: 1, text: "我经常因为工作忙而错过饭点", category: "自我善待与接纳", reverse: true },
-            { id: 2, text: "当我犯错时，我会对自己说'没关系，下次改进'", category: "自我善待与接纳", reverse: false },
-            { id: 3, text: "我会在疲惫时给自己泡一杯喜欢的茶或咖啡", category: "自我善待与接纳", reverse: false },
-            { id: 4, text: "我常常因为小事没做好而责怪自己一整天", category: "自我善待与接纳", reverse: true },
-            { id: 5, text: "我允许自己偶尔睡个懒觉，即使有事情没做完", category: "自我善待与接纳", reverse: false },
-            { id: 6, text: "当我感到难过时，我会给自己一个温暖的拥抱", category: "自我善待与接纳", reverse: false },
-            { id: 7, text: "我经常熬夜玩手机，即使知道对身体不好", category: "自我善待与接纳", reverse: true },
-            { id: 8, text: "我允许自己偶尔放纵一下，吃些喜欢的零食", category: "自我善待与接纳", reverse: false },
-            { id: 9, text: "我常常觉得自己不够好，比不上别人", category: "自我善待与接纳", reverse: true },
-            { id: 10, text: "我会在镜子前对自己微笑，告诉自己'你今天看起来不错'", category: "自我善待与接纳", reverse: false },
+            { id: 1, text: "当我感到疲惫时，我会优先照顾自己的休息需求，而不是强迫自己继续工作", category: "自我善待与接纳", reverse: false },
+            { id: 2, text: "当我犯错时，我的第一反应是严厉批评自己，而不是理解这是学习的一部分", category: "自我善待与接纳", reverse: true },
+            { id: 3, text: "我会定期给自己创造独处的时间，倾听内心的声音和需求", category: "自我善待与接纳", reverse: false },
+            { id: 4, text: "我常常因为无法达到完美标准而对自己感到失望和愤怒", category: "自我善待与接纳", reverse: true },
+            { id: 5, text: "当身体发出疲惫信号时，我会尊重它并适当休息，而不是忽略它", category: "自我善待与接纳", reverse: false },
+            { id: 6, text: "我对自己的外貌或能力有固定的负面评价，很难看到自己的优点", category: "自我善待与接纳", reverse: true },
+            { id: 7, text: "我会用温柔的语气和自己对话，就像对待一位亲密的朋友", category: "自我善待与接纳", reverse: false },
+            { id: 8, text: "我常常把自己的需求放在最后，优先满足他人的期望", category: "自我善待与接纳", reverse: true },
+            { id: 9, text: "我允许自己在情绪低落时表达悲伤，而不是强迫自己立即振作", category: "自我善待与接纳", reverse: false },
+            { id: 10, text: "我认为爱自己是一种自私的行为，应该更多地为他人付出", category: "自我善待与接纳", reverse: true },
 
             // 维度二：共同人性与连接 (11-20题)
-            { id: 11, text: "当我遇到困难时，我觉得只有我一个人在经历这些", category: "共同人性与连接", reverse: true },
-            { id: 12, text: "我会和朋友分享自己的烦恼，知道大家都会有类似经历", category: "共同人性与连接", reverse: false },
-            { id: 13, text: "看到别人成功时，我会觉得自己很失败", category: "共同人性与连接", reverse: true },
-            { id: 14, text: "我知道每个人都有自己的难处，不只是我一个人在挣扎", category: "共同人性与连接", reverse: false },
-            { id: 15, text: "我觉得自己的生活比别人更糟糕", category: "共同人性与连接", reverse: true },
-            { id: 16, text: "当我失败时，我会想'这只是人生的一部分，大家都会经历'", category: "共同人性与连接", reverse: false },
-            { id: 17, text: "我经常拿自己的生活和别人的社交媒体展示的生活比较", category: "共同人性与连接", reverse: true },
-            { id: 18, text: "我会在别人遇到困难时给予安慰，知道他们也需要支持", category: "共同人性与连接", reverse: false },
-            { id: 19, text: "我觉得自己的问题特别丢人，不敢告诉任何人", category: "共同人性与连接", reverse: true },
-            { id: 20, text: "我知道不完美是人类共同的体验，不需要为此感到羞耻", category: "共同人性与连接", reverse: false },
+            { id: 11, text: "当我遇到挫折时，我会提醒自己这是人类共同经历的一部分", category: "共同人性与连接", reverse: false },
+            { id: 12, text: "看到他人成功时，我会感到自己的不足和缺失，而不是为他们高兴", category: "共同人性与连接", reverse: true },
+            { id: 13, text: "我愿意向信任的人展露脆弱，相信他们能够理解我的感受", category: "共同人性与连接", reverse: false },
+            { id: 14, text: "我觉得自己的痛苦是独特的，没有人能真正理解我的处境", category: "共同人性与连接", reverse: true },
+            { id: 15, text: "我会参加支持性社群或活动，与有相似经历的人建立连接", category: "共同人性与连接", reverse: false },
+            { id: 16, text: "我经常拿自己的生活与他人比较，感到自己总是不够好", category: "共同人性与连接", reverse: true },
+            { id: 17, text: "我相信每个人都有不完美之处，包括我自己", category: "共同人性与连接", reverse: false },
+            { id: 18, text: "当我感到孤独时，我倾向于孤立自己，而不是寻求连接", category: "共同人性与连接", reverse: true },
+            { id: 19, text: "我愿意分享自己的成长经历，帮助他人感到不孤单", category: "共同人性与连接", reverse: false },
+            { id: 20, text: "我认为向他人求助是软弱的表现，应该自己解决所有问题", category: "共同人性与连接", reverse: true },
 
             // 维度三：正念觉知与平衡 (21-30题)
-            { id: 21, text: "我经常一边工作一边吃饭，没有好好品尝食物的味道", category: "正念觉知与平衡", reverse: true },
-            { id: 22, text: "我会在感到压力时，停下来做几次深呼吸", category: "正念觉知与平衡", reverse: false },
-            { id: 23, text: "我常常被负面情绪淹没，一整天都心情不好", category: "正念觉知与平衡", reverse: true },
-            { id: 24, text: "我会观察自己的情绪变化，但不被它们完全控制", category: "正念觉知与平衡", reverse: false },
-            { id: 25, text: "我经常同时处理多件事情，结果哪件都做不好", category: "正念觉知与平衡", reverse: true },
-            { id: 26, text: "我会在散步时注意周围的环境，感受微风和阳光", category: "正念觉知与平衡", reverse: false },
-            { id: 27, text: "我容易把事情想得很极端，要么完美要么彻底失败", category: "正念觉知与平衡", reverse: true },
-            { id: 28, text: "当我感到焦虑时，我会问自己'最坏的结果是什么？我能接受吗？'", category: "正念觉知与平衡", reverse: false },
-            { id: 29, text: "我经常在睡前反复思考白天犯的错误", category: "正念觉知与平衡", reverse: true },
-            { id: 30, text: "我会在情绪激动时，先暂停一下再做出反应", category: "正念觉知与平衡", reverse: false },
+            { id: 21, text: "我能够觉察自己的情绪变化，而不被它们完全控制", category: "正念觉知与平衡", reverse: false },
+            { id: 22, text: "我经常陷入消极思维的循环，难以跳出来看到更广阔的画面", category: "正念觉知与平衡", reverse: true },
+            { id: 23, text: "我会定期练习正念冥想或呼吸练习，帮助自己保持平衡", category: "正念觉知与平衡", reverse: false },
+            { id: 24, text: "当我感到压力时，我的身体会立即出现紧张反应，但我往往忽视这些信号", category: "正念觉知与平衡", reverse: true },
+            { id: 25, text: "我能够区分事实和自己的想法，不让过度思考影响判断", category: "正念觉知与平衡", reverse: false },
+            { id: 26, text: "我常常为过去的事后悔或为未来的事焦虑，难以活在当下", category: "正念觉知与平衡", reverse: true },
+            { id: 27, text: "我会注意身体的感受和需求，及时给予适当的回应", category: "正念觉知与平衡", reverse: false },
+            { id: 28, text: "当我情绪激动时，我倾向于立即反应，而不是先暂停思考", category: "正念觉知与平衡", reverse: true },
+            { id: 29, text: "我能够觉察自己的思维模式，并有意识地调整负面思维", category: "正念觉知与平衡", reverse: false },
+            { id: 30, text: "我经常同时处理多个任务，导致注意力分散，效率降低", category: "正念觉知与平衡", reverse: true },
 
             // 维度四：自我奖励与日常关怀 (31-40题)
-            { id: 31, text: "我很久没有给自己买礼物或奖励自己了", category: "自我奖励与日常关怀", reverse: true },
-            { id: 32, text: "我会定期做一些单纯让自己开心的事", category: "自我奖励与日常关怀", reverse: false },
-            { id: 33, text: "我经常为了工作/学习而没办法做自己喜欢做的事", category: "自我奖励与日常关怀", reverse: true },
-            { id: 34, text: "完成重要任务后，我会给自己一些小奖励", category: "自我奖励与日常关怀", reverse: false },
-            { id: 35, text: "我已经记不清上次纯粹为自己庆祝是什么时候", category: "自我奖励与日常关怀", reverse: true },
-            { id: 36, text: "我会为自己买需要的东西，而不总是等待特殊场合", category: "自我奖励与日常关怀", reverse: false },
-            { id: 37, text: "我经常把资源（时间、金钱）留给别人，而不是自己", category: "自我奖励与日常关怀", reverse: true },
-            { id: 38, text: "我允许自己享受生活中的小确幸", category: "自我奖励与日常关怀", reverse: false },
-            { id: 39, text: "我觉得自己不配拥有美好的东西", category: "自我奖励与日常关怀", reverse: true },
-            { id: 40, text: "我会用自己喜欢的方式犒劳辛苦的自己", category: "自我奖励与日常关怀", reverse: false },
+            { id: 31, text: "我会定期给自己买喜欢的东西或安排喜欢的活动作为奖励", category: "自我奖励与日常关怀", reverse: false },
+            { id: 32, text: "我认为对自己好是一种奢侈，只有在特殊场合才允许", category: "自我奖励与日常关怀", reverse: true },
+            { id: 33, text: "我会为自己创造舒适的生活环境，让自己感到安全和放松", category: "自我奖励与日常关怀", reverse: false },
+            { id: 34, text: "我常常忙于照顾他人，而忽略了自己的基本需求和喜好", category: "自我奖励与日常关怀", reverse: true },
+            { id: 35, text: "完成重要目标后，我会庆祝自己的成就，无论大小", category: "自我奖励与日常关怀", reverse: false },
+            { id: 36, text: "我觉得自己不配拥有美好的事物和体验", category: "自我奖励与日常关怀", reverse: true },
+            { id: 37, text: "我会关注自己的营养和健康，选择对身体有益的食物", category: "自我奖励与日常关怀", reverse: false },
+            { id: 38, text: "我经常推迟照顾自己的计划，因为总觉得有更紧急的事情要处理", category: "自我奖励与日常关怀", reverse: true },
+            { id: 39, text: "我会安排时间做纯粹为了快乐的事，而不需要任何理由", category: "自我奖励与日常关怀", reverse: false },
+            { id: 40, text: "我认为花时间和金钱在自己身上是浪费资源", category: "自我奖励与日常关怀", reverse: true },
 
             // 维度五：界限设立与自我价值 (41-50题)
-            { id: 41, text: "我很难拒绝别人的请求，即使这会让我很累", category: "界限设立与自我价值", reverse: true },
-            { id: 42, text: "我能够设定健康的界限，保护自己的时间和精力", category: "界限设立与自我价值", reverse: false },
-            { id: 43, text: "我常常为了取悦他人而忽略自己的需求", category: "界限设立与自我价值", reverse: true },
-            { id: 44, text: "我相信自己的需求和他人的需求一样重要", category: "界限设立与自我价值", reverse: false },
-            { id: 45, text: "我经常因害怕让别人失望而勉强自己", category: "界限设立与自我价值", reverse: true },
-            { id: 46, text: "我能够温和但坚定地表达自己的需求和界限", category: "界限设立与自我价值", reverse: false },
-            { id: 47, text: "我觉得自己的时间没有别人的时间有价值", category: "界限设立与自我价值", reverse: true },
-            { id: 48, text: "我尊重自己的时间和安排，不轻易被打乱", category: "界限设立与自我价值", reverse: false },
-            { id: 49, text: "我经常把自己放在最后考虑", category: "界限设立与自我价值", reverse: true },
-            { id: 50, text: "我认为照顾好自己是对他人负责的前提", category: "界限设立与自我价值", reverse: false }
+            { id: 41, text: "我能够温和但坚定地拒绝不合理的要求，保护自己的时间和精力", category: "界限设立与自我价值", reverse: false },
+            { id: 42, text: "我常常因为害怕冲突或让人失望而接受不想做的事", category: "界限设立与自我价值", reverse: true },
+            { id: 43, text: "我相信自己的感受和需求与他人的一样重要，值得被尊重", category: "界限设立与自我价值", reverse: false },
+            { id: 44, text: "我觉得表达自己的需要是自私的表现，应该多为他人考虑", category: "界限设立与自我价值", reverse: true },
+            { id: 45, text: "我会明确表达自己的边界，让他人知道如何与我相处", category: "界限设立与自我价值", reverse: false },
+            { id: 46, text: "我经常过度承担责任，为不是自己的问题感到内疚", category: "界限设立与自我价值", reverse: true },
+            { id: 47, text: "我能够识别并远离消耗我能量的人际关系和环境", category: "界限设立与自我价值", reverse: false },
+            { id: 48, text: "我觉得自己的价值取决于他人的认可和评价", category: "界限设立与自我价值", reverse: true },
+            { id: 49, text: "我尊重自己的节奏，不与他人比较成就和进度", category: "界限设立与自我价值", reverse: false },
+            { id: 50, text: "我常常为了取悦他人而牺牲自己的真实想法和感受", category: "界限设立与自我价值", reverse: true }
         ];
 
-        // 答案选项 - 修改为新的表达方式
+        // 答案选项
         const answerOptions = [
             { text: "完全不符合我", value: 1 },
             { text: "不太符合我", value: 2 },
@@ -1582,12 +1729,14 @@
         const whisperText = document.getElementById('whisper-text');
         const indicatorMarker = document.getElementById('indicator-marker');
         const indicatorAnalysis = document.getElementById('indicator-analysis');
-        const bigNumberContainer = document.getElementById('big-number-container');
         const tagsContainer = document.getElementById('tags-container');
         const radarAnalysis = document.getElementById('radar-analysis');
-        const suggestionsGrid = document.getElementById('suggestions-grid');
+        const suggestionsList = document.getElementById('suggestions-list');
         const retakeBtn = document.getElementById('retake-btn');
         const homeBtn = document.getElementById('home-btn');
+        const energyFill = document.getElementById('energy-fill');
+        const energyMarker = document.getElementById('energy-marker');
+        const energyAnalysis = document.getElementById('energy-analysis');
 
         // 检查是否已经验证过兑换码（24小时内有效）
         function checkAccess() {
@@ -1854,7 +2003,7 @@
         function calculateResults() {
             let totalScore = 0;
             let categoryScores = {
-                "自我善待与接纳": { score: 0, total: 0, color: "#ff7eb3", icon: "fas fa-heart" },
+                "自我善待与接纳": { score: 0, total: 0, color: "#ff3b6d", icon: "fas fa-heart" },
                 "共同人性与连接": { score: 0, total: 0, color: "#9d7bff", icon: "fas fa-users" },
                 "正念觉知与平衡": { score: 0, total: 0, color: "#7bdff2", icon: "fas fa-brain" },
                 "自我奖励与日常关怀": { score: 0, total: 0, color: "#ffb366", icon: "fas fa-gift" },
@@ -1883,25 +2032,17 @@
             resultPage.classList.add('active');
 
             window.scrollTo(0, 0);
-
+            
             displayEncouragementText(scorePercentage);
             displayScoreRing(scorePercentage);
             displayTimeText(scorePercentage);
             updateScoreIndicator(scorePercentage);
             displayEmotionalText(scorePercentage);
-            displayBigNumberCards(categoryScores);
+            displayEnergyLevel(scorePercentage);
             displayTags(categoryScores, scorePercentage);
             displayRadarChart(categoryScores);
             displayRadarAnalysis(categoryScores);
-            displayWhisperText(scorePercentage);
-            displaySuggestions(categoryScores, scorePercentage);
-
-            setTimeout(() => {
-                const bigNumbers = document.querySelectorAll('.big-number');
-                bigNumbers.forEach(number => {
-                    number.classList.add('number-animate');
-                });
-            }, 500);
+            displayWhisperAndSuggestions(categoryScores, scorePercentage);
         }
 
         // 显示鼓励文字
@@ -1961,25 +2102,6 @@
             emotionalText.textContent = emotional;
         }
 
-        // 显示给你的悄悄话
-        function displayWhisperText(scorePercentage) {
-            let whisper = "";
-
-            if (scorePercentage >= 80) {
-                whisper = "亲爱的，你已经做得很好了。请继续保持这份对自己的温柔，让它成为你生命中最坚实的力量。记得，你值得所有的美好和幸福。";
-            } else if (scorePercentage >= 60) {
-                whisper = "亲爱的，你正在学习如何更好地爱自己，这本身就是一件很了不起的事。给自己多一点耐心和宽容，就像对待最好的朋友那样。";
-            } else if (scorePercentage >= 40) {
-                whisper = "亲爱的，我知道你总是把别人的需求放在前面。但从今天起，试着也把自己的需求放在同等重要的位置，好吗？你同样值得被好好对待。";
-            } else if (scorePercentage >= 20) {
-                whisper = "亲爱的，也许你已经习惯了忽略自己，但你的内心一直在呼唤关怀。从今天开始，每天为自己做一件小事，哪怕只是喝杯温水，对自己说声辛苦了。";
-            } else {
-                whisper = "亲爱的，我知道你已经很久没有好好爱自己了。那些被压抑的感受和需求都在等待你的关注。从今天起，请试着多关注自己一点，你值得被爱、被珍惜。";
-            }
-
-            whisperText.textContent = whisper;
-        }
-
         // 显示圆环得分
         function displayScoreRing(scorePercentage) {
             scoreRingNumber.textContent = scorePercentage;
@@ -1991,19 +2113,6 @@
             scoreRingFill.style.strokeDasharray = circumference;
             scoreRingFill.style.strokeDashoffset = circumference;
             scoreRingFill.classList.add('ring-animate');
-
-            const gradientElement = document.querySelector('#ring-gradient stop:last-child');
-            if (gradientElement) {
-                if (scorePercentage >= 80) {
-                    gradientElement.setAttribute('style', 'stop-color:#9d7bff;stop-opacity:1');
-                } else if (scorePercentage >= 60) {
-                    gradientElement.setAttribute('style', 'stop-color:#9d7bff;stop-opacity:1');
-                } else if (scorePercentage >= 40) {
-                    gradientElement.setAttribute('style', 'stop-color:#7bdff2;stop-opacity:1');
-                } else {
-                    gradientElement.setAttribute('style', 'stop-color:#b8f2e6;stop-opacity:1');
-                }
-            }
         }
 
         // 更新得分指示条和文字分析
@@ -2058,38 +2167,62 @@
             `;
         }
 
-        // 显示大数字卡片
-        function displayBigNumberCards(categoryScores) {
-            bigNumberContainer.innerHTML = "";
-
-            Object.keys(categoryScores).forEach(category => {
-                const scoreData = categoryScores[category];
-                const percentage = Math.round((scoreData.score / scoreData.total) * 100);
-
-                let description = "";
-                if (percentage >= 80) {
-                    description = "做得很棒，继续保持哦";
-                } else if (percentage >= 60) {
-                    description = "做得不错，还可以更好";
-                } else if (percentage >= 40) {
-                    description = "有进步空间，慢慢来";
-                } else if (percentage >= 20) {
-                    description = "需要多关注这个方面";
-                } else {
-                    description = "从这里开始爱自己吧";
-                }
-
-                const cardElement = document.createElement('div');
-                cardElement.className = 'big-number-card';
-                cardElement.style.borderTop = `3px solid ${scoreData.color}`;
-                cardElement.innerHTML = `
-                    <div class="big-number">${percentage}%</div>
-                    <div class="big-number-label">${category}</div>
-                    <div class="big-number-description">${description}</div>
-                `;
-
-                bigNumberContainer.appendChild(cardElement);
-            });
+        // 显示能量与生命力
+        function displayEnergyLevel(scorePercentage) {
+            // 根据分数计算能量值
+            let energyValue = scorePercentage;
+            
+            // 设置能量条的宽度
+            energyFill.style.setProperty('--energy-percentage', `${energyValue}%`);
+            energyFill.classList.add('energy-gauge-animate');
+            
+            // 设置能量标记的位置和值
+            const markerPosition = Math.min(Math.max(energyValue, 2), 98);
+            energyMarker.style.left = `${markerPosition}%`;
+            energyMarker.textContent = `${energyValue}%`;
+            
+            // 根据能量值设置标记颜色和添加脉动效果
+            if (energyValue < 30) {
+                energyMarker.style.backgroundColor = 'var(--energy-low)';
+                energyMarker.style.color = 'white';
+            } else if (energyValue < 70) {
+                energyMarker.style.backgroundColor = 'var(--energy-medium)';
+                energyMarker.style.color = 'var(--dark-color)';
+            } else {
+                energyMarker.style.backgroundColor = 'var(--energy-high)';
+                energyMarker.style.color = 'white';
+            }
+            
+            // 添加脉动效果
+            setTimeout(() => {
+                energyMarker.classList.add('marker-pulse');
+            }, 2000);
+            
+            // 设置能量分析
+            let energyTitle = "";
+            let energyText = "";
+            
+            if (energyValue >= 80) {
+                energyTitle = "能量充沛 - 生命力旺盛的你";
+                energyText = "你的内在能量充沛，生命力旺盛！这意味着你有足够的心理资源来应对生活的挑战，同时也有余力去关心和照顾他人。请继续保持这种良好的能量状态，它是你幸福生活的基础。";
+            } else if (energyValue >= 60) {
+                energyTitle = "能量良好 - 平衡稳定的你";
+                energyText = "你的能量状态良好，能够保持平衡和稳定。这意味着你在照顾自己和应对生活压力之间找到了不错的平衡点。继续保持这种状态，并注意在疲惫时及时补充能量。";
+            } else if (energyValue >= 40) {
+                energyTitle = "能量中等 - 需要补充能量的你";
+                energyText = "你的能量处于中等水平，有时候会感到疲惫或力不从心。这意味着你需要更多地关注自己的需求，及时补充能量。试着每天为自己安排一些恢复活力的活动。";
+            } else if (energyValue >= 20) {
+                energyTitle = "能量偏低 - 需要休息的你";
+                energyText = "你的能量水平偏低，可能经常感到疲惫和耗尽。这意味着你需要更多的时间和空间来休息和恢复。请优先考虑自己的需求，给自己足够的休息时间。";
+            } else {
+                energyTitle = "能量枯竭 - 急需关怀的你";
+                energyText = "你的能量几乎耗尽，这可能是因为长期忽略自己的需求。请立即采取行动，给自己一个喘息的机会。从最基本的自我照顾开始，慢慢恢复你的能量。";
+            }
+            
+            energyAnalysis.innerHTML = `
+                <h4>${energyTitle}</h4>
+                <p>${energyText}</p>
+            `;
         }
 
         // 显示标签
@@ -2099,15 +2232,15 @@
             const tags = [];
 
             if (totalPercentage >= 80) {
-                tags.push("懂得心疼自己", "会照顾自己", "知道自己值得", "内心有力量", "活得自在", "情绪稳定");
+                tags.push("懂得心疼自己", "会照顾自己", "知道自己值得", "内心有力量", "活得自在", "情绪稳定", "能量充沛");
             } else if (totalPercentage >= 60) {
-                tags.push("正在学习爱自己", "偶尔记得休息", "开始说不", "觉察情绪", "寻找方向", "成长中");
+                tags.push("正在学习爱自己", "偶尔记得休息", "开始说不", "觉察情绪", "寻找方向", "成长中", "能量良好");
             } else if (totalPercentage >= 40) {
-                tags.push("照顾别人多过自己", "开始觉察需求", "学习设立边界", "倾听内心", "探索可能", "觉醒中");
+                tags.push("照顾别人多过自己", "开始觉察需求", "学习设立边界", "倾听内心", "探索可能", "觉醒中", "能量中等");
             } else if (totalPercentage >= 20) {
-                tags.push("常常忽略自己", "需要休息", "学习说'不'", "了解自己", "寻找意义", "转变中");
+                tags.push("常常忽略自己", "需要休息", "学习说'不'", "了解自己", "寻找意义", "转变中", "能量偏低");
             } else {
-                tags.push("把别人放第一位", "需要被关心", "学习爱自己", "听见自己", "你是重要的", "开始关怀");
+                tags.push("把别人放第一位", "需要被关心", "学习爱自己", "听见自己", "你是重要的", "开始关怀", "能量枯竭");
             }
 
             const weakestCategory = getWeakestCategory(categoryScores);
@@ -2156,8 +2289,8 @@
 
             ctx.clearRect(0, 0, canvas.width, canvas.height);
 
-            // 绘制背景网格 - 增强视觉冲击力
-            ctx.strokeStyle = 'rgba(255, 255, 255, 0.3)';
+            // 绘制背景网格
+            ctx.strokeStyle = 'rgba(0, 0, 0, 0.1)';
             ctx.lineWidth = 2;
 
             // 绘制多边形网格
@@ -2177,16 +2310,16 @@
                 }
                 ctx.closePath();
                 ctx.stroke();
-                
-                // 填充网格区域，增强视觉效果
+
+                // 填充网格区域
                 if (i % 2 === 0) {
-                    ctx.fillStyle = 'rgba(255, 255, 255, 0.05)';
+                    ctx.fillStyle = 'rgba(255, 59, 109, 0.05)';
                     ctx.fill();
                 }
             }
 
             // 绘制轴线
-            ctx.strokeStyle = 'rgba(255, 255, 255, 0.4)';
+            ctx.strokeStyle = 'rgba(0, 0, 0, 0.2)';
             ctx.lineWidth = 1.5;
 
             for (let i = 0; i < categories.length; i++) {
@@ -2201,8 +2334,8 @@
             }
 
             // 绘制数据区域
-            ctx.fillStyle = 'rgba(255, 126, 179, 0.25)';
-            ctx.strokeStyle = 'rgba(255, 126, 179, 0.9)';
+            ctx.fillStyle = 'rgba(255, 59, 109, 0.2)';
+            ctx.strokeStyle = 'rgba(255, 59, 109, 0.9)';
             ctx.lineWidth = 4;
 
             ctx.beginPath();
@@ -2224,7 +2357,7 @@
             ctx.stroke();
 
             // 绘制数据点
-            ctx.fillStyle = '#ff7eb3';
+            ctx.fillStyle = '#ff3b6d';
             for (let i = 0; i < categories.length; i++) {
                 const percentage = percentages[i];
                 const angle = i * angleStep - Math.PI / 2;
@@ -2238,24 +2371,24 @@
 
                 // 添加数据标签
                 ctx.fillStyle = '#5a5678';
-                ctx.font = '20px Arial'; // 加大字体，去掉加粗
+                ctx.font = '20px Arial';
                 ctx.textAlign = 'center';
                 ctx.textBaseline = 'bottom';
                 ctx.fillText(`${percentage}%`, x, y - 12);
-                ctx.fillStyle = '#ff7eb3';
+                ctx.fillStyle = '#ff3b6d';
             }
 
-            // 添加分类标签 - 加大字体，去掉加粗
+            // 添加分类标签
             ctx.fillStyle = '#5a5678';
-            ctx.font = '18px Arial'; // 加大字体
+            ctx.font = '18px Arial';
             ctx.textAlign = 'center';
             ctx.textBaseline = 'middle';
-            
+
             for (let i = 0; i < categories.length; i++) {
                 const angle = i * angleStep - Math.PI / 2;
                 const labelX = centerX + Math.cos(angle) * (radius + 50);
                 const labelY = centerY + Math.sin(angle) * (radius + 50);
-                
+
                 const words = categories[i].split('与');
                 if (words.length > 1) {
                     ctx.fillText(words[0], labelX, labelY - 10);
@@ -2289,22 +2422,41 @@
             const balanceScore = maxPercentage - minPercentage;
             let balanceText = "";
             if (balanceScore <= 15) {
-                balanceText = "你在五个维度上都照顾得比较均衡，这是自我关怀能力成熟的表现！继续保持这种全方位的自我关怀吧。";
+                balanceText = "你在五个维度上都照顾得比较均衡，这是爱自己能力成熟的表现！继续保持这种全方位的自我关怀吧。";
             } else if (balanceScore <= 30) {
-                balanceText = "你在某些方面做得很好，有些方面可能需要多关注一点。自我关怀是一个整体，每个方面都很重要。";
+                balanceText = "你在某些方面做得很好，有些方面可能需要多关注一点。爱自己是一个整体，每个方面都很重要。";
             } else {
-                balanceText = "你有些方面特别关注，有些方面可能忽略了。没关系，慢慢调整就好。自我关怀的旅程就是不断学习和成长的过程。";
+                balanceText = "你有些方面特别关注，有些方面可能忽略了。没关系，慢慢调整就好。爱自己的旅程就是不断学习和成长的过程。";
             }
 
             radarAnalysis.innerHTML = `
-                <p>你的内在平衡图显示，你最擅长<strong>${strongestCategory}</strong>，而在<strong>${weakestCategory}</strong>方面可能需要多给自己一些关爱。${balanceText}</p>
+                <p>你的内在平衡图显示，你最擅长<strong style="color: var(--primary-color)">${strongestCategory}</strong>，而在<strong style="color: var(--primary-color)">${weakestCategory}</strong>方面可能需要多给自己一些关爱。${balanceText}</p>
             `;
         }
 
-        // 显示个性化建议 - 精简内容
-        function displaySuggestions(categoryScores, totalPercentage) {
-            suggestionsGrid.innerHTML = "";
+        // 显示悄悄话与建议
+        function displayWhisperAndSuggestions(categoryScores, totalPercentage) {
+            // 更新悄悄话内容
+            let whisper = "";
 
+            if (totalPercentage >= 80) {
+                whisper = "亲爱的，你已经做得很好了。请继续保持这份对自己的温柔，让它成为你生命中最坚实的力量。记得，你值得所有的美好和幸福。";
+            } else if (totalPercentage >= 60) {
+                whisper = "亲爱的，你正在学习如何更好地爱自己，这本身就是一件很了不起的事。给自己多一点耐心和宽容，就像对待最好的朋友那样。";
+            } else if (totalPercentage >= 40) {
+                whisper = "亲爱的，我知道你总是把别人的需求放在前面。但从今天起，试着也把自己的需求放在同等重要的位置，好吗？你同样值得被好好对待。";
+            } else if (totalPercentage >= 20) {
+                whisper = "亲爱的，也许你已经习惯了忽略自己，但你的内心一直在呼唤关怀。从今天开始，每天为自己做一件小事，哪怕只是喝杯温水，对自己说声辛苦了。";
+            } else {
+                whisper = "亲爱的，我知道你已经很久没有好好爱自己了。那些被压抑的感受和需求都在等待你的关注。从今天起，请试着多关注自己一点，你值得被爱、被珍惜。";
+            }
+
+            whisperText.textContent = whisper;
+
+            // 清空建议列表
+            suggestionsList.innerHTML = "";
+
+            // 根据分数生成建议
             const suggestions = [];
 
             if (totalPercentage < 40) {
@@ -2318,6 +2470,16 @@
                     icon: "fas fa-hands-helping",
                     description: "当你难过时，想想如果是好朋友遇到同样的事，你会怎么安慰ta？然后对自己说同样温柔的话。练习自我友善。"
                 });
+                suggestions.push({
+                    title: "建立自我关怀仪式",
+                    icon: "fas fa-spa",
+                    description: "每天安排15分钟专属自己的时间，泡杯茶、听音乐，或者只是安静地坐着。让自我关怀成为日常仪式。"
+                });
+                suggestions.push({
+                    title: "学习设立健康界限",
+                    icon: "fas fa-shield-alt",
+                    description: "练习温和但坚定地说'不'。你的感受和需求同样重要。健康的界限是爱自己的基础。"
+                });
             } else if (totalPercentage < 60) {
                 suggestions.push({
                     title: "给自己一个小仪式",
@@ -2328,6 +2490,16 @@
                     title: "练习说'不'",
                     icon: "fas fa-comment-slash",
                     description: "当你感到疲惫时，试着温和但坚定地说'不'。你的感受和需求同样重要。设立健康的界限。"
+                });
+                suggestions.push({
+                    title: "记录感恩日记",
+                    icon: "fas fa-book",
+                    description: "每天写下三件对自己感恩的事，无论多小。培养对自己积极关注的视角。"
+                });
+                suggestions.push({
+                    title: "定期自我奖励",
+                    icon: "fas fa-gift",
+                    description: "完成目标后，给自己一个小奖励。庆祝自己的成就，无论大小。"
                 });
             } else if (totalPercentage < 80) {
                 suggestions.push({
@@ -2340,6 +2512,16 @@
                     icon: "fas fa-microphone",
                     description: "允许自己犯错，允许自己不够完美。你不需要做到100分才值得被爱。拥抱自己的不完美。"
                 });
+                suggestions.push({
+                    title: "探索自我兴趣",
+                    icon: "fas fa-compass",
+                    description: "尝试新的爱好和活动，探索什么能真正让你感到快乐和满足。"
+                });
+                suggestions.push({
+                    title: "建立支持系统",
+                    icon: "fas fa-users",
+                    description: "寻找能够支持你爱自己旅程的朋友或社群。分享经验，互相鼓励。"
+                });
             } else {
                 suggestions.push({
                     title: "分享你的经验",
@@ -2351,10 +2533,20 @@
                     icon: "fas fa-rocket",
                     description: "你已经做得很好了，继续保持这份对自己的温柔，它会成为你生命中最坚实的力量。持续投资自己。"
                 });
+                suggestions.push({
+                    title: "指导他人",
+                    icon: "fas fa-hands-helping",
+                    description: "用你的经验帮助正在学习爱自己的人。教导他人如何善待自己。"
+                });
+                suggestions.push({
+                    title: "深化自我连接",
+                    icon: "fas fa-brain",
+                    description: "通过冥想、写作或艺术等方式，进一步深化与内在自我的连接和理解。"
+                });
             }
 
             const weakestCategory = getWeakestCategory(categoryScores);
-            if (weakestCategory && suggestions.length < 4) {
+            if (weakestCategory) {
                 suggestions.push({
                     title: `在${weakestCategory.category}方面多爱自己一点`,
                     icon: "fas fa-arrow-up",
@@ -2363,7 +2555,7 @@
             }
 
             const strongestCategory = getStrongestCategory(categoryScores);
-            if (strongestCategory && suggestions.length < 4) {
+            if (strongestCategory) {
                 suggestions.push({
                     title: `继续发挥你在${strongestCategory.category}方面的优势`,
                     icon: "fas fa-shield-alt",
@@ -2371,15 +2563,29 @@
                 });
             }
 
-            suggestions.forEach(suggestion => {
+            // 只显示4条建议
+            const displaySuggestions = suggestions.slice(0, 4);
+
+            // 生成建议列表项
+            displaySuggestions.forEach((suggestion, index) => {
                 const suggestionItem = document.createElement('div');
                 suggestionItem.className = 'suggestion-item';
+                suggestionItem.style.animationDelay = `${index * 0.1}s`;
+                suggestionItem.classList.add('fade-in');
+                
                 suggestionItem.innerHTML = `
-                    <h4><i class="${suggestion.icon}"></i> ${suggestion.title}</h4>
-                    <p>${suggestion.description}</p>
+                    <div class="suggestion-title">
+                        <div class="suggestion-icon">
+                            <i class="${suggestion.icon}"></i>
+                        </div>
+                        <h4>${suggestion.title}</h4>
+                    </div>
+                    <div class="suggestion-content">
+                        ${suggestion.description}
+                    </div>
                 `;
 
-                suggestionsGrid.appendChild(suggestionItem);
+                suggestionsList.appendChild(suggestionItem);
             });
         }
 
@@ -2504,7 +2710,7 @@
             if (!userAnswers.some(answer => answer !== 0)) return null;
 
             let categoryScores = {
-                "自我善待与接纳": { score: 0, total: 0, color: "#ff7eb3", icon: "fas fa-heart" },
+                "自我善待与接纳": { score: 0, total: 0, color: "#ff3b6d", icon: "fas fa-heart" },
                 "共同人性与连接": { score: 0, total: 0, color: "#9d7bff", icon: "fas fa-users" },
                 "正念觉知与平衡": { score: 0, total: 0, color: "#7bdff2", icon: "fas fa-brain" },
                 "自我奖励与日常关怀": { score: 0, total: 0, color: "#ffb366", icon: "fas fa-gift" },
